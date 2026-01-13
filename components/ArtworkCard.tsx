@@ -26,9 +26,9 @@ export default function ArtworkCard({ work, onClick }: ArtworkCardProps) {
     <Link
       href={`/obra/${work.slug}`}
       onClick={onClick}
-      className="group block bg-white hover:shadow-md transition-all duration-300"
+      className="group block bg-white transition-opacity hover:opacity-80"
     >
-      <div className="aspect-[4/3] bg-slate-100 flex items-center justify-center p-4">
+      <div className="aspect-[4/3] bg-gray-50 flex items-center justify-center p-4">
         <img
           src={work.images[0]}
           alt={title}
@@ -36,10 +36,10 @@ export default function ArtworkCard({ work, onClick }: ArtworkCardProps) {
         />
       </div>
       <div className="p-4 bg-white">
-        <h3 className="font-bold text-gray-900 mb-1">
+        <h3 className="font-normal text-base text-blue-600 underline decoration-1 underline-offset-2 mb-1">
           {title}
         </h3>
-        <p className="text-sm text-gray-500">{work.dimensions}</p>
+        <p className="text-sm font-normal text-gray-600">{work.dimensions}</p>
       </div>
     </Link>
   );

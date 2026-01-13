@@ -8,7 +8,7 @@ export default function LanguageToggle() {
   return (
     <button
       onClick={() => setLanguage(language === 'es' ? 'en' : 'es')}
-      className="text-xs font-semibold px-3 py-1.5 bg-gray-100 text-gray-600 hover:bg-gray-200 rounded transition-colors"
+      className="text-[15px] font-normal text-blue-600 underline decoration-1 underline-offset-2 hover:text-blue-800 transition-colors"
     >
       {language === 'es' ? 'EN' : 'ES'}
     </button>

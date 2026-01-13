@@ -18,24 +18,24 @@ export default function Header() {
         <div className="max-w-7xl mx-auto px-8">
           <div className="flex items-center justify-between h-20">
             <Link href="/" className="hover:opacity-70 transition-opacity">
-              <span className="text-lg font-medium tracking-tight text-gray-900">antonio monereo</span>
+              <span className="text-base font-normal text-gray-900">antonio monereo</span>
             </Link>
 
             <div className="flex items-center gap-6">
               <div className="hidden md:flex items-center gap-6">
                 <Link
                   href="/contacto"
-                  className="text-sm font-normal text-gray-700 hover:text-gray-900 transition-colors"
+                  className="text-[15px] font-normal text-blue-600 underline decoration-1 underline-offset-2 hover:text-blue-800 transition-colors"
                 >
                   {t.nav.contact}
                 </Link>
                 <LanguageToggle />
                 <button
                   onClick={() => setShowPublicOnly(!showPublicOnly)}
-                  className={`text-xs font-semibold px-3 py-1.5 rounded transition-colors ${
+                  className={`text-[15px] font-normal transition-colors ${
                     showPublicOnly
-                      ? 'bg-blue-600 text-white'
-                      : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                      ? 'text-blue-600 underline decoration-1 underline-offset-2'
+                      : 'text-blue-600 underline decoration-1 underline-offset-2 hover:text-blue-800'
                   }`}
                 >
                   {t.common.public}
@@ -74,20 +74,20 @@ export default function Header() {
               <Link
                 href="/contacto"
                 onClick={() => setIsMenuOpen(false)}
-                className="block text-sm font-normal py-2 text-gray-700 hover:text-gray-900 transition-colors"
+                className="block text-[15px] font-normal py-2 text-blue-600 underline decoration-1 underline-offset-2 hover:text-blue-800 transition-colors"
               >
                 {t.nav.contact}
               </Link>
-              <div className="pt-3 flex items-center gap-3">
+              <div className="pt-3 flex items-center gap-4">
                 <LanguageToggle />
                 <button
                   onClick={() => {
                     setShowPublicOnly(!showPublicOnly);
                   }}
-                  className={`text-xs font-semibold px-3 py-1.5 rounded transition-colors ${
+                  className={`text-[15px] font-normal transition-colors ${
                     showPublicOnly
-                      ? 'bg-blue-600 text-white'
-                      : 'bg-gray-100 text-gray-600'
+                      ? 'text-blue-600 underline decoration-1 underline-offset-2'
+                      : 'text-blue-600 underline decoration-1 underline-offset-2 hover:text-blue-800'
                   }`}
                 >
                   {t.common.public}
