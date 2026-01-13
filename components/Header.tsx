@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Search, Menu, X, Folder } from 'lucide-react';
+import { Search, Menu, X } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import LanguageToggle from './LanguageToggle';
 import SearchModal from './SearchModal';
@@ -24,10 +24,10 @@ export default function Header() {
 
   return (
     <>
-      <header className="sticky top-0 z-40 w-full bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <header className="sticky top-0 z-40 w-full bg-white border-b border-gray-100">
+        <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between h-16">
-            <Link href="/" className="hover:opacity-80 transition-opacity">
+            <Link href="/" className="hover:opacity-70 transition-opacity">
               <span className="text-lg font-medium text-gray-900">antonio monereo</span>
             </Link>
 
@@ -36,14 +36,13 @@ export default function Header() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`flex items-center gap-2 text-sm font-semibold transition-colors ${
+                  className={`text-[15px] font-normal text-blue-600 hover:text-blue-700 transition-colors ${
                     isActive(link.href)
-                      ? 'text-blue-600'
-                      : 'text-blue-600 hover:text-blue-700'
+                      ? 'underline underline-offset-4'
+                      : 'no-underline'
                   }`}
                 >
-                  <Folder className="w-5 h-5 flex-shrink-0" />
-                  <span>{link.label}</span>
+                  {link.label}
                 </Link>
               ))}
             </nav>
@@ -90,27 +89,26 @@ export default function Header() {
         </div>
 
         {isMenuOpen && (
-          <div className="md:hidden bg-white">
-            <nav className="px-4 py-4 space-y-3">
+          <div className="md:hidden bg-white border-t border-gray-100">
+            <nav className="px-6 py-4 space-y-3">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
                   onClick={() => setIsMenuOpen(false)}
-                  className={`flex items-center gap-2 text-sm font-semibold py-2 transition-colors ${
+                  className={`block text-[15px] font-normal py-2 text-blue-600 hover:text-blue-700 transition-colors ${
                     isActive(link.href)
-                      ? 'text-blue-600'
-                      : 'text-blue-600 hover:text-blue-700'
+                      ? 'underline underline-offset-4'
+                      : 'no-underline'
                   }`}
                 >
-                  <Folder className="w-5 h-5 flex-shrink-0" />
-                  <span>{link.label}</span>
+                  {link.label}
                 </Link>
               ))}
               <Link
                 href="/contacto"
                 onClick={() => setIsMenuOpen(false)}
-                className="block text-sm font-semibold py-2 text-blue-600 hover:text-blue-700 transition-colors"
+                className="block text-[15px] font-normal py-2 text-blue-600 hover:text-blue-700 transition-colors"
               >
                 {t.nav.contact}
               </Link>
@@ -120,7 +118,7 @@ export default function Header() {
                   onClick={() => {
                     setShowPublicOnly(!showPublicOnly);
                   }}
-                  className={`text-xs font-semibold px-3 py-1.5 transition-colors ${
+                  className={`text-xs font-semibold px-3 py-1.5 rounded transition-colors ${
                     showPublicOnly
                       ? 'bg-blue-600 text-white'
                       : 'bg-gray-100 text-gray-600'
