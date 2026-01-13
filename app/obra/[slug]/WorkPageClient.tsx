@@ -19,8 +19,8 @@ export default function WorkPageClient({ slug }: { slug: string }) {
       <div className="bg-white min-h-screen">
         <div className="max-w-7xl mx-auto px-8 py-16">
           <div className="text-center">
-            <h1 className="text-2xl font-normal text-gray-900 mb-4">Obra no encontrada</h1>
-            <Link href="/" className="text-[15px] font-normal text-blue-600 underline decoration-1 underline-offset-2 hover:text-blue-800">
+            <h1 className="text-2xl font-medium text-gray-900 mb-4 tracking-tight">Obra no encontrada</h1>
+            <Link href="/" className="text-[13px] font-normal tracking-wide text-blue-600 underline decoration-1 underline-offset-2 hover:text-blue-800">
               Volver
             </Link>
           </div>
@@ -46,7 +46,7 @@ export default function WorkPageClient({ slug }: { slug: string }) {
       <div className="max-w-7xl mx-auto px-8 py-16">
         <button
           onClick={() => router.back()}
-          className="flex items-center gap-2 text-[15px] font-normal text-blue-600 underline decoration-1 underline-offset-2 hover:text-blue-800 transition-colors mb-10"
+          className="flex items-center gap-2 text-[13px] font-normal tracking-wide text-blue-600 underline decoration-1 underline-offset-2 hover:text-blue-800 transition-colors mb-10"
         >
           <ArrowLeft className="w-5 h-5" />
           <span>{t.work.back}</span>
@@ -122,39 +122,39 @@ export default function WorkPageClient({ slug }: { slug: string }) {
 
           <div className="space-y-8">
             <div>
-              <h1 className="text-3xl lg:text-4xl font-normal text-gray-900 mb-4">{title}</h1>
-              <p className="text-base lg:text-lg text-gray-800 leading-[1.7] font-normal">{description}</p>
+              <h1 className="text-3xl lg:text-4xl font-medium text-gray-900 mb-4 tracking-tight leading-[1.3]">{title}</h1>
+              <p className="text-gray-800 leading-[1.8]">{description}</p>
             </div>
 
             <div className="bg-gray-50 p-8 space-y-5">
-              <h2 className="text-xl font-normal text-gray-900 mb-6">Ficha Técnica</h2>
+              <h2 className="text-xl font-medium text-gray-900 mb-6 tracking-tight">Ficha Técnica</h2>
 
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <p className="text-sm font-normal text-gray-600 mb-1">{t.work.year}</p>
-                  <p className="text-base font-normal text-gray-900">{work.year}</p>
+                  <p className="text-[13px] font-normal tracking-wide text-gray-600 mb-1">{t.work.year}</p>
+                  <p className="text-gray-900">{work.year}</p>
                 </div>
 
                 <div>
-                  <p className="text-sm font-normal text-gray-600 mb-1">{t.work.dimensions}</p>
-                  <p className="text-base font-normal text-gray-900">{work.dimensions}</p>
+                  <p className="text-[13px] font-normal tracking-wide text-gray-600 mb-1">{t.work.dimensions}</p>
+                  <p className="text-gray-900">{work.dimensions}</p>
                 </div>
               </div>
 
               <div>
-                <p className="text-sm font-normal text-gray-600 mb-1">{t.work.technique}</p>
-                <p className="text-base font-normal text-gray-900">{technique}</p>
+                <p className="text-[13px] font-normal tracking-wide text-gray-600 mb-1">{t.work.technique}</p>
+                <p className="text-gray-900">{technique}</p>
               </div>
 
               <div>
-                <p className="text-sm font-normal text-gray-600 mb-1">{t.work.category}</p>
-                <p className="text-base font-normal text-gray-900 capitalize">{work.category}</p>
+                <p className="text-[13px] font-normal tracking-wide text-gray-600 mb-1">{t.work.category}</p>
+                <p className="text-gray-900 capitalize">{work.category}</p>
               </div>
 
               <div>
-                <p className="text-sm font-normal text-gray-600 mb-1">{t.work.status}</p>
+                <p className="text-[13px] font-normal tracking-wide text-gray-600 mb-1">{t.work.status}</p>
                 <span
-                  className={`inline-flex items-center px-3 py-1 text-sm font-normal ${
+                  className={`inline-flex items-center px-3 py-1 text-[13px] font-normal ${
                     work.status === 'available'
                       ? 'bg-green-100 text-green-700'
                       : 'bg-gray-200 text-gray-700'
@@ -166,12 +166,12 @@ export default function WorkPageClient({ slug }: { slug: string }) {
 
               {work.tags.length > 0 && (
                 <div>
-                  <p className="text-sm font-normal text-gray-600 mb-2">{t.work.tags}</p>
+                  <p className="text-[13px] font-normal tracking-wide text-gray-600 mb-2">{t.work.tags}</p>
                   <div className="flex flex-wrap gap-2">
                     {work.tags.map((tag, index) => (
                       <span
                         key={index}
-                        className="px-3 py-1 bg-blue-50 text-blue-600 text-sm font-normal"
+                        className="px-3 py-1 bg-blue-50 text-blue-600 text-[13px] font-normal"
                       >
                         {tag}
                       </span>
@@ -183,7 +183,7 @@ export default function WorkPageClient({ slug }: { slug: string }) {
 
             <Link
               href="/contacto"
-              className="inline-flex items-center gap-2 text-[15px] font-normal text-blue-600 underline decoration-1 underline-offset-2 hover:text-blue-800 transition-colors"
+              className="inline-flex items-center gap-2 text-[13px] font-normal tracking-wide text-blue-600 underline decoration-1 underline-offset-2 hover:text-blue-800 transition-colors"
             >
               <Mail className="w-5 h-5" />
               <span>{t.work.inquire}</span>

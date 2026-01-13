@@ -16,14 +16,14 @@ export default function DibujosPage() {
     <div className="flex flex-col min-h-full">
       <div className="flex-1 bg-white">
         <div className="max-w-7xl mx-auto px-8 py-16">
-          <h1 className="text-3xl font-normal text-gray-900 mb-10">Dibujos</h1>
+          <h1 className="text-3xl font-medium text-gray-900 mb-12 tracking-tight">Dibujos</h1>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {drawings.map((work) => (
               <ArtworkCard key={work.id} work={work} />
             ))}
           </div>
           {drawings.length === 0 && (
-            <p className="text-base font-normal text-gray-600 text-center py-12">No hay obras disponibles</p>
+            <p className="text-gray-600 text-center py-12 leading-relaxed">No hay obras disponibles</p>
           )}
         </div>
       </div>

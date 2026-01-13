@@ -36,10 +36,10 @@ export default function ArtworkCard({ work, onClick }: ArtworkCardProps) {
         />
       </div>
       <div className="p-4 bg-white">
-        <h3 className="font-normal text-base text-blue-600 underline decoration-1 underline-offset-2 mb-1">
+        <h3 className="font-normal text-blue-600 underline decoration-1 underline-offset-2 mb-1 leading-relaxed">
           {title}
         </h3>
-        <p className="text-sm font-normal text-gray-600">{work.dimensions}</p>
+        <p className="text-[13px] font-normal tracking-wide text-gray-600">{work.dimensions}</p>
       </div>
     </Link>
   );

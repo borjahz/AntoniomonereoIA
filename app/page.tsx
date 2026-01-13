@@ -47,7 +47,7 @@ export default function Home() {
                       className="w-full h-full object-contain"
                     />
                   </div>
-                  <span className="text-sm font-normal text-blue-600 underline decoration-1 underline-offset-2 group-hover:text-blue-800 transition-colors">
+                  <span className="text-[13px] font-normal tracking-wide text-blue-600 underline decoration-1 underline-offset-2 group-hover:text-blue-800 transition-colors">
                     {category.name}
                   </span>
                 </Link>
@@ -59,14 +59,14 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-8 py-16 lg:py-24">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             <div className="bg-gray-50 p-10 lg:p-14 flex flex-col justify-between min-h-[500px]">
-              <div className="space-y-7">
-                <h1 className="text-3xl lg:text-5xl font-normal text-gray-900 leading-[1.2]">
+              <div className="space-y-8">
+                <h1 className="text-3xl lg:text-5xl font-medium text-gray-900 leading-[1.3] tracking-tight">
                   {t.home.title}
                 </h1>
-                <p className="text-gray-800 text-base lg:text-lg leading-[1.7] font-normal">
+                <p className="text-gray-800 leading-[1.8]">
                   {t.home.intro}
                 </p>
-                <p className="text-gray-800 text-base lg:text-lg leading-[1.7] font-normal">
+                <p className="text-gray-800 leading-[1.8]">
                   {t.home.bio}
                 </p>
               </div>
@@ -75,21 +75,21 @@ export default function Home() {
                   href="https://instagram.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-[15px] font-normal text-blue-600 underline decoration-1 underline-offset-2 hover:text-blue-800 transition-colors"
+                  className="flex items-center gap-2 text-[13px] font-normal tracking-wide text-blue-600 underline decoration-1 underline-offset-2 hover:text-blue-800 transition-colors"
                 >
                   <Instagram className="w-5 h-5" />
                   <span>{t.home.instagram}</span>
                 </a>
                 <a
                   href="mailto:contact@artist.com"
-                  className="flex items-center gap-2 text-[15px] font-normal text-blue-600 underline decoration-1 underline-offset-2 hover:text-blue-800 transition-colors"
+                  className="flex items-center gap-2 text-[13px] font-normal tracking-wide text-blue-600 underline decoration-1 underline-offset-2 hover:text-blue-800 transition-colors"
                 >
                   <Mail className="w-5 h-5" />
                   <span>{t.home.email}</span>
                 </a>
                 <Link
                   href="/contacto"
-                  className="text-[15px] font-normal text-blue-600 underline decoration-1 underline-offset-2 hover:text-blue-800 transition-colors"
+                  className="text-[13px] font-normal tracking-wide text-blue-600 underline decoration-1 underline-offset-2 hover:text-blue-800 transition-colors"
                 >
                   {t.home.contact}
                 </Link>
@@ -103,7 +103,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="mt-6 text-center">
-                <p className="text-sm font-normal text-gray-700">
+                <p className="text-[13px] font-normal tracking-wide text-gray-700">
                   {t.home.featured}
                 </p>
               </div>
