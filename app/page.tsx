@@ -31,6 +31,31 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-full">
       <div className="flex-1 bg-white">
+        <div className="bg-white border-b border-gray-100 py-6">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex justify-center items-center gap-10 lg:gap-16">
+              {categories.map((category) => (
+                <Link
+                  key={category.href}
+                  href={category.href}
+                  className="group flex flex-col items-center gap-2 transition-transform hover:scale-105"
+                >
+                  <div className="relative w-12 h-12 flex items-center justify-center transition-all group-hover:drop-shadow-md">
+                    <img
+                      src="/icons/aqua_folder-1_(arrastrado) copy.jpg"
+                      alt={category.name}
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                  <span className="text-xs font-medium text-gray-600 tracking-wide">
+                    {category.name}
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-gray-50 p-8 lg:p-12 flex flex-col justify-between min-h-[500px]">
@@ -82,32 +107,6 @@ export default function Home() {
                   {t.home.featured}
                 </p>
               </div>
-            </div>
-          </div>
-
-          <div className="mt-16 lg:mt-24">
-            <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">
-              Explorar por categoría
-            </h2>
-            <div className="flex justify-center items-center gap-8 lg:gap-12">
-              {categories.map((category) => (
-                <Link
-                  key={category.href}
-                  href={category.href}
-                  className="group flex flex-col items-center gap-2 transition-transform hover:scale-105"
-                >
-                  <div className="relative w-16 h-16 flex items-center justify-center transition-all group-hover:drop-shadow-md">
-                    <img
-                      src="/icons/aqua_folder-1_(arrastrado) copy.jpg"
-                      alt={category.name}
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
-                  <span className="text-xs font-medium text-gray-700 tracking-wide">
-                    {category.name}
-                  </span>
-                </Link>
-              ))}
             </div>
           </div>
         </div>

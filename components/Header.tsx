@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import { Search, Menu, X } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import LanguageToggle from './LanguageToggle';
@@ -11,16 +10,7 @@ import SearchModal from './SearchModal';
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const pathname = usePathname();
   const { t, showPublicOnly, setShowPublicOnly } = useLanguage();
-
-  const navLinks = [
-    { href: '/pinturas', label: t.nav.paintings },
-    { href: '/dibujos', label: t.nav.drawings },
-    { href: '/copias', label: t.nav.copies },
-  ];
-
-  const isActive = (href: string) => pathname === href;
 
   return (
     <>
@@ -31,24 +21,14 @@ export default function Header() {
               <span className="text-lg font-medium text-gray-900">antonio monereo</span>
             </Link>
 
-            <nav className="hidden md:flex items-center gap-8">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={`text-[15px] font-normal text-blue-600 hover:text-blue-700 transition-colors ${
-                    isActive(link.href)
-                      ? 'underline underline-offset-4'
-                      : 'no-underline'
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </nav>
-
             <div className="flex items-center gap-4">
               <div className="hidden md:flex items-center gap-4">
+                <Link
+                  href="/contacto"
+                  className="text-[15px] font-normal text-blue-600 hover:text-blue-700 transition-colors"
+                >
+                  {t.nav.contact}
+                </Link>
                 <LanguageToggle />
                 <button
                   onClick={() => setShowPublicOnly(!showPublicOnly)}
@@ -91,20 +71,6 @@ export default function Header() {
         {isMenuOpen && (
           <div className="md:hidden bg-white border-t border-gray-100">
             <nav className="px-6 py-4 space-y-3">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setIsMenuOpen(false)}
-                  className={`block text-[15px] font-normal py-2 text-blue-600 hover:text-blue-700 transition-colors ${
-                    isActive(link.href)
-                      ? 'underline underline-offset-4'
-                      : 'no-underline'
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              ))}
               <Link
                 href="/contacto"
                 onClick={() => setIsMenuOpen(false)}
