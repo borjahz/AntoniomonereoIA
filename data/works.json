@@ -1,0 +1,128 @@
+[
+  {
+    "id": 1,
+    "slug": "paisaje-urbano-1",
+    "title": "Paisaje Urbano I",
+    "title_es": "Paisaje Urbano I",
+    "title_en": "Urban Landscape I",
+    "desc_es": "Exploración de las formas arquitectónicas en la ciudad contemporánea, jugando con la luz y las sombras.",
+    "desc_en": "Exploration of architectural forms in the contemporary city, playing with light and shadows.",
+    "category": "pinturas",
+    "year": 2023,
+    "dimensions": "120 x 90 cm",
+    "technique_es": "Óleo sobre lienzo",
+    "technique_en": "Oil on canvas",
+    "status": "available",
+    "public": true,
+    "featured": true,
+    "images": [
+      "https://images.pexels.com/photos/1183992/pexels-photo-1183992.jpeg?auto=compress&cs=tinysrgb&w=1200"
+    ],
+    "tags": ["urbano", "arquitectura", "contemporáneo"]
+  },
+  {
+    "id": 2,
+    "slug": "abstraccion-azul",
+    "title": "Abstracción en Azul",
+    "title_es": "Abstracción en Azul",
+    "title_en": "Abstraction in Blue",
+    "desc_es": "Composición abstracta que explora las posibilidades expresivas del color azul en sus diferentes tonalidades.",
+    "desc_en": "Abstract composition exploring the expressive possibilities of blue in its different shades.",
+    "category": "pinturas",
+    "year": 2023,
+    "dimensions": "100 x 100 cm",
+    "technique_es": "Acrílico sobre lienzo",
+    "technique_en": "Acrylic on canvas",
+    "status": "available",
+    "public": true,
+    "featured": true,
+    "images": [
+      "https://images.pexels.com/photos/1145720/pexels-photo-1145720.jpeg?auto=compress&cs=tinysrgb&w=1200"
+    ],
+    "tags": ["abstracto", "azul", "color"]
+  },
+  {
+    "id": 3,
+    "slug": "retrato-contemporaneo",
+    "title": "Retrato Contemporáneo",
+    "title_es": "Retrato Contemporáneo",
+    "title_en": "Contemporary Portrait",
+    "desc_es": "Interpretación moderna del retrato clásico, combinando técnicas tradicionales con una visión actual.",
+    "desc_en": "Modern interpretation of the classical portrait, combining traditional techniques with a contemporary vision.",
+    "category": "pinturas",
+    "year": 2022,
+    "dimensions": "80 x 60 cm",
+    "technique_es": "Técnica mixta sobre lienzo",
+    "technique_en": "Mixed media on canvas",
+    "status": "sold",
+    "public": true,
+    "featured": false,
+    "images": [
+      "https://images.pexels.com/photos/1283219/pexels-photo-1283219.jpeg?auto=compress&cs=tinysrgb&w=1200"
+    ],
+    "tags": ["retrato", "contemporáneo"]
+  },
+  {
+    "id": 4,
+    "slug": "estudio-figura-1",
+    "title": "Estudio de Figura 1",
+    "title_es": "Estudio de Figura 1",
+    "title_en": "Figure Study 1",
+    "desc_es": "Estudio anatómico realizado con carboncillo, explorando la forma y el volumen del cuerpo humano.",
+    "desc_en": "Anatomical study made with charcoal, exploring the form and volume of the human body.",
+    "category": "dibujos",
+    "year": 2023,
+    "dimensions": "50 x 70 cm",
+    "technique_es": "Carboncillo sobre papel",
+    "technique_en": "Charcoal on paper",
+    "status": "available",
+    "public": true,
+    "featured": true,
+    "images": [
+      "https://images.pexels.com/photos/3778361/pexels-photo-3778361.jpeg?auto=compress&cs=tinysrgb&w=1200"
+    ],
+    "tags": ["figura", "carboncillo", "estudio"]
+  },
+  {
+    "id": 5,
+    "slug": "boceto-natural",
+    "title": "Boceto Natural",
+    "title_es": "Boceto Natural",
+    "title_en": "Natural Sketch",
+    "desc_es": "Serie de bocetos rápidos realizados al natural, capturando la esencia del modelo en pocos trazos.",
+    "desc_en": "Series of quick sketches made from life, capturing the essence of the model in few strokes.",
+    "category": "dibujos",
+    "year": 2023,
+    "dimensions": "40 x 60 cm",
+    "technique_es": "Grafito sobre papel",
+    "technique_en": "Graphite on paper",
+    "status": "available",
+    "public": true,
+    "featured": false,
+    "images": [
+      "https://images.pexels.com/photos/2693212/pexels-photo-2693212.png?auto=compress&cs=tinysrgb&w=1200"
+    ],
+    "tags": ["boceto", "natural", "grafito"]
+  },
+  {
+    "id": 6,
+    "slug": "copia-velazquez",
+    "title": "Copia de Velázquez",
+    "title_es": "Copia de Velázquez",
+    "title_en": "Velázquez Copy",
+    "desc_es": "Estudio y copia de fragmento de Las Meninas, explorando la técnica del maestro español.",
+    "desc_en": "Study and copy of a fragment from Las Meninas, exploring the technique of the Spanish master.",
+    "category": "copias",
+    "year": 2022,
+    "dimensions": "70 x 50 cm",
+    "technique_es": "Óleo sobre lienzo",
+    "technique_en": "Oil on canvas",
+    "status": "available",
+    "public": false,
+    "featured": false,
+    "images": [
+      "https://images.pexels.com/photos/1183992/pexels-photo-1183992.jpeg?auto=compress&cs=tinysrgb&w=1200"
+    ],
+    "tags": ["copia", "Velázquez", "clásico"]
+  }
+]

@@ -7,13 +7,12 @@ import Link from 'next/link';
 import { useLanguage } from '@/contexts/LanguageContext';
 import worksData from '@/data/works.json';
 
-export default function WorkPageClient() {
-  const params = useParams();
+export default function WorkPageClient({ slug }: { slug: string }) {
   const router = useRouter();
   const { language, t } = useLanguage();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  const work = worksData.find((w) => w.slug === params.slug);
+  const work = worksData.find((w) => w.slug === slug);
 
   if (!work) {
     return (
