@@ -2,5 +2,6 @@
   "/page": "app/page.js",
   "/dibujos/page": "app/dibujos/page.js",
   "/copias/page": "app/copias/page.js",
-  "/pinturas/page": "app/pinturas/page.js"
+  "/pinturas/page": "app/pinturas/page.js",
+  "/contacto/page": "app/contacto/page.js"
 }
