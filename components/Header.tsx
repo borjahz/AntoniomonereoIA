@@ -14,18 +14,18 @@ export default function Header() {
 
   return (
     <>
-      <header className="sticky top-0 z-40 w-full bg-white border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex items-center justify-between h-16">
+      <header className="sticky top-0 z-40 w-full bg-white">
+        <div className="max-w-7xl mx-auto px-8">
+          <div className="flex items-center justify-between h-20">
             <Link href="/" className="hover:opacity-70 transition-opacity">
-              <span className="text-lg font-medium text-gray-900">antonio monereo</span>
+              <span className="text-lg font-medium tracking-tight text-gray-900">antonio monereo</span>
             </Link>
 
-            <div className="flex items-center gap-4">
-              <div className="hidden md:flex items-center gap-4">
+            <div className="flex items-center gap-6">
+              <div className="hidden md:flex items-center gap-6">
                 <Link
                   href="/contacto"
-                  className="text-[15px] font-normal text-blue-600 hover:text-blue-700 transition-colors"
+                  className="text-sm font-normal text-gray-700 hover:text-gray-900 transition-colors"
                 >
                   {t.nav.contact}
                 </Link>
@@ -69,12 +69,12 @@ export default function Header() {
         </div>
 
         {isMenuOpen && (
-          <div className="md:hidden bg-white border-t border-gray-100">
-            <nav className="px-6 py-4 space-y-3">
+          <div className="md:hidden bg-white">
+            <nav className="px-6 py-6 space-y-4">
               <Link
                 href="/contacto"
                 onClick={() => setIsMenuOpen(false)}
-                className="block text-[15px] font-normal py-2 text-blue-600 hover:text-blue-700 transition-colors"
+                className="block text-sm font-normal py-2 text-gray-700 hover:text-gray-900 transition-colors"
               >
                 {t.nav.contact}
               </Link>
