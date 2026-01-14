@@ -11,6 +11,7 @@ export default function WorkPageClient({ slug }: { slug: string }) {
   const router = useRouter();
   const { language, t } = useLanguage();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isFullscreen, setIsFullscreen] = useState(false);
 
   const work = worksData.find((w) => w.slug === slug);
 
@@ -54,7 +55,7 @@ export default function WorkPageClient({ slug }: { slug: string }) {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           <div className="relative">
-            <div className="aspect-[4/3] bg-gray-50 flex items-center justify-center p-4 relative group">
+            <div className="aspect-[4/3] bg-gray-50 flex items-center justify-center p-4 relative group cursor-pointer" onClick={() => setIsFullscreen(true)}>
               <img
                 src={work.images[currentImageIndex]}
                 alt={`${title} - Image ${currentImageIndex + 1}`}
@@ -64,7 +65,10 @@ export default function WorkPageClient({ slug }: { slug: string }) {
               {work.images.length > 1 && (
                 <>
                   <button
-                    onClick={goToPrevImage}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      goToPrevImage();
+                    }}
                     className="absolute left-4 top-1/2 -translate-y-1/2 p-3 bg-white shadow-md hover:shadow-lg transition-all opacity-0 group-hover:opacity-100"
                     aria-label="Previous image"
                   >
@@ -72,7 +76,10 @@ export default function WorkPageClient({ slug }: { slug: string }) {
                   </button>
 
                   <button
-                    onClick={goToNextImage}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      goToNextImage();
+                    }}
                     className="absolute right-4 top-1/2 -translate-y-1/2 p-3 bg-white shadow-md hover:shadow-lg transition-all opacity-0 group-hover:opacity-100"
                     aria-label="Next image"
                   >
@@ -83,7 +90,10 @@ export default function WorkPageClient({ slug }: { slug: string }) {
                     {work.images.map((_, index) => (
                       <button
                         key={index}
-                        onClick={() => setCurrentImageIndex(index)}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setCurrentImageIndex(index);
+                        }}
                         className={`h-2 rounded-full transition-all ${
                           index === currentImageIndex
                             ? 'bg-blue-600 w-6'
@@ -191,6 +201,19 @@ export default function WorkPageClient({ slug }: { slug: string }) {
           </div>
         </div>
       </div>
+
+      {isFullscreen && (
+        <div
+          className="fixed inset-0 bg-white z-50 flex items-center justify-center cursor-pointer"
+          onClick={() => setIsFullscreen(false)}
+        >
+          <img
+            src={work.images[currentImageIndex]}
+            alt={`${title} - Image ${currentImageIndex + 1}`}
+            className="max-w-full max-h-full object-contain p-4"
+          />
+        </div>
+      )}
     </div>
   );
 }

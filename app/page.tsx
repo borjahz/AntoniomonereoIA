@@ -16,8 +16,10 @@ export default function Home() {
       <div className="flex-1 bg-white">
         <CategoryNavigation />
 
-        <div className="max-w-7xl mx-auto px-8 py-16 lg:py-24">
-          <div className="lg:grid lg:grid-cols-[1fr_200px] lg:gap-16">
+        <div className="max-w-7xl mx-auto px-8 py-8 lg:py-12">
+          <div className="lg:flex lg:flex-col lg:gap-6">
+            <CategoryNavigation sticky />
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
               <div className="bg-gray-50 p-10 lg:p-14 flex flex-col justify-between min-h-[500px]">
                 <div className="space-y-8">
@@ -33,7 +35,14 @@ export default function Home() {
                 </div>
                 <div className="flex flex-wrap items-center gap-5 mt-10">
                   <a
-                    href="https://instagram.com"
+                    href="mailto:antoniomonelopez@gmail.com"
+                    className="flex items-center gap-2 text-[13px] font-normal tracking-wide text-blue-600 underline decoration-1 underline-offset-2 hover:text-blue-800 transition-colors"
+                  >
+                    <Mail className="w-5 h-5" />
+                    <span>{t.home.email}</span>
+                  </a>
+                  <a
+                    href="https://www.instagram.com/antoniomonereo?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 text-[13px] font-normal tracking-wide text-blue-600 underline decoration-1 underline-offset-2 hover:text-blue-800 transition-colors"
@@ -42,11 +51,15 @@ export default function Home() {
                     <span>{t.home.instagram}</span>
                   </a>
                   <a
-                    href="mailto:contact@artist.com"
+                    href="https://www.tiktok.com/@antoniomonereo?is_from_webapp=1&sender_device=pc"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="flex items-center gap-2 text-[13px] font-normal tracking-wide text-blue-600 underline decoration-1 underline-offset-2 hover:text-blue-800 transition-colors"
                   >
-                    <Mail className="w-5 h-5" />
-                    <span>{t.home.email}</span>
+                    <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                    </svg>
+                    <span>TikTok</span>
                   </a>
                   <Link
                     href="/contacto"
@@ -70,8 +83,6 @@ export default function Home() {
                 </div>
               </div>
             </div>
-
-            <CategoryNavigation sticky />
           </div>
         </div>
       </div>

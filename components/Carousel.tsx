@@ -77,16 +77,16 @@ export default function Carousel({ works }: CarouselProps) {
   return (
     <div className="relative w-full h-full group">
       <div
-        className="relative w-full h-full bg-slate-100 flex items-center justify-center p-4"
+        className="relative w-full h-full bg-slate-100 overflow-hidden"
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
       >
-        <Link href={`/obra/${currentWork.slug}`} className="max-w-full max-h-full flex items-center justify-center">
+        <Link href={`/obra/${currentWork.slug}`} className="block w-full h-full">
           <img
             src={currentWork.images[0]}
             alt={title}
-            className="max-w-full max-h-full object-contain cursor-pointer"
+            className="w-full h-full object-cover cursor-pointer"
           />
         </Link>
       </div>

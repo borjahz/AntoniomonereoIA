@@ -28,11 +28,11 @@ export default function ArtworkCard({ work, onClick }: ArtworkCardProps) {
       onClick={onClick}
       className="group block bg-white transition-opacity hover:opacity-80"
     >
-      <div className="aspect-[4/3] bg-gray-50 flex items-center justify-center p-4">
+      <div className="aspect-[4/3] bg-gray-50 overflow-hidden">
         <img
           src={work.images[0]}
           alt={title}
-          className="max-w-full max-h-full object-contain"
+          className="w-full h-full object-cover"
         />
       </div>
       <div className="p-4 bg-white">
