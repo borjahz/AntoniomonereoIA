@@ -7,7 +7,7 @@ import worksData from '@/data/works.json';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function CopiasPage() {
-  const { showPublicOnly } = useLanguage();
+  const { showPublicOnly, t } = useLanguage();
 
   const copies = worksData
     .filter((work) => work.category === 'copias')
@@ -23,7 +23,8 @@ export default function CopiasPage() {
             <CategoryNavigation sticky />
 
             <div>
-              <h1 className="text-3xl font-medium text-gray-900 mb-12 tracking-tight">Copias</h1>
+              <h1 className="text-3xl font-medium text-gray-900 mb-4 tracking-tight">{t.pages.copies}</h1>
+              <p className="text-gray-700 leading-[1.8] mb-12">{t.pages.copiesDescription}</p>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {copies.map((work) => (
                   <ArtworkCard key={work.id} work={work} />

@@ -15,8 +15,18 @@ export default function ContactoPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    alert('Formulario enviado (funcionalidad de demostración)');
-    setFormData({ name: '', email: '', message: '' });
+
+    // Construir el cuerpo del email
+    const subject = `Consulta de ${formData.name}`;
+    const body = `Nombre: ${formData.name}%0D%0AEmail: ${formData.email}%0D%0A%0D%0AMensaje:%0D%0A${formData.message}`;
+
+    // Abrir cliente de correo con los datos prellenados
+    window.location.href = `mailto:antoniomonelopez@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+
+    // Limpiar formulario después de un breve delay
+    setTimeout(() => {
+      setFormData({ name: '', email: '', message: '' });
+    }, 500);
   };
 
   return (

@@ -44,6 +44,10 @@ const translations = {
       tags: 'Etiquetas',
       inquire: 'Consultar disponibilidad',
     },
+    pages: {
+      copies: 'Copias',
+      copiesDescription: 'Estudios y reinterpretaciones de obras maestras',
+    },
   },
   en: {
     nav: {
@@ -85,6 +89,10 @@ const translations = {
       sold: 'Sold',
       tags: 'Tags',
       inquire: 'Inquire about availability',
+    },
+    pages: {
+      copies: 'Copies',
+      copiesDescription: 'Studies and reinterpretations of masterpieces',
     },
   },
 };
