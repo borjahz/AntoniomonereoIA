@@ -189,6 +189,27 @@
     "tags": ["grafito", "minimalista", "figurativo"]
   },
   {
+    "id": 15,
+    "slug": "calma-y-relax-iii",
+    "title": "Calma y Relax III",
+    "title_es": "Calma y Relax III",
+    "title_en": "Calm and Relax III",
+    "desc_es": "Dibujo minimalista que combina formas geométricas y figuras humanas en una composición delicada y contemplativa.",
+    "desc_en": "Minimalist drawing that combines geometric forms and human figures in a delicate and contemplative composition.",
+    "category": "dibujos",
+    "year": 2025,
+    "dimensions": "25 x 25 cm",
+    "technique_es": "Grafito sobre papel",
+    "technique_en": "Graphite on paper",
+    "status": "available",
+    "public": true,
+    "featured": false,
+    "images": [
+      "/images/Calma_y_Relax_III.jpg"
+    ],
+    "tags": ["grafito", "minimalista", "figurativo"]
+  },
+  {
     "id": 6,
     "slug": "paisaje-con-escena-pastoril",
     "title": "Paisaje con escena pastoril",
