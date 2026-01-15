@@ -84,6 +84,27 @@
     "tags": ["óleo", "contemporáneo", "abstracto"]
   },
   {
+    "id": 8,
+    "slug": "pinturas-moradas-ii",
+    "title": "Pinturas moradas II",
+    "title_es": "Pinturas moradas II",
+    "title_en": "Purple Paintings II",
+    "desc_es": "Óleo sobre lienzo con una composición arquitectónica envuelta en tonalidades moradas y figuras humanas.",
+    "desc_en": "Oil on canvas with an architectural composition enveloped in purple tones and human figures.",
+    "category": "pinturas",
+    "year": 2025,
+    "dimensions": "55 x 55 cm",
+    "technique_es": "Óleo sobre lienzo",
+    "technique_en": "Oil on canvas",
+    "status": "available",
+    "public": true,
+    "featured": false,
+    "images": [
+      "/images/Pinturas_Moradas_2.jpg"
+    ],
+    "tags": ["óleo", "contemporáneo", "arquitectónico", "figurativo"]
+  },
+  {
     "id": 4,
     "slug": "calma-y-relax-i",
     "title": "Calma y Relax I",
