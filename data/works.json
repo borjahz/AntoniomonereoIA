@@ -147,6 +147,27 @@
     "tags": ["óleo", "contemporáneo", "arquitectónico", "figurativo"]
   },
   {
+    "id": 16,
+    "slug": "pinturas-moradas-iii",
+    "title": "Pinturas moradas III",
+    "title_es": "Pinturas moradas III",
+    "title_en": "Purple Paintings III",
+    "desc_es": "Óleo sobre cartón con tonalidades moradas y composición arquitectónica que evoca un paisaje onírico.",
+    "desc_en": "Oil on cardboard with purple tones and architectural composition that evokes a dreamlike landscape.",
+    "category": "pinturas",
+    "year": 2025,
+    "dimensions": "12 x 22 cm",
+    "technique_es": "Óleo sobre cartón",
+    "technique_en": "Oil on cardboard",
+    "status": "available",
+    "public": true,
+    "featured": false,
+    "images": [
+      "/images/Pinturas_moradas_3.png"
+    ],
+    "tags": ["óleo", "contemporáneo", "arquitectónico"]
+  },
+  {
     "id": 4,
     "slug": "calma-y-relax-i",
     "title": "Calma y Relax I",
