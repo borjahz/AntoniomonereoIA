@@ -187,5 +187,68 @@
       "/images/copia1.jpg"
     ],
     "tags": ["copia", "Van Poelenburg", "clásico", "paisaje"]
+  },
+  {
+    "id": 10,
+    "slug": "san-francisco-en-oracion-zurbaran",
+    "title": "San Francisco en oración",
+    "title_es": "San Francisco en oración",
+    "title_en": "Saint Francis in Prayer",
+    "desc_es": "Copia de Zurbarán (1659). Óleo sobre lienzo que representa a San Francisco de Asís en actitud contemplativa.",
+    "desc_en": "Copy of Zurbarán (1659). Oil on canvas depicting Saint Francis of Assisi in contemplative attitude.",
+    "category": "copias",
+    "year": 1659,
+    "dimensions": "116 x 89 cm",
+    "technique_es": "Óleo sobre lienzo",
+    "technique_en": "Oil on canvas",
+    "status": "sold",
+    "public": true,
+    "featured": false,
+    "images": [
+      "/images/Zurbaran.jpg"
+    ],
+    "tags": ["copia", "Zurbarán", "clásico", "religioso"]
+  },
+  {
+    "id": 11,
+    "slug": "retrato-josefa-jovellanos-inza",
+    "title": "Retrato de Josefa de Jovellanos",
+    "title_es": "Retrato de Josefa de Jovellanos",
+    "title_en": "Portrait of Josefa de Jovellanos",
+    "desc_es": "Copia de Joaquín Inza (1774). Óleo sobre lienzo que retrata a Josefa de Jovellanos.",
+    "desc_en": "Copy of Joaquín Inza (1774). Oil on canvas portraying Josefa de Jovellanos.",
+    "category": "copias",
+    "year": 1774,
+    "dimensions": "110 x 89 cm",
+    "technique_es": "Óleo sobre lienzo",
+    "technique_en": "Oil on canvas",
+    "status": "sold",
+    "public": true,
+    "featured": false,
+    "images": [
+      "/images/Gijon.jpg"
+    ],
+    "tags": ["copia", "Inza", "clásico", "retrato"]
+  },
+  {
+    "id": 12,
+    "slug": "retrato-ferdinando-brandani-velazquez",
+    "title": "Retrato de Ferdinando Brandani",
+    "title_es": "Retrato de Ferdinando Brandani",
+    "title_en": "Portrait of Ferdinando Brandani",
+    "desc_es": "Copia de Diego Velázquez (1650). Óleo sobre lienzo que retrata a Ferdinando Brandani.",
+    "desc_en": "Copy of Diego Velázquez (1650). Oil on canvas portraying Ferdinando Brandani.",
+    "category": "copias",
+    "year": 1650,
+    "dimensions": "55 x 55 cm",
+    "technique_es": "Óleo sobre lienzo",
+    "technique_en": "Oil on canvas",
+    "status": "sold",
+    "public": true,
+    "featured": false,
+    "images": [
+      "/images/Velazquez.jpg"
+    ],
+    "tags": ["copia", "Velázquez", "clásico", "retrato"]
   }
 ]
