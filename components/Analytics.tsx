@@ -3,8 +3,7 @@
 import Script from 'next/script';
 
 export default function Analytics() {
-  // Reemplaza 'G-XXXXXXXXXX' con tu ID de Google Analytics
-  const GA_MEASUREMENT_ID = 'G-XXXXXXXXXX';
+  const GA_MEASUREMENT_ID = 'G-WW7LC8SFJ5';
 
   return (
     <>
