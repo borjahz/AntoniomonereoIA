@@ -63,6 +63,27 @@
     "tags": ["figura", "óleo", "contemporáneo"]
   },
   {
+    "id": 9,
+    "slug": "yo-me-siento-asi",
+    "title": "Yo me siento así",
+    "title_es": "Yo me siento así",
+    "title_en": "This is how I feel",
+    "desc_es": "Óleo sobre lienzo que retrata una figura humana en reposo sobre un sillón, con una paleta de tonos cálidos y composición intimista.",
+    "desc_en": "Oil on canvas depicting a human figure resting on an armchair, with a warm color palette and intimate composition.",
+    "category": "pinturas",
+    "year": 2023,
+    "dimensions": "60 x 60 cm",
+    "technique_es": "Óleo sobre lienzo",
+    "technique_en": "Oil on canvas",
+    "status": "sold",
+    "public": true,
+    "featured": false,
+    "images": [
+      "/images/Pablo.jpg"
+    ],
+    "tags": ["óleo", "figurativo", "contemporáneo"]
+  },
+  {
     "id": 7,
     "slug": "pinturas-moradas-i",
     "title": "Pinturas moradas I",
