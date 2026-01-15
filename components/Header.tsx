@@ -6,11 +6,13 @@ import { Search, Menu, X } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import LanguageToggle from './LanguageToggle';
 import SearchModal from './SearchModal';
+import PublicationsModal from './PublicationsModal';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const { t, showPublicOnly, setShowPublicOnly } = useLanguage();
+  const [isPublicationsOpen, setIsPublicationsOpen] = useState(false);
+  const { t } = useLanguage();
 
   return (
     <>
@@ -31,14 +33,10 @@ export default function Header() {
                 </Link>
                 <LanguageToggle />
                 <button
-                  onClick={() => setShowPublicOnly(!showPublicOnly)}
-                  className={`text-[13px] font-normal tracking-wide transition-colors ${
-                    showPublicOnly
-                      ? 'text-blue-600 underline decoration-1 underline-offset-2'
-                      : 'text-blue-600 underline decoration-1 underline-offset-2 hover:text-blue-800'
-                  }`}
+                  onClick={() => setIsPublicationsOpen(true)}
+                  className="text-[13px] font-normal tracking-wide text-blue-600 underline decoration-1 underline-offset-2 hover:text-blue-800 transition-colors"
                 >
-                  {t.common.public}
+                  {t.common.publications}
                 </button>
                 <button
                   onClick={() => setIsSearchOpen(true)}
@@ -82,15 +80,12 @@ export default function Header() {
                 <LanguageToggle />
                 <button
                   onClick={() => {
-                    setShowPublicOnly(!showPublicOnly);
+                    setIsPublicationsOpen(true);
+                    setIsMenuOpen(false);
                   }}
-                  className={`text-[13px] font-normal tracking-wide transition-colors ${
-                    showPublicOnly
-                      ? 'text-blue-600 underline decoration-1 underline-offset-2'
-                      : 'text-blue-600 underline decoration-1 underline-offset-2 hover:text-blue-800'
-                  }`}
+                  className="text-[13px] font-normal tracking-wide text-blue-600 underline decoration-1 underline-offset-2 hover:text-blue-800 transition-colors"
                 >
-                  {t.common.public}
+                  {t.common.publications}
                 </button>
               </div>
             </nav>
@@ -101,6 +96,11 @@ export default function Header() {
       <SearchModal
         isOpen={isSearchOpen}
         onClose={() => setIsSearchOpen(false)}
+      />
+
+      <PublicationsModal
+        isOpen={isPublicationsOpen}
+        onClose={() => setIsPublicationsOpen(false)}
       />
     </>
   );

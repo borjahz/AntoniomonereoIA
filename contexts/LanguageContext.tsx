@@ -21,6 +21,7 @@ const translations = {
     },
     common: {
       public: 'Público',
+      publications: 'Publicaciones',
       search: 'Buscar',
       showAll: 'Ver todo',
     },
@@ -67,6 +68,7 @@ const translations = {
     },
     common: {
       public: 'Public',
+      publications: 'Publications',
       search: 'Search',
       showAll: 'Show all',
     },
