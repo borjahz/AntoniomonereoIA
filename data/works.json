@@ -271,5 +271,26 @@
       "/images/Velazquez.jpg"
     ],
     "tags": ["copia", "Velázquez", "clásico", "retrato"]
+  },
+  {
+    "id": 14,
+    "slug": "cristo-con-la-cruz-a-cuestas-tiziano",
+    "title": "Cristo con la cruz a cuestas",
+    "title_es": "Cristo con la cruz a cuestas",
+    "title_en": "Christ Carrying the Cross",
+    "desc_es": "Copia de Tiziano (1565). Óleo sobre lienzo que representa a Cristo portando la cruz.",
+    "desc_en": "Copy of Titian (1565). Oil on canvas depicting Christ carrying the cross.",
+    "category": "copias",
+    "year": 1565,
+    "dimensions": "73 x 81 cm",
+    "technique_es": "Óleo sobre lienzo",
+    "technique_en": "Oil on canvas",
+    "status": "sold",
+    "public": true,
+    "featured": false,
+    "images": [
+      "/images/Tiziano.png"
+    ],
+    "tags": ["copia", "Tiziano", "clásico", "religioso"]
   }
 ]
