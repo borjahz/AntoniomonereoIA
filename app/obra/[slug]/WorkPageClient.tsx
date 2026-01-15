@@ -5,6 +5,7 @@ import { useParams, useRouter } from 'next/navigation';
 import { ChevronLeft, ChevronRight, ArrowLeft, Mail } from 'lucide-react';
 import Link from 'next/link';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { ArtworkSchema, BreadcrumbSchema } from '@/components/StructuredData';
 import worksData from '@/data/works.json';
 
 export default function WorkPageClient({ slug }: { slug: string }) {
@@ -34,6 +35,9 @@ export default function WorkPageClient({ slug }: { slug: string }) {
   const description = language === 'es' ? work.desc_es : work.desc_en;
   const technique = language === 'es' ? work.technique_es : work.technique_en;
 
+  // Parse dimensions for schema
+  const [width, height] = work.dimensions.split('x').map(d => d.trim());
+
   const goToPrevImage = () => {
     setCurrentImageIndex((prev) => (prev - 1 + work.images.length) % work.images.length);
   };
@@ -43,8 +47,31 @@ export default function WorkPageClient({ slug }: { slug: string }) {
   };
 
   return (
-    <div className="bg-white min-h-screen">
-      <div className="max-w-7xl mx-auto px-8 py-16">
+    <>
+      <ArtworkSchema
+        name={title}
+        description={description}
+        image={`https://antoniomonereo.com${work.images[0]}`}
+        url={`https://antoniomonereo.com/obra/${work.slug}`}
+        creator="Antonio Monereo"
+        dateCreated={work.year}
+        artMedium={technique}
+        artform={work.category === 'pinturas' ? 'Painting' : work.category === 'dibujos' ? 'Drawing' : 'Painting'}
+        width={width}
+        height={height}
+        inLanguage={language === 'es' ? 'es' : 'en'}
+        isAvailable={work.status === 'available'}
+      />
+      <BreadcrumbSchema
+        items={[
+          { name: 'Inicio', url: 'https://antoniomonereo.com' },
+          { name: work.category.charAt(0).toUpperCase() + work.category.slice(1), url: `https://antoniomonereo.com/${work.category}` },
+          { name: title, url: `https://antoniomonereo.com/obra/${work.slug}` },
+        ]}
+      />
+
+      <div className="bg-white min-h-screen">
+        <div className="max-w-7xl mx-auto px-8 py-16">
         <button
           onClick={() => router.back()}
           className="flex items-center gap-2 text-[13px] font-normal tracking-wide text-blue-600 underline decoration-1 underline-offset-2 hover:text-blue-800 transition-colors mb-10"
@@ -214,6 +241,7 @@ export default function WorkPageClient({ slug }: { slug: string }) {
           />
         </div>
       )}
-    </div>
+      </div>
+    </>
   );
 }

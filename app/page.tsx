@@ -6,14 +6,28 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import Carousel from '@/components/Carousel';
 import Footer from '@/components/Footer';
 import CategoryNavigation from '@/components/CategoryNavigation';
+import { ArtistSchema, OrganizationSchema } from '@/components/StructuredData';
 import worksData from '@/data/works.json';
 
 export default function Home() {
   const { t } = useLanguage();
 
   return (
-    <div className="flex flex-col min-h-full">
-      <div className="flex-1 bg-white">
+    <>
+      <ArtistSchema
+        name="Antonio Monereo"
+        url="https://antoniomonereo.com"
+        description="Pintor y dibujante contemporáneo especializado en óleo sobre lienzo, grafito y copias de maestros clásicos."
+        image="https://antoniomonereo.com/images/Muerte_en_tarifa.jpg"
+        sameAs={[
+          'https://www.instagram.com/antoniomonereo',
+          'https://www.tiktok.com/@antoniomonereo',
+        ]}
+      />
+      <OrganizationSchema />
+
+      <div className="flex flex-col min-h-full">
+        <div className="flex-1 bg-white">
         <CategoryNavigation />
 
         <div className="max-w-7xl mx-auto px-8 py-8 lg:py-12">
@@ -88,6 +102,7 @@ export default function Home() {
       </div>
 
       <Footer />
-    </div>
+      </div>
+    </>
   );
 }

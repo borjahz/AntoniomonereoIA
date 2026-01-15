@@ -12,6 +12,9 @@ interface Work {
   images: string[];
   category: string;
   status: string;
+  technique_es: string;
+  technique_en: string;
+  year: number;
 }
 
 interface ArtworkCardProps {
@@ -22,6 +25,10 @@ interface ArtworkCardProps {
 export default function ArtworkCard({ work, onClick }: ArtworkCardProps) {
   const { language, t } = useLanguage();
   const title = language === 'es' ? work.title_es : work.title_en;
+  const technique = language === 'es' ? work.technique_es : work.technique_en;
+
+  // Descriptive alt text for SEO and accessibility
+  const altText = `${title}, ${technique}, ${work.dimensions}, ${work.year} - Antonio Monereo`;
 
   return (
     <Link
@@ -32,7 +39,7 @@ export default function ArtworkCard({ work, onClick }: ArtworkCardProps) {
       <div className="aspect-[4/3] bg-gray-50 overflow-hidden relative">
         <img
           src={work.images[0]}
-          alt={title}
+          alt={altText}
           className="w-full h-full object-contain"
         />
         {work.status === 'sold' && (
