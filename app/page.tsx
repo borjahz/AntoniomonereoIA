@@ -6,6 +6,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import Carousel from '@/components/Carousel';
 import Footer from '@/components/Footer';
 import CategoryNavigation from '@/components/CategoryNavigation';
+import FadeInView from '@/components/FadeInView';
 import { ArtistSchema, OrganizationSchema } from '@/components/StructuredData';
 import worksData from '@/data/works.json';
 
@@ -35,17 +36,23 @@ export default function Home() {
             <CategoryNavigation sticky />
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-              <div className="bg-gray-50 p-10 lg:p-14 flex flex-col justify-between min-h-[500px]">
+              <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-10 lg:p-14 flex flex-col justify-between min-h-[500px] transition-all duration-500 hover:shadow-lg">
                 <div className="space-y-8">
-                  <h1 className="text-3xl lg:text-5xl font-medium text-gray-900 leading-[1.3] tracking-tight">
-                    {t.home.title}
-                  </h1>
-                  <p className="text-gray-800 leading-[1.8]">
-                    {t.home.intro}
-                  </p>
-                  <p className="text-gray-800 leading-[1.8]">
-                    {t.home.bio}
-                  </p>
+                  <FadeInView>
+                    <h1 className="text-4xl lg:text-6xl font-medium text-gray-900 leading-[1.2] tracking-tight">
+                      {t.home.title}
+                    </h1>
+                  </FadeInView>
+                  <FadeInView delay={200}>
+                    <p className="text-lg text-gray-800 leading-[1.8]">
+                      {t.home.intro}
+                    </p>
+                  </FadeInView>
+                  <FadeInView delay={400}>
+                    <p className="text-gray-700 leading-[1.8]">
+                      {t.home.bio}
+                    </p>
+                  </FadeInView>
                 </div>
                 <div className="flex flex-wrap items-center gap-5 mt-10">
                   <a

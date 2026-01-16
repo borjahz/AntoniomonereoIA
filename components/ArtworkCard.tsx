@@ -34,9 +34,9 @@ export default function ArtworkCard({ work, onClick }: ArtworkCardProps) {
     <Link
       href={`/obra/${work.slug}`}
       onClick={onClick}
-      className="group block bg-white transition-opacity hover:opacity-80"
+      className="group block bg-white transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
     >
-      <div className="aspect-[4/3] bg-gray-50 overflow-hidden relative">
+      <div className="aspect-[4/3] bg-gray-50 overflow-hidden relative transition-all duration-300 group-hover:bg-gray-100">
         <img
           src={work.images[0]}
           alt={altText}
