@@ -23,17 +23,17 @@
   {
     "id": 2,
     "slug": "ciudad-de-los-estilitas",
-    "title": "Ciudad de los Estilitas",
-    "title_es": "Ciudad de los Estilitas",
-    "title_en": "City of the Stylites",
+    "title": "La ciudad de los estilitas",
+    "title_es": "La ciudad de los estilitas",
+    "title_en": "The City of the Stylites",
     "desc_es": "Óleo sobre lienzo que representa una visión arquitectónica única con figuras sobre columnas en un paisaje montañoso.",
     "desc_en": "Oil on canvas that explores an architectural vision with figures on columns in a mountainous landscape.",
     "category": "pinturas",
     "year": 2025,
-    "dimensions": "55 x 55 cm",
+    "dimensions": "73 x 60 cm",
     "technique_es": "Óleo sobre lienzo",
     "technique_en": "Oil on canvas",
-    "status": "sold",
+    "status": "available",
     "public": true,
     "featured": true,
     "images": [
@@ -334,5 +334,236 @@
       "/images/Tiziano.png"
     ],
     "tags": ["copia", "Tiziano", "clásico", "religioso"]
+  },
+  {
+    "id": 17,
+    "slug": "el-estilita-lienzo",
+    "title": "El estilita",
+    "title_es": "El estilita",
+    "title_en": "The Stylite",
+    "desc_es": "Óleo sobre lienzo que representa una figura solitaria sobre un pedestal, explorando temas de aislamiento y contemplación.",
+    "desc_en": "Oil on canvas depicting a solitary figure on a pedestal, exploring themes of isolation and contemplation.",
+    "category": "pinturas",
+    "year": 2025,
+    "dimensions": "33 x 81 cm",
+    "technique_es": "Óleo sobre lienzo",
+    "technique_en": "Oil on canvas",
+    "status": "available",
+    "public": true,
+    "featured": false,
+    "images": [
+      "/images/el-estilita-lienzo.jpg"
+    ],
+    "tags": ["óleo", "figurativo", "contemporáneo"]
+  },
+  {
+    "id": 18,
+    "slug": "el-estilita-carton",
+    "title": "El estilita",
+    "title_es": "El estilita",
+    "title_en": "The Stylite",
+    "desc_es": "Óleo sobre cartón que representa una figura contemplativa sobre una columna, con tonalidades cálidas.",
+    "desc_en": "Oil on cardboard depicting a contemplative figure on a column, with warm tones.",
+    "category": "pinturas",
+    "year": 2025,
+    "dimensions": "30 x 40 cm",
+    "technique_es": "Óleo sobre cartón",
+    "technique_en": "Oil on cardboard",
+    "status": "available",
+    "public": true,
+    "featured": false,
+    "images": [
+      "/images/el-estilita-carton.jpg"
+    ],
+    "tags": ["óleo", "figurativo", "contemporáneo"]
+  },
+  {
+    "id": 19,
+    "slug": "el-silencio",
+    "title": "El silencio",
+    "title_es": "El silencio",
+    "title_en": "The Silence",
+    "desc_es": "Óleo sobre lienzo que captura un momento de intimidad y quietud con una composición delicada.",
+    "desc_en": "Oil on canvas that captures a moment of intimacy and stillness with a delicate composition.",
+    "category": "pinturas",
+    "year": 2025,
+    "dimensions": "55 x 55 cm",
+    "technique_es": "Óleo sobre lienzo",
+    "technique_en": "Oil on canvas",
+    "status": "available",
+    "public": true,
+    "featured": false,
+    "images": [
+      "/images/el-silencio.jpg"
+    ],
+    "tags": ["óleo", "figurativo", "contemporáneo", "intimista"]
+  },
+  {
+    "id": 20,
+    "slug": "autorretrato",
+    "title": "Autorretrato",
+    "title_es": "Autorretrato",
+    "title_en": "Self-portrait",
+    "desc_es": "Óleo sobre cartón que presenta un autorretrato del artista con una paleta expresiva y pinceladas sueltas.",
+    "desc_en": "Oil on cardboard presenting a self-portrait of the artist with an expressive palette and loose brushstrokes.",
+    "category": "pinturas",
+    "year": 2025,
+    "dimensions": "17 x 26 cm",
+    "technique_es": "Óleo sobre cartón",
+    "technique_en": "Oil on cardboard",
+    "status": "available",
+    "public": true,
+    "featured": false,
+    "images": [
+      "/images/autorretrato.jpg"
+    ],
+    "tags": ["óleo", "retrato", "contemporáneo"]
+  },
+  {
+    "id": 21,
+    "slug": "sisifo",
+    "title": "Sísifo",
+    "title_es": "Sísifo (Serie)",
+    "title_en": "Sisyphus (Series)",
+    "desc_es": "Óleo sobre cartón que forma parte de una serie explorando el mito de Sísifo con tonalidades azules y moradas.",
+    "desc_en": "Oil on cardboard that is part of a series exploring the myth of Sisyphus with blue and purple tones.",
+    "category": "pinturas",
+    "year": 2025,
+    "dimensions": "12 x 22 cm",
+    "technique_es": "Óleo sobre cartón",
+    "technique_en": "Oil on cardboard",
+    "status": "available",
+    "public": true,
+    "featured": false,
+    "images": [
+      "/images/sisifo.jpg"
+    ],
+    "tags": ["óleo", "serie", "contemporáneo", "mitología"]
+  },
+  {
+    "id": 22,
+    "slug": "el-abrazo",
+    "title": "El abrazo",
+    "title_es": "El abrazo",
+    "title_en": "The Embrace",
+    "desc_es": "Óleo sobre lienzo que captura un momento de conexión humana con una composición íntima y cálida.",
+    "desc_en": "Oil on canvas that captures a moment of human connection with an intimate and warm composition.",
+    "category": "pinturas",
+    "year": 2025,
+    "dimensions": "55 x 55 cm",
+    "technique_es": "Óleo sobre lienzo",
+    "technique_en": "Oil on canvas",
+    "status": "available",
+    "public": true,
+    "featured": false,
+    "images": [
+      "/images/el-abrazo.jpg"
+    ],
+    "tags": ["óleo", "figurativo", "contemporáneo", "intimista"]
+  },
+  {
+    "id": 23,
+    "slug": "vistas-cabo-trafalgar",
+    "title": "Vistas del cabo de Trafalgar",
+    "title_es": "Vistas del cabo de Trafalgar (2 piezas)",
+    "title_en": "Views of Cape Trafalgar (2 pieces)",
+    "desc_es": "Óleo sobre cartón que captura las vistas del cabo de Trafalgar en dos piezas complementarias.",
+    "desc_en": "Oil on cardboard capturing the views of Cape Trafalgar in two complementary pieces.",
+    "category": "pinturas",
+    "year": 2025,
+    "dimensions": "10 x 15 cm",
+    "technique_es": "Óleo sobre cartón",
+    "technique_en": "Oil on cardboard",
+    "status": "available",
+    "public": true,
+    "featured": false,
+    "images": [
+      "/images/vistas-cabo-trafalgar.jpg"
+    ],
+    "tags": ["óleo", "paisaje", "contemporáneo", "marina"]
+  },
+  {
+    "id": 24,
+    "slug": "no-voy-a-salir-pequeno",
+    "title": "No voy a salir hasta que no me vea guapo",
+    "title_es": "No voy a salir hasta que no me vea guapo",
+    "title_en": "I'm not going out until I look handsome",
+    "desc_es": "Óleo sobre lienzo que retrata una figura masculina en un momento de introspección frente al espejo.",
+    "desc_en": "Oil on canvas depicting a male figure in a moment of introspection in front of the mirror.",
+    "category": "pinturas",
+    "year": 2025,
+    "dimensions": "27 x 35 cm",
+    "technique_es": "Óleo sobre lienzo",
+    "technique_en": "Oil on canvas",
+    "status": "available",
+    "public": true,
+    "featured": false,
+    "images": [
+      "/images/no-voy-a-salir-pequeno.jpg"
+    ],
+    "tags": ["óleo", "figurativo", "contemporáneo", "intimista"]
+  },
+  {
+    "id": 25,
+    "slug": "no-voy-a-salir-grande",
+    "title": "No voy a salir hasta que no me vea guapo",
+    "title_es": "No voy a salir hasta que no me vea guapo",
+    "title_en": "I'm not going out until I look handsome",
+    "desc_es": "Óleo sobre lienzo de gran formato que retrata una figura masculina en un momento de introspección frente al espejo.",
+    "desc_en": "Large format oil on canvas depicting a male figure in a moment of introspection in front of the mirror.",
+    "category": "pinturas",
+    "year": 2025,
+    "dimensions": "92 x 61 cm",
+    "technique_es": "Óleo sobre lienzo",
+    "technique_en": "Oil on canvas",
+    "status": "available",
+    "public": true,
+    "featured": false,
+    "images": [
+      "/images/no-voy-a-salir-grande.jpg"
+    ],
+    "tags": ["óleo", "figurativo", "contemporáneo", "intimista"]
+  },
+  {
+    "id": 26,
+    "slug": "ego-sum-booty-mundi",
+    "title": "EGO SUM BOOTY MUNDI",
+    "title_es": "EGO SUM BOOTY MUNDI",
+    "title_en": "EGO SUM BOOTY MUNDI",
+    "desc_es": "Óleo sobre lienzo con una composición humorística que juega con referencias clásicas y contemporáneas.",
+    "desc_en": "Oil on canvas with a humorous composition that plays with classical and contemporary references.",
+    "category": "pinturas",
+    "year": 2025,
+    "dimensions": "80 x 80 cm",
+    "technique_es": "Óleo sobre lienzo",
+    "technique_en": "Oil on canvas",
+    "status": "available",
+    "public": true,
+    "featured": false,
+    "images": [
+      "/images/ego-sum-booty-mundi.jpg"
+    ],
+    "tags": ["óleo", "figurativo", "contemporáneo", "humorístico"]
+  },
+  {
+    "id": 27,
+    "slug": "adictos-al-porno",
+    "title": "Adictos al p0rn0",
+    "title_es": "Adictos al p0rn0 (Serie)",
+    "title_en": "Addicted to p0rn0 (Series)",
+    "desc_es": "Grafito sobre papel que forma parte de una serie conceptual con figuras abstractas y composición minimalista.",
+    "desc_en": "Graphite on paper that is part of a conceptual series with abstract figures and minimalist composition.",
+    "category": "dibujos",
+    "year": 2025,
+    "dimensions": "30 x 30 cm",
+    "technique_es": "Grafito sobre papel",
+    "technique_en": "Graphite on paper",
+    "status": "available",
+    "public": true,
+    "featured": false,
+    "images": [
+      "/images/adictos-al-porno.jpg"
+    ],
+    "tags": ["grafito", "serie", "conceptual", "minimalista"]
   }
 ]
