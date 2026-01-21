@@ -352,7 +352,7 @@
     "public": true,
     "featured": false,
     "images": [
-      "/images/el-estilita-lienzo.jpg"
+      "/images/estilista2.jpg"
     ],
     "tags": ["óleo", "figurativo", "contemporáneo"]
   },
@@ -373,7 +373,7 @@
     "public": true,
     "featured": false,
     "images": [
-      "/images/el-estilita-carton.jpg"
+      "/images/estilista.jpg"
     ],
     "tags": ["óleo", "figurativo", "contemporáneo"]
   },
@@ -394,7 +394,7 @@
     "public": true,
     "featured": false,
     "images": [
-      "/images/autorretrato.jpg"
+      "/images/Retrato.jpg"
     ],
     "tags": ["óleo", "retrato", "contemporáneo"]
   },
@@ -415,7 +415,7 @@
     "public": true,
     "featured": false,
     "images": [
-      "/images/vistas-cabo-trafalgar.jpg"
+      "/images/paisaje.jpg"
     ],
     "tags": ["óleo", "paisaje", "contemporáneo", "marina"]
   },
@@ -436,7 +436,7 @@
     "public": true,
     "featured": false,
     "images": [
-      "/images/no-voy-a-salir-pequeno.jpg"
+      "/images/no_quiero_pequeno.jpg"
     ],
     "tags": ["óleo", "figurativo", "contemporáneo", "intimista"]
   },
