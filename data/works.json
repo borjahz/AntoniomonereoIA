@@ -43,12 +43,12 @@
   },
   {
     "id": 3,
-    "slug": "sin-titulo-2025",
-    "title": "Sin título",
-    "title_es": "Sin título",
-    "title_en": "Untitled",
-    "desc_es": "Óleo sobre lienzo que explora la figura humana con una paleta cálida y pinceladas expresivas.",
-    "desc_en": "Oil on canvas exploring the human figure with a warm palette and expressive brushstrokes.",
+    "slug": "el-abrazo",
+    "title": "El abrazo",
+    "title_es": "El abrazo",
+    "title_en": "The Embrace",
+    "desc_es": "Óleo sobre lienzo que captura un momento de conexión humana con una composición íntima y cálida.",
+    "desc_en": "Oil on canvas that captures a moment of human connection with an intimate and warm composition.",
     "category": "pinturas",
     "year": 2025,
     "dimensions": "55 x 55 cm",
@@ -58,9 +58,9 @@
     "public": true,
     "featured": true,
     "images": [
-      "/images/IMG_8988.jpg"
+      "/images/el-abrazo.jpg"
     ],
-    "tags": ["figura", "óleo", "contemporáneo"]
+    "tags": ["óleo", "figurativo", "contemporáneo", "intimista"]
   },
   {
     "id": 9,
@@ -85,33 +85,33 @@
   },
   {
     "id": 13,
-    "slug": "ester",
-    "title": "Ester",
-    "title_es": "Ester",
-    "title_en": "Ester",
-    "desc_es": "Óleo sobre lienzo que retrata una figura femenina en actitud contemplativa escribiendo, con una paleta de tonos cálidos y composición intimista.",
-    "desc_en": "Oil on canvas depicting a female figure in contemplative attitude writing, with a warm color palette and intimate composition.",
+    "slug": "el-silencio",
+    "title": "El silencio",
+    "title_es": "El silencio",
+    "title_en": "The Silence",
+    "desc_es": "Óleo sobre lienzo que captura un momento de intimidad y quietud con una composición delicada.",
+    "desc_en": "Oil on canvas that captures a moment of intimacy and stillness with a delicate composition.",
     "category": "pinturas",
-    "year": 2023,
-    "dimensions": "60 x 60 cm",
+    "year": 2025,
+    "dimensions": "55 x 55 cm",
     "technique_es": "Óleo sobre lienzo",
     "technique_en": "Oil on canvas",
-    "status": "sold",
+    "status": "available",
     "public": true,
     "featured": false,
     "images": [
-      "/images/Ester.jpg"
+      "/images/el-silencio.jpg"
     ],
-    "tags": ["óleo", "figurativo", "contemporáneo"]
+    "tags": ["óleo", "figurativo", "contemporáneo", "intimista"]
   },
   {
     "id": 7,
     "slug": "pinturas-moradas-i",
     "title": "Pinturas moradas I",
-    "title_es": "Pinturas moradas I",
-    "title_en": "Purple Paintings I",
-    "desc_es": "Óleo sobre cartón con tonos morados dominantes que crean una atmósfera evocadora y misteriosa.",
-    "desc_en": "Oil on cardboard with dominant purple tones creating an evocative and mysterious atmosphere.",
+    "title_es": "Pinturas moradas I (Sísifo)",
+    "title_en": "Purple Paintings I (Sisyphus)",
+    "desc_es": "Óleo sobre cartón que forma parte de una serie explorando el mito de Sísifo con tonalidades azules y moradas.",
+    "desc_en": "Oil on cardboard that is part of a series exploring the myth of Sisyphus with blue and purple tones.",
     "category": "pinturas",
     "year": 2025,
     "dimensions": "12 x 22 cm",
@@ -121,9 +121,9 @@
     "public": true,
     "featured": false,
     "images": [
-      "/images/Dibujos_morados1.jpg"
+      "/images/sisifo.jpg"
     ],
-    "tags": ["óleo", "contemporáneo", "abstracto"]
+    "tags": ["óleo", "serie", "contemporáneo", "mitología"]
   },
   {
     "id": 8,
@@ -378,27 +378,6 @@
     "tags": ["óleo", "figurativo", "contemporáneo"]
   },
   {
-    "id": 19,
-    "slug": "el-silencio",
-    "title": "El silencio",
-    "title_es": "El silencio",
-    "title_en": "The Silence",
-    "desc_es": "Óleo sobre lienzo que captura un momento de intimidad y quietud con una composición delicada.",
-    "desc_en": "Oil on canvas that captures a moment of intimacy and stillness with a delicate composition.",
-    "category": "pinturas",
-    "year": 2025,
-    "dimensions": "55 x 55 cm",
-    "technique_es": "Óleo sobre lienzo",
-    "technique_en": "Oil on canvas",
-    "status": "available",
-    "public": true,
-    "featured": false,
-    "images": [
-      "/images/el-silencio.jpg"
-    ],
-    "tags": ["óleo", "figurativo", "contemporáneo", "intimista"]
-  },
-  {
     "id": 20,
     "slug": "autorretrato",
     "title": "Autorretrato",
@@ -418,48 +397,6 @@
       "/images/autorretrato.jpg"
     ],
     "tags": ["óleo", "retrato", "contemporáneo"]
-  },
-  {
-    "id": 21,
-    "slug": "sisifo",
-    "title": "Sísifo",
-    "title_es": "Sísifo (Serie)",
-    "title_en": "Sisyphus (Series)",
-    "desc_es": "Óleo sobre cartón que forma parte de una serie explorando el mito de Sísifo con tonalidades azules y moradas.",
-    "desc_en": "Oil on cardboard that is part of a series exploring the myth of Sisyphus with blue and purple tones.",
-    "category": "pinturas",
-    "year": 2025,
-    "dimensions": "12 x 22 cm",
-    "technique_es": "Óleo sobre cartón",
-    "technique_en": "Oil on cardboard",
-    "status": "available",
-    "public": true,
-    "featured": false,
-    "images": [
-      "/images/sisifo.jpg"
-    ],
-    "tags": ["óleo", "serie", "contemporáneo", "mitología"]
-  },
-  {
-    "id": 22,
-    "slug": "el-abrazo",
-    "title": "El abrazo",
-    "title_es": "El abrazo",
-    "title_en": "The Embrace",
-    "desc_es": "Óleo sobre lienzo que captura un momento de conexión humana con una composición íntima y cálida.",
-    "desc_en": "Oil on canvas that captures a moment of human connection with an intimate and warm composition.",
-    "category": "pinturas",
-    "year": 2025,
-    "dimensions": "55 x 55 cm",
-    "technique_es": "Óleo sobre lienzo",
-    "technique_en": "Oil on canvas",
-    "status": "available",
-    "public": true,
-    "featured": false,
-    "images": [
-      "/images/el-abrazo.jpg"
-    ],
-    "tags": ["óleo", "figurativo", "contemporáneo", "intimista"]
   },
   {
     "id": 23,
@@ -520,7 +457,7 @@
     "public": true,
     "featured": false,
     "images": [
-      "/images/no-voy-a-salir-grande.jpg"
+      "/images/Ropita.jpg"
     ],
     "tags": ["óleo", "figurativo", "contemporáneo", "intimista"]
   },
@@ -541,7 +478,7 @@
     "public": true,
     "featured": false,
     "images": [
-      "/images/ego-sum-booty-mundi.jpg"
+      "/images/Culito.jpg"
     ],
     "tags": ["óleo", "figurativo", "contemporáneo", "humorístico"]
   },
