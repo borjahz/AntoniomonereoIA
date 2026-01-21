@@ -20,7 +20,7 @@ export default function Header() {
         <div className="max-w-7xl mx-auto px-8">
           <div className="flex items-center justify-between h-20">
             <Link href="/" className="hover:opacity-70 transition-opacity">
-              <span className="text-base font-normal tracking-wide text-gray-900">Antonio monereo</span>
+              <span className="text-2xl md:text-3xl font-normal tracking-wide text-gray-900">Antonio Monereo</span>
             </Link>
 
             <div className="flex items-center gap-6">
