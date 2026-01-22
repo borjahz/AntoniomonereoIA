@@ -49,7 +49,7 @@ export default function CategoryNavigation({ sticky = false }: CategoryNavigatio
                     : "/icons/aqua_folder-1_(arrastrado) copy.jpg"
                   }
                   alt={category.name}
-                  className="w-full h-full object-contain drop-shadow-lg"
+                  className="w-full h-full object-contain"
                 />
               </div>
               <span className={`text-sm font-medium tracking-wide text-center transition-colors ${
@@ -83,7 +83,7 @@ export default function CategoryNavigation({ sticky = false }: CategoryNavigatio
                     : "/icons/aqua_folder-1_(arrastrado) copy.jpg"
                   }
                   alt={category.name}
-                  className="w-full h-full object-contain drop-shadow-md"
+                  className="w-full h-full object-contain"
                 />
               </div>
               <span className={`text-sm font-medium tracking-wide transition-colors ${
