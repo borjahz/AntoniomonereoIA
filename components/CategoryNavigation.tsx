@@ -67,16 +67,16 @@ export default function CategoryNavigation({ sticky = false }: CategoryNavigatio
           </nav>
         </aside>
 
-        {/* Móvil: barra inferior fija */}
-        <nav className="lg:hidden fixed bottom-0 left-0 right-0 z-40">
-          <div className="flex justify-center items-end gap-0">
+        {/* Móvil: barra superior fija */}
+        <nav className="lg:hidden fixed top-24 left-0 right-0 bg-white border-b border-gray-100 z-30">
+          <div className="flex justify-center items-center gap-6 py-3">
             {categories.map((category) => (
               <Link
                 key={category.href}
                 href={category.href}
                 className="flex flex-col items-center"
               >
-                <div className="relative w-28 h-28 flex items-center justify-center">
+                <div className="relative w-16 h-16 flex items-center justify-center">
                   <img
                     src={isActive(category.href)
                       ? "/icons/aqua_favorites-removebg-preview copy.png"
@@ -86,7 +86,7 @@ export default function CategoryNavigation({ sticky = false }: CategoryNavigatio
                     className="w-full h-full object-contain"
                   />
                 </div>
-                <span className={`text-[11px] font-medium -mt-3 mb-2 transition-colors ${
+                <span className={`text-[11px] font-medium -mt-1 transition-colors ${
                   isActive(category.href)
                     ? 'text-gray-900'
                     : 'text-gray-500'
