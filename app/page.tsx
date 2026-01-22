@@ -29,10 +29,10 @@ export default function Home() {
 
       <div className="flex flex-col min-h-full">
         <div className="flex-1 bg-white">
-        <CategoryNavigation />
+          <CategoryNavigation />
 
-        <div className="lg:ml-48 max-w-6xl mx-auto px-8 py-8 lg:py-12">
-          <CategoryNavigation sticky />
+          <div className="lg:ml-48 max-w-6xl mx-auto px-8 py-8 lg:py-12">
+            <CategoryNavigation sticky />
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
               <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-10 lg:p-14 flex flex-col justify-between min-h-[500px] transition-all duration-500 hover:shadow-lg">
@@ -104,7 +104,6 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </div>
         </div>
         <Footer />
       </div>
