@@ -102,7 +102,7 @@ export default function Header() {
             className="flex items-center gap-3 text-base text-gray-700 hover:text-gray-900 transition-colors"
           >
             <Search className="w-5 h-5" />
-            {t.nav.search || 'Buscar'}
+            {t.common.search}
           </button>
           <Link
             href="/contacto"
