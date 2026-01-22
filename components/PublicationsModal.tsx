@@ -42,51 +42,54 @@ export default function PublicationsModal({ isOpen, onClose }: PublicationsModal
     };
   }, [isOpen]);
 
-  if (!isOpen) return null;
-
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto">
-      <div className="flex min-h-full items-center justify-center p-4">
-        <div
-          className="fixed inset-0 bg-black/30 transition-opacity"
-          onClick={onClose}
-        />
+    <>
+      {/* Overlay */}
+      <div
+        className={`fixed inset-0 bg-black/30 z-50 transition-opacity duration-300 ${
+          isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
+        }`}
+        onClick={onClose}
+      />
 
-        <div className="relative w-full max-w-2xl bg-white shadow-xl">
-          <div className="flex items-center justify-between border-b border-gray-200 p-6">
-            <h2 className="text-xl font-medium text-gray-900">
-              {language === 'es' ? 'Publicaciones' : 'Publications'}
-            </h2>
-            <button
-              onClick={onClose}
-              className="text-gray-400 hover:text-gray-600 transition-colors"
-            >
-              <X className="w-6 h-6" />
-            </button>
-          </div>
+      {/* Panel lateral */}
+      <div
+        className={`fixed top-0 right-0 h-full w-full max-w-md bg-white shadow-xl z-50 transform transition-transform duration-300 ease-in-out ${
+          isOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}
+      >
+        <div className="flex items-center justify-between border-b border-gray-200 p-6">
+          <h2 className="text-xl font-medium text-gray-900">
+            {language === 'es' ? 'Publicaciones' : 'Publications'}
+          </h2>
+          <button
+            type="button"
+            onClick={onClose}
+            className="text-gray-400 hover:text-gray-600 transition-colors"
+            aria-label="Cerrar"
+          >
+            <X className="w-6 h-6" />
+          </button>
+        </div>
 
-          <div className="p-6">
-            <div className="space-y-4">
-              {publications.map((pub, index) => (
-                <a
-                  key={index}
-                  href={pub.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block p-4 border border-gray-200 hover:border-blue-600 hover:bg-blue-50 transition-all"
-                >
-                  <h3 className="text-base font-normal text-blue-600 underline decoration-1 underline-offset-2">
-                    {language === 'es' ? pub.title_es : pub.title_en}
-                  </h3>
-                  <p className="text-sm text-gray-500 mt-1 truncate">
-                    {pub.url}
-                  </p>
-                </a>
-              ))}
-            </div>
+        <div className="p-6 overflow-y-auto h-[calc(100%-80px)]">
+          <div className="space-y-4">
+            {publications.map((pub, index) => (
+              <a
+                key={index}
+                href={pub.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block p-4 border border-gray-200 hover:border-blue-600 hover:bg-blue-50 transition-all"
+              >
+                <h3 className="text-base font-normal text-blue-600 underline decoration-1 underline-offset-2">
+                  {language === 'es' ? pub.title_es : pub.title_en}
+                </h3>
+              </a>
+            ))}
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

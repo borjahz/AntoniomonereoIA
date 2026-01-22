@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Search, Menu, X } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import LanguageToggle from './LanguageToggle';
@@ -13,6 +14,8 @@ export default function Header() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isPublicationsOpen, setIsPublicationsOpen] = useState(false);
   const { t } = useLanguage();
+  const pathname = usePathname();
+  const isHome = pathname === '/';
 
   return (
     <>
@@ -21,7 +24,7 @@ export default function Header() {
           <div className="flex items-center justify-center h-24 relative">
             {/* Logo centrado */}
             <Link href="/" className="hover:opacity-70 transition-opacity">
-              <span className="text-3xl md:text-4xl lg:text-5xl font-normal tracking-wide text-gray-900">Antonio Monereo</span>
+              <span className={`text-3xl md:text-4xl lg:text-5xl font-normal tracking-wide ${isHome ? 'text-blue-600 underline decoration-1 underline-offset-4' : 'text-gray-900'}`}>Antonio Monereo</span>
             </Link>
 
             {/* Iconos discretos a la derecha */}
