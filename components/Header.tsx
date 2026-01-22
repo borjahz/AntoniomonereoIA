@@ -21,7 +21,7 @@ export default function Header() {
     <>
       <header className="sticky top-0 z-40 w-full bg-white">
         <div className="max-w-7xl mx-auto px-8">
-          <div className="flex items-center justify-center h-16 lg:h-24 relative">
+          <div className="flex items-center justify-center h-14 lg:h-24 relative">
             {/* Logo centrado */}
             <Link href="/" className="hover:opacity-70 transition-opacity">
               <span className="text-2xl md:text-4xl lg:text-5xl font-normal tracking-wide text-gray-900">Antonio Monereo</span>
@@ -50,7 +50,7 @@ export default function Header() {
               <button
                 type="button"
                 onClick={() => setIsSearchOpen(true)}
-                className="p-2 text-gray-400 hover:text-gray-600 transition-colors"
+                className="hidden md:block p-2 text-gray-400 hover:text-gray-600 transition-colors"
                 aria-label="Search"
               >
                 <Search className="w-4 h-4" />
@@ -93,6 +93,17 @@ export default function Header() {
           </button>
         </div>
         <nav className="p-6 space-y-6">
+          <button
+            type="button"
+            onClick={() => {
+              setIsSearchOpen(true);
+              setIsMenuOpen(false);
+            }}
+            className="flex items-center gap-3 text-base text-gray-700 hover:text-gray-900 transition-colors"
+          >
+            <Search className="w-5 h-5" />
+            {t.nav.search || 'Buscar'}
+          </button>
           <Link
             href="/contacto"
             onClick={() => setIsMenuOpen(false)}
