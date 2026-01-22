@@ -18,7 +18,7 @@ export default function CopiasPage() {
       <div className="flex-1 bg-white">
         <CategoryNavigation />
 
-        <div className="lg:ml-48 max-w-6xl mx-auto px-8 pt-28 pb-8 lg:pt-8 lg:pb-8">
+        <div className="lg:ml-48 max-w-6xl mx-auto px-8 pt-32 pb-8 lg:pt-8 lg:pb-8">
           <CategoryNavigation sticky />
 
           <p className="text-gray-600 leading-relaxed mb-8">{t.pages.copiesDescription}</p>
