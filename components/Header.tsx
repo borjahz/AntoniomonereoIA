@@ -18,72 +18,68 @@ export default function Header() {
     <>
       <header className="sticky top-0 z-40 w-full bg-white">
         <div className="max-w-7xl mx-auto px-8">
-          <div className="flex items-center justify-between h-20">
+          <div className="flex items-center justify-center h-24 relative">
+            {/* Logo centrado */}
             <Link href="/" className="hover:opacity-70 transition-opacity">
-              <span className="text-2xl md:text-3xl font-normal tracking-wide text-gray-900">Antonio Monereo</span>
+              <span className="text-3xl md:text-4xl lg:text-5xl font-normal tracking-wide text-gray-900">Antonio Monereo</span>
             </Link>
 
-            <div className="flex items-center gap-6">
-              <div className="hidden md:flex items-center gap-6">
+            {/* Iconos discretos a la derecha */}
+            <div className="absolute right-0 flex items-center gap-3">
+              <div className="hidden md:flex items-center gap-3 opacity-50 hover:opacity-100 transition-opacity">
                 <Link
                   href="/contacto"
-                  className="text-[13px] font-normal tracking-wide text-blue-600 underline decoration-1 underline-offset-2 hover:text-blue-800 transition-colors"
+                  className="text-[11px] text-gray-500 hover:text-gray-700 transition-colors"
                 >
                   {t.nav.contact}
                 </Link>
+                <span className="text-gray-300">|</span>
                 <LanguageToggle />
+                <span className="text-gray-300">|</span>
                 <button
                   onClick={() => setIsPublicationsOpen(true)}
-                  className="text-[13px] font-normal tracking-wide text-blue-600 underline decoration-1 underline-offset-2 hover:text-blue-800 transition-colors"
+                  className="text-[11px] text-gray-500 hover:text-gray-700 transition-colors"
                 >
                   {t.common.publications}
                 </button>
-                <button
-                  onClick={() => setIsSearchOpen(true)}
-                  className="p-2 text-gray-600 hover:text-blue-600 transition-colors"
-                  aria-label="Search"
-                >
-                  <Search className="w-5 h-5" />
-                </button>
               </div>
-
               <button
                 onClick={() => setIsSearchOpen(true)}
-                className="md:hidden p-2 text-gray-600 hover:text-blue-600 transition-colors"
+                className="p-2 text-gray-400 hover:text-gray-600 transition-colors"
                 aria-label="Search"
               >
-                <Search className="w-5 h-5" />
+                <Search className="w-4 h-4" />
               </button>
 
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="md:hidden p-2 text-gray-600 hover:text-blue-600 transition-colors"
+                className="md:hidden p-2 text-gray-400 hover:text-gray-600 transition-colors"
                 aria-label="Menu"
               >
-                {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
               </button>
             </div>
           </div>
         </div>
 
         {isMenuOpen && (
-          <div className="md:hidden bg-white">
-            <nav className="px-6 py-6 space-y-4">
+          <div className="md:hidden bg-white border-t border-gray-100">
+            <nav className="px-6 py-4 space-y-3">
               <Link
                 href="/contacto"
                 onClick={() => setIsMenuOpen(false)}
-                className="block text-[13px] font-normal tracking-wide py-2 text-blue-600 underline decoration-1 underline-offset-2 hover:text-blue-800 transition-colors"
+                className="block text-[12px] text-gray-500 hover:text-gray-700 transition-colors"
               >
                 {t.nav.contact}
               </Link>
-              <div className="pt-3 flex items-center gap-4">
+              <div className="flex items-center gap-4">
                 <LanguageToggle />
                 <button
                   onClick={() => {
                     setIsPublicationsOpen(true);
                     setIsMenuOpen(false);
                   }}
-                  className="text-[13px] font-normal tracking-wide text-blue-600 underline decoration-1 underline-offset-2 hover:text-blue-800 transition-colors"
+                  className="text-[12px] text-gray-500 hover:text-gray-700 transition-colors"
                 >
                   {t.common.publications}
                 </button>
