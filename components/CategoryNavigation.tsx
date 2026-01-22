@@ -32,71 +32,75 @@ export default function CategoryNavigation({ sticky = false }: CategoryNavigatio
 
   const isActive = (href: string) => pathname === href;
 
+  // Versión desktop: sidebar fijo a la izquierda
   if (sticky) {
     return (
-      <aside className="hidden lg:block fixed left-8 top-1/2 -translate-y-1/2 z-30">
-        <nav className="flex flex-col gap-6">
-          {categories.map((category) => (
-            <Link
-              key={category.href}
-              href={category.href}
-              className="group flex flex-col items-center gap-2 transition-all"
-            >
-              <div className="relative w-32 h-32 flex items-center justify-center transition-all group-hover:scale-105">
-                <img
-                  src={isActive(category.href)
-                    ? "/icons/aqua_favorites-removebg-preview copy.png"
-                    : "/icons/aqua_folder-1_(arrastrado) copy.jpg"
-                  }
-                  alt={category.name}
-                  className="w-full h-full object-contain"
-                />
-              </div>
-              <span className={`text-sm font-medium tracking-wide text-center transition-colors ${
-                isActive(category.href)
-                  ? 'text-gray-900'
-                  : 'text-gray-600 group-hover:text-gray-900'
-              }`}>
-                {category.name}
-              </span>
-            </Link>
-          ))}
+      <>
+        {/* Desktop: sidebar izquierdo */}
+        <aside className="hidden lg:block fixed left-8 top-1/2 -translate-y-1/2 z-30">
+          <nav className="flex flex-col gap-6">
+            {categories.map((category) => (
+              <Link
+                key={category.href}
+                href={category.href}
+                className="group flex flex-col items-center gap-2 transition-all"
+              >
+                <div className="relative w-32 h-32 flex items-center justify-center transition-all group-hover:scale-105">
+                  <img
+                    src={isActive(category.href)
+                      ? "/icons/aqua_favorites-removebg-preview copy.png"
+                      : "/icons/aqua_folder-1_(arrastrado) copy.jpg"
+                    }
+                    alt={category.name}
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+                <span className={`text-sm font-medium tracking-wide text-center transition-colors ${
+                  isActive(category.href)
+                    ? 'text-gray-900'
+                    : 'text-gray-600 group-hover:text-gray-900'
+                }`}>
+                  {category.name}
+                </span>
+              </Link>
+            ))}
+          </nav>
+        </aside>
+
+        {/* Móvil: barra inferior fija */}
+        <nav className="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 z-40 pb-safe">
+          <div className="flex justify-around items-center py-2">
+            {categories.map((category) => (
+              <Link
+                key={category.href}
+                href={category.href}
+                className="flex flex-col items-center gap-1 px-4 py-2"
+              >
+                <div className="relative w-12 h-12 flex items-center justify-center">
+                  <img
+                    src={isActive(category.href)
+                      ? "/icons/aqua_favorites-removebg-preview copy.png"
+                      : "/icons/aqua_folder-1_(arrastrado) copy.jpg"
+                    }
+                    alt={category.name}
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+                <span className={`text-xs font-medium tracking-wide transition-colors ${
+                  isActive(category.href)
+                    ? 'text-gray-900'
+                    : 'text-gray-500'
+                }`}>
+                  {category.name}
+                </span>
+              </Link>
+            ))}
+          </div>
         </nav>
-      </aside>
+      </>
     );
   }
 
-  return (
-    <div className="bg-white py-8 lg:hidden">
-      <div className="max-w-7xl mx-auto px-8">
-        <div className="flex justify-center items-center gap-10">
-          {categories.map((category) => (
-            <Link
-              key={category.href}
-              href={category.href}
-              className="group flex flex-col items-center gap-2 transition-all"
-            >
-              <div className="relative w-20 h-20 flex items-center justify-center transition-all group-hover:scale-105">
-                <img
-                  src={isActive(category.href)
-                    ? "/icons/aqua_favorites-removebg-preview copy.png"
-                    : "/icons/aqua_folder-1_(arrastrado) copy.jpg"
-                  }
-                  alt={category.name}
-                  className="w-full h-full object-contain"
-                />
-              </div>
-              <span className={`text-sm font-medium tracking-wide transition-colors ${
-                isActive(category.href)
-                  ? 'text-gray-900'
-                  : 'text-gray-600 group-hover:text-gray-900'
-              }`}>
-                {category.name}
-              </span>
-            </Link>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
+  // Versión no-sticky: no mostrar nada (la barra inferior ya está en sticky)
+  return null;
 }

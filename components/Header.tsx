@@ -40,6 +40,7 @@ export default function Header() {
                 <LanguageToggle />
                 <span className="text-gray-300">|</span>
                 <button
+                  type="button"
                   onClick={() => setIsPublicationsOpen(true)}
                   className="text-[11px] text-gray-500 hover:text-gray-700 transition-colors"
                 >
@@ -47,6 +48,7 @@ export default function Header() {
                 </button>
               </div>
               <button
+                type="button"
                 onClick={() => setIsSearchOpen(true)}
                 className="p-2 text-gray-400 hover:text-gray-600 transition-colors"
                 aria-label="Search"
@@ -55,42 +57,64 @@ export default function Header() {
               </button>
 
               <button
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                type="button"
+                onClick={() => setIsMenuOpen(true)}
                 className="md:hidden p-2 text-gray-400 hover:text-gray-600 transition-colors"
                 aria-label="Menu"
               >
-                {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+                <Menu className="w-5 h-5" />
               </button>
             </div>
           </div>
         </div>
-
-        {isMenuOpen && (
-          <div className="md:hidden bg-white border-t border-gray-100">
-            <nav className="px-6 py-4 space-y-3">
-              <Link
-                href="/contacto"
-                onClick={() => setIsMenuOpen(false)}
-                className="block text-[12px] text-gray-500 hover:text-gray-700 transition-colors"
-              >
-                {t.nav.contact}
-              </Link>
-              <div className="flex items-center gap-4">
-                <LanguageToggle />
-                <button
-                  onClick={() => {
-                    setIsPublicationsOpen(true);
-                    setIsMenuOpen(false);
-                  }}
-                  className="text-[12px] text-gray-500 hover:text-gray-700 transition-colors"
-                >
-                  {t.common.publications}
-                </button>
-              </div>
-            </nav>
-          </div>
-        )}
       </header>
+
+      {/* Panel lateral móvil */}
+      <div
+        className={`fixed inset-0 bg-black/30 z-50 transition-opacity duration-300 md:hidden ${
+          isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
+        }`}
+        onClick={() => setIsMenuOpen(false)}
+      />
+      <div
+        className={`fixed top-0 right-0 h-full w-72 bg-white shadow-xl z-50 transform transition-transform duration-300 ease-in-out md:hidden ${
+          isMenuOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}
+      >
+        <div className="flex items-center justify-between border-b border-gray-200 p-6">
+          <span className="text-lg font-medium text-gray-900">Menu</span>
+          <button
+            type="button"
+            onClick={() => setIsMenuOpen(false)}
+            className="text-gray-400 hover:text-gray-600 transition-colors"
+            aria-label="Cerrar menu"
+          >
+            <X className="w-6 h-6" />
+          </button>
+        </div>
+        <nav className="p-6 space-y-6">
+          <Link
+            href="/contacto"
+            onClick={() => setIsMenuOpen(false)}
+            className="block text-base text-gray-700 hover:text-gray-900 transition-colors"
+          >
+            {t.nav.contact}
+          </Link>
+          <button
+            type="button"
+            onClick={() => {
+              setIsPublicationsOpen(true);
+              setIsMenuOpen(false);
+            }}
+            className="block text-base text-gray-700 hover:text-gray-900 transition-colors"
+          >
+            {t.common.publications}
+          </button>
+          <div className="pt-4 border-t border-gray-200">
+            <LanguageToggle />
+          </div>
+        </nav>
+      </div>
 
       <SearchModal
         isOpen={isSearchOpen}

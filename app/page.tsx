@@ -31,7 +31,7 @@ export default function Home() {
         <div className="flex-1 bg-white">
           <CategoryNavigation />
 
-          <div className="lg:ml-48 max-w-6xl mx-auto px-8 py-8 lg:py-12">
+          <div className="lg:ml-48 max-w-6xl mx-auto px-8 py-8 pb-24 lg:pb-12 lg:py-12">
             <CategoryNavigation sticky />
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10">

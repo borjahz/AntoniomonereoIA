@@ -19,7 +19,7 @@ export default function PinturasPage() {
       <div className="flex-1 bg-white">
         <CategoryNavigation />
 
-        <div className="lg:ml-48 max-w-6xl mx-auto px-8 py-8">
+        <div className="lg:ml-48 max-w-6xl mx-auto px-8 py-8 pb-24 lg:pb-8">
           <CategoryNavigation sticky />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
