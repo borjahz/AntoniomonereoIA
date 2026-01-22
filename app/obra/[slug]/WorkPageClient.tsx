@@ -71,7 +71,7 @@ export default function WorkPageClient({ slug }: { slug: string }) {
       />
 
       <div className="bg-white min-h-screen">
-        <div className="max-w-7xl mx-auto px-8 py-16">
+        <div className="max-w-7xl mx-auto px-8 pt-4 pb-16 lg:pt-6">
         <button
           onClick={() => router.back()}
           className="flex items-center gap-2 text-[13px] font-normal tracking-wide text-blue-600 underline decoration-1 underline-offset-2 hover:text-blue-800 transition-colors mb-10"
