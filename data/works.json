@@ -33,7 +33,7 @@
     "dimensions": "73 x 60 cm",
     "technique_es": "Óleo sobre lienzo",
     "technique_en": "Oil on canvas",
-    "status": "available",
+    "status": "sold",
     "public": true,
     "featured": true,
     "images": [
@@ -169,15 +169,15 @@
   },
   {
     "id": 4,
-    "slug": "calma-y-relax-i",
-    "title": "Calma y Relax I",
-    "title_es": "Calma y Relax I",
-    "title_en": "Calm and Relax I",
-    "desc_es": "Dibujo minimalista que explora formas geométricas y orgánicas en una composición equilibrada y serena.",
-    "desc_en": "Minimalist drawing that explores geometric and organic forms in a balanced and serene composition.",
+    "slug": "adictos-al-porno-i",
+    "title": "Adictos al p0rn0 I",
+    "title_es": "Adictos al p0rn0 I",
+    "title_en": "Addicted to p0rn0 I",
+    "desc_es": "Grafito sobre papel que forma parte de una serie conceptual con figuras abstractas y composición minimalista.",
+    "desc_en": "Graphite on paper that is part of a conceptual series with abstract figures and minimalist composition.",
     "category": "dibujos",
     "year": 2025,
-    "dimensions": "25 x 25 cm",
+    "dimensions": "30 x 30 cm",
     "technique_es": "Grafito sobre papel",
     "technique_en": "Graphite on paper",
     "status": "available",
@@ -186,19 +186,19 @@
     "images": [
       "/images/Calma_y_Relax_I.jpg"
     ],
-    "tags": ["grafito", "minimalista", "geométrico"]
+    "tags": ["grafito", "serie", "conceptual", "minimalista"]
   },
   {
     "id": 5,
-    "slug": "calma-y-relax-ii",
-    "title": "Calma y Relax II",
-    "title_es": "Calma y Relax II",
-    "title_en": "Calm and Relax II",
-    "desc_es": "Dibujo minimalista que combina formas geométricas y figuras humanas en una composición delicada y contemplativa.",
-    "desc_en": "Minimalist drawing that combines geometric forms and human figures in a delicate and contemplative composition.",
+    "slug": "adictos-al-porno-ii",
+    "title": "Adictos al p0rn0 II",
+    "title_es": "Adictos al p0rn0 II",
+    "title_en": "Addicted to p0rn0 II",
+    "desc_es": "Grafito sobre papel que forma parte de una serie conceptual con figuras abstractas y composición minimalista.",
+    "desc_en": "Graphite on paper that is part of a conceptual series with abstract figures and minimalist composition.",
     "category": "dibujos",
     "year": 2025,
-    "dimensions": "25 x 25 cm",
+    "dimensions": "30 x 30 cm",
     "technique_es": "Grafito sobre papel",
     "technique_en": "Graphite on paper",
     "status": "available",
@@ -207,19 +207,19 @@
     "images": [
       "/images/Calma_y_Relax-II.jpg"
     ],
-    "tags": ["grafito", "minimalista", "figurativo"]
+    "tags": ["grafito", "serie", "conceptual", "minimalista"]
   },
   {
     "id": 15,
-    "slug": "calma-y-relax-iii",
-    "title": "Calma y Relax III",
-    "title_es": "Calma y Relax III",
-    "title_en": "Calm and Relax III",
-    "desc_es": "Dibujo minimalista que combina formas geométricas y figuras humanas en una composición delicada y contemplativa.",
-    "desc_en": "Minimalist drawing that combines geometric forms and human figures in a delicate and contemplative composition.",
+    "slug": "adictos-al-porno-iii",
+    "title": "Adictos al p0rn0 III",
+    "title_es": "Adictos al p0rn0 III",
+    "title_en": "Addicted to p0rn0 III",
+    "desc_es": "Grafito sobre papel que forma parte de una serie conceptual con figuras abstractas y composición minimalista.",
+    "desc_en": "Graphite on paper that is part of a conceptual series with abstract figures and minimalist composition.",
     "category": "dibujos",
     "year": 2025,
-    "dimensions": "25 x 25 cm",
+    "dimensions": "30 x 30 cm",
     "technique_es": "Grafito sobre papel",
     "technique_en": "Graphite on paper",
     "status": "available",
@@ -228,7 +228,7 @@
     "images": [
       "/images/Calma_y_Relax_III.jpg"
     ],
-    "tags": ["grafito", "minimalista", "figurativo"]
+    "tags": ["grafito", "serie", "conceptual", "minimalista"]
   },
   {
     "id": 6,
@@ -243,7 +243,7 @@
     "dimensions": "39 x 31,3 cm",
     "technique_es": "Óleo sobre tabla de madera de pino",
     "technique_en": "Oil on pine wood panel",
-    "status": "available",
+    "status": "sold",
     "public": true,
     "featured": false,
     "images": [
@@ -289,7 +289,9 @@
     "public": true,
     "featured": false,
     "images": [
-      "/images/Gijon.jpg"
+      "/images/Gijon.jpg",
+      "/images/IMG_9153.jpg",
+      "/images/IMG_9154.jpg"
     ],
     "tags": ["copia", "Inza", "clásico", "retrato"]
   },
@@ -481,26 +483,5 @@
       "/images/Culito.jpg"
     ],
     "tags": ["óleo", "figurativo", "contemporáneo", "humorístico"]
-  },
-  {
-    "id": 27,
-    "slug": "adictos-al-porno",
-    "title": "Adictos al p0rn0",
-    "title_es": "Adictos al p0rn0 (Serie)",
-    "title_en": "Addicted to p0rn0 (Series)",
-    "desc_es": "Grafito sobre papel que forma parte de una serie conceptual con figuras abstractas y composición minimalista.",
-    "desc_en": "Graphite on paper that is part of a conceptual series with abstract figures and minimalist composition.",
-    "category": "dibujos",
-    "year": 2025,
-    "dimensions": "30 x 30 cm",
-    "technique_es": "Grafito sobre papel",
-    "technique_en": "Graphite on paper",
-    "status": "available",
-    "public": true,
-    "featured": false,
-    "images": [
-      "/images/adictos-al-porno.jpg"
-    ],
-    "tags": ["grafito", "serie", "conceptual", "minimalista"]
   }
 ]
