@@ -36,16 +36,16 @@ export default function CategoryNavigation({ sticky = false }: CategoryNavigatio
   if (sticky) {
     return (
       <>
-        {/* Desktop: sidebar izquierdo */}
-        <aside className="hidden lg:block fixed left-8 top-1/2 -translate-y-1/2 z-30">
-          <nav className="flex flex-col gap-6">
+        {/* Desktop: sidebar izquierdo - ocupa todo el lateral */}
+        <aside className="hidden lg:block fixed left-2 xl:left-4 2xl:left-6 top-28 bottom-16 z-30">
+          <nav className="flex flex-col justify-evenly h-full">
             {categories.map((category) => (
               <Link
                 key={category.href}
                 href={category.href}
-                className="group flex flex-col items-center gap-2 transition-all"
+                className="group flex flex-col items-center gap-1 transition-all"
               >
-                <div className="relative w-32 h-32 flex items-center justify-center transition-all group-hover:scale-105">
+                <div className="relative w-28 h-28 xl:w-32 xl:h-32 2xl:w-36 2xl:h-36 flex items-center justify-center transition-all group-hover:scale-105">
                   <img
                     src={isActive(category.href)
                       ? "/icons/aqua_favorites-removebg-preview copy.png"
@@ -67,7 +67,7 @@ export default function CategoryNavigation({ sticky = false }: CategoryNavigatio
           </nav>
         </aside>
 
-        {/* Móvil: barra superior fija */}
+        {/* Móvil y tablets: barra superior fija (hasta lg donde aparece el sidebar) */}
         <nav className="lg:hidden fixed top-14 left-0 right-0 bg-white z-30">
           <div className="flex justify-center items-center gap-2">
             {categories.map((category) => (

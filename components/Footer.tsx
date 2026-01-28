@@ -8,12 +8,12 @@ export default function Footer() {
   const { t } = useLanguage();
 
   return (
-    <footer className="mt-auto py-10 bg-white border-t border-gray-200">
-      <div className="max-w-7xl mx-auto px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+    <footer className="mt-auto py-4 bg-white border-t border-gray-200">
+      <div className="max-w-7xl mx-auto px-8 lg:ml-36 xl:ml-40 2xl:ml-44 flex flex-col sm:flex-row items-center justify-between gap-3">
         <p className="text-[13px] font-normal tracking-wide text-gray-600">
           © {new Date().getFullYear()} Antonio monereo
         </p>
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-4">
           <a
             href="mailto:antoniomonelopez@gmail.com"
             className="text-gray-600 hover:text-blue-600 transition-colors"

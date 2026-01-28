@@ -194,7 +194,7 @@ export default function WorkPageClient({ slug }: { slug: string }) {
                   className={`inline-flex items-center px-2 sm:px-3 py-1 text-[12px] sm:text-[13px] font-normal ${
                     work.status === 'available'
                       ? 'bg-green-100 text-green-700'
-                      : 'bg-gray-200 text-gray-700'
+                      : 'bg-red-100 text-red-700'
                   }`}
                 >
                   {work.status === 'available' ? t.work.available : t.work.sold}
