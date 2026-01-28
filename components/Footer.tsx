@@ -22,7 +22,7 @@ export default function Footer() {
             <Mail className="w-5 h-5" />
           </a>
           <a
-            href="https://www.instagram.com/antoniomonereo?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+            href="https://www.instagram.com/antoniomonereo"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-600 hover:text-blue-600 transition-colors"
@@ -31,7 +31,7 @@ export default function Footer() {
             <Instagram className="w-5 h-5" />
           </a>
           <a
-            href="https://www.tiktok.com/@antoniomonereo?is_from_webapp=1&sender_device=pc"
+            href="https://www.tiktok.com/@antoniomonereo"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-600 hover:text-blue-600 transition-colors"

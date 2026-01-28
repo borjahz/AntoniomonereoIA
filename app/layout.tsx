@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 import Header from '@/components/Header'
 import Analytics from '@/components/Analytics'
+import CookieConsent from '@/components/CookieConsent'
 import { LanguageProvider } from '@/contexts/LanguageContext'
 
 export const metadata: Metadata = {
@@ -77,6 +78,7 @@ export default function RootLayout({
             <Header />
             <main className="flex-1">{children}</main>
           </div>
+          <CookieConsent />
         </LanguageProvider>
       </body>
     </html>

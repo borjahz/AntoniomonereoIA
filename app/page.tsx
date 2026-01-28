@@ -62,7 +62,7 @@ export default function Home() {
                     <span>{t.home.email}</span>
                   </a>
                   <a
-                    href="https://www.instagram.com/antoniomonereo?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                    href="https://www.instagram.com/antoniomonereo"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 text-[13px] font-normal tracking-wide text-blue-600 underline decoration-1 underline-offset-2 hover:text-blue-800 transition-colors"
@@ -71,7 +71,7 @@ export default function Home() {
                     <span>{t.home.instagram}</span>
                   </a>
                   <a
-                    href="https://www.tiktok.com/@antoniomonereo?is_from_webapp=1&sender_device=pc"
+                    href="https://www.tiktok.com/@antoniomonereo"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 text-[13px] font-normal tracking-wide text-blue-600 underline decoration-1 underline-offset-2 hover:text-blue-800 transition-colors"
