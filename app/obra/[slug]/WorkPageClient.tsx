@@ -231,12 +231,12 @@ export default function WorkPageClient({ slug }: { slug: string }) {
 
       {isFullscreen && (
         <div
-          className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center cursor-pointer"
+          className="fixed inset-0 bg-white z-50 flex items-center justify-center cursor-pointer"
           onClick={() => setIsFullscreen(false)}
         >
           <button
             onClick={() => setIsFullscreen(false)}
-            className="absolute top-4 right-4 p-2 text-white/70 hover:text-white transition-colors"
+            className="absolute top-4 right-4 p-2 text-gray-400 hover:text-gray-700 transition-colors"
             aria-label="Cerrar"
           >
             <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -255,20 +255,20 @@ export default function WorkPageClient({ slug }: { slug: string }) {
                   e.stopPropagation();
                   goToPrevImage();
                 }}
-                className="absolute left-4 top-1/2 -translate-y-1/2 p-3 bg-white/10 hover:bg-white/20 rounded-full transition-all"
+                className="absolute left-4 top-1/2 -translate-y-1/2 p-3 bg-gray-100 hover:bg-gray-200 rounded-full transition-all"
                 aria-label="Previous image"
               >
-                <ChevronLeft className="w-6 h-6 text-white" />
+                <ChevronLeft className="w-6 h-6 text-gray-700" />
               </button>
               <button
                 onClick={(e) => {
                   e.stopPropagation();
                   goToNextImage();
                 }}
-                className="absolute right-4 top-1/2 -translate-y-1/2 p-3 bg-white/10 hover:bg-white/20 rounded-full transition-all"
+                className="absolute right-4 top-1/2 -translate-y-1/2 p-3 bg-gray-100 hover:bg-gray-200 rounded-full transition-all"
                 aria-label="Next image"
               >
-                <ChevronRight className="w-6 h-6 text-white" />
+                <ChevronRight className="w-6 h-6 text-gray-700" />
               </button>
               <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
                 {work.images.map((_, index) => (
@@ -280,8 +280,8 @@ export default function WorkPageClient({ slug }: { slug: string }) {
                     }}
                     className={`h-2 rounded-full transition-all ${
                       index === currentImageIndex
-                        ? 'bg-white w-8'
-                        : 'bg-white/40 hover:bg-white/60 w-2'
+                        ? 'bg-gray-800 w-8'
+                        : 'bg-gray-300 hover:bg-gray-400 w-2'
                     }`}
                     aria-label={`Go to image ${index + 1}`}
                   />
