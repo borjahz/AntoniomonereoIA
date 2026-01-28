@@ -37,7 +37,7 @@ export default function CategoryNavigation({ sticky = false }: CategoryNavigatio
     return (
       <>
         {/* Desktop: sidebar izquierdo - ocupa todo el lateral */}
-        <aside className="hidden lg:block fixed left-2 xl:left-4 2xl:left-6 top-28 bottom-16 z-30">
+        <aside className="hidden lg:block fixed left-2 xl:left-4 2xl:left-6 top-20 bottom-12 z-30">
           <nav className="flex flex-col justify-evenly h-full">
             {categories.map((category) => (
               <Link

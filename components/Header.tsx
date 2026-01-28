@@ -21,7 +21,7 @@ export default function Header() {
     <>
       <header className="sticky top-0 z-40 w-full bg-white">
         <div className="max-w-7xl mx-auto px-8">
-          <div className="flex items-center justify-center h-14 lg:h-24 relative">
+          <div className="flex items-center justify-center h-14 lg:h-20 relative">
             {/* Logo centrado */}
             <Link href="/" className="hover:opacity-70 transition-opacity">
               <span className="text-2xl md:text-4xl lg:text-5xl font-normal tracking-wide text-gray-900">Antonio Monereo</span>
