@@ -57,7 +57,7 @@ export default function Home() {
                     </h1>
                   </FadeInView>
                   <FadeInView delay={200}>
-                    <p className="text-base text-gray-800 leading-[1.8]">
+                    <p className="text-base text-gray-700 leading-[1.8]">
                       {t.home.intro}
                     </p>
                   </FadeInView>

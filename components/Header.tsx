@@ -27,34 +27,19 @@ const publications = [
 
 export default function Header() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const [isPressOpen, setIsPressOpen] = useState(false);
-  const pressRef = useRef<HTMLDivElement>(null);
+  const [isMoreOpen, setIsMoreOpen] = useState(false);
+  const moreRef = useRef<HTMLDivElement>(null);
   const { t, language, setLanguage } = useLanguage();
   const pathname = usePathname();
 
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
-      if (pressRef.current && !pressRef.current.contains(e.target as Node)) {
-        setIsPressOpen(false);
-      }
-    }
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
-
-  const pressLabel = language === 'es' ? 'prensa' : 'press';
-
-  const [isMoreOpen, setIsMoreOpen] = useState(false);
-  const moreRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    function handleClickOutsideMore(e: MouseEvent) {
       if (moreRef.current && !moreRef.current.contains(e.target as Node)) {
         setIsMoreOpen(false);
       }
     }
-    document.addEventListener('mousedown', handleClickOutsideMore);
-    return () => document.removeEventListener('mousedown', handleClickOutsideMore);
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
   const navItems = [
@@ -65,65 +50,15 @@ export default function Header() {
 
   return (
     <>
-      {/* Header */}
-      <header className="sticky top-0 z-40 w-full bg-white">
+      {/* Header — solo logo en desktop, logo en móvil */}
+      <header className="sticky top-0 z-40 w-full bg-white border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-8">
-          <div className="flex items-center justify-center h-14 lg:h-20 relative">
+          <div className="flex items-center justify-center h-14 lg:h-20">
             <Link href="/" className="hover:opacity-70 transition-opacity">
-              <span className="text-2xl md:text-4xl lg:text-5xl font-normal tracking-wide text-gray-900">Antonio Monereo</span>
+              <span className="text-2xl md:text-4xl lg:text-5xl font-normal tracking-wide text-gray-900">
+                Antonio Monereo
+              </span>
             </Link>
-
-            {/* Derecha desktop */}
-            <div className="absolute right-0 hidden md:flex items-center gap-2">
-              <div className="flex items-center gap-3 opacity-50 hover:opacity-100 transition-opacity">
-                <Link href="/contacto" className="text-[11px] text-gray-500 hover:text-gray-700 transition-colors">
-                  {t.nav.contact}
-                </Link>
-                <span className="text-gray-300">|</span>
-                <button
-                  type="button"
-                  onClick={() => setLanguage(language === 'es' ? 'en' : 'es')}
-                  className="text-[11px] text-blue-600 hover:text-blue-800 transition-colors"
-                >
-                  {language === 'es' ? 'EN' : 'ES'}
-                </button>
-                <span className="text-gray-300">|</span>
-                <div ref={pressRef} className="relative">
-                  <button
-                    type="button"
-                    onClick={() => setIsPressOpen((v) => !v)}
-                    className="text-[11px] text-gray-500 hover:text-gray-700 transition-colors"
-                  >
-                    {pressLabel}
-                  </button>
-                  {isPressOpen && (
-                    <div className="absolute top-full right-0 mt-3 w-56 bg-white border border-gray-200 shadow-lg z-50">
-                      {publications.map((pub, i) => (
-                        <a
-                          key={i}
-                          href={pub.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          onClick={() => setIsPressOpen(false)}
-                          className="flex items-center gap-2 px-4 py-3 text-[12px] text-gray-600 hover:bg-gray-50 hover:text-blue-600 transition-colors border-b border-gray-100 last:border-0"
-                        >
-                          <ExternalLink className="w-3 h-3 flex-shrink-0 text-gray-400" />
-                          {language === 'es' ? pub.title_es : pub.title_en}
-                        </a>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              </div>
-              <button
-                type="button"
-                onClick={() => setIsSearchOpen(true)}
-                className="p-2 text-gray-400 hover:text-gray-600 transition-colors"
-                aria-label="Search"
-              >
-                <Search className="w-4 h-4" />
-              </button>
-            </div>
           </div>
         </div>
       </header>
@@ -137,27 +72,27 @@ export default function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`flex-1 flex flex-col items-center justify-center py-3 gap-0.5 transition-colors ${
+                className={`flex-1 flex flex-col items-center justify-center py-3 transition-colors ${
                   active ? 'text-gray-900' : 'text-gray-400'
                 }`}
               >
                 <span className={`text-[10px] tracking-wide ${active ? 'font-medium' : 'font-normal'}`}>
                   {item.label}
                 </span>
-                {active && <span className="w-4 h-[2px] bg-gray-900 rounded-full" />}
+                {active && <span className="w-4 h-[2px] bg-gray-900 rounded-full mt-0.5" />}
               </Link>
             );
           })}
 
-          {/* Más ··· */}
+          {/* ··· */}
           <div ref={moreRef} className="flex-1 relative">
             <button
               type="button"
               onClick={() => setIsMoreOpen((v) => !v)}
+              aria-label="Más opciones"
               className={`w-full h-full flex flex-col items-center justify-center py-3 transition-colors ${
                 isMoreOpen ? 'text-gray-900' : 'text-gray-400'
               }`}
-              aria-label="Más"
             >
               <span className="text-base leading-none tracking-widest">···</span>
               {isMoreOpen && <span className="w-4 h-[2px] bg-gray-900 rounded-full mt-1" />}
