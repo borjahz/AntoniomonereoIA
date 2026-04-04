@@ -28,9 +28,7 @@ const publications = [
 export default function Header() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isPressOpen, setIsPressOpen] = useState(false);
-  const [isMobilePressOpen, setIsMobilePressOpen] = useState(false);
   const pressRef = useRef<HTMLDivElement>(null);
-  const mobilePressRef = useRef<HTMLDivElement>(null);
   const { t, language, setLanguage } = useLanguage();
   const pathname = usePathname();
 
@@ -39,9 +37,6 @@ export default function Header() {
       if (pressRef.current && !pressRef.current.contains(e.target as Node)) {
         setIsPressOpen(false);
       }
-      if (mobilePressRef.current && !mobilePressRef.current.contains(e.target as Node)) {
-        setIsMobilePressOpen(false);
-      }
     }
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
@@ -49,11 +44,23 @@ export default function Header() {
 
   const pressLabel = language === 'es' ? 'prensa' : 'press';
 
+  const [isMoreOpen, setIsMoreOpen] = useState(false);
+  const moreRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleClickOutsideMore(e: MouseEvent) {
+      if (moreRef.current && !moreRef.current.contains(e.target as Node)) {
+        setIsMoreOpen(false);
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutsideMore);
+    return () => document.removeEventListener('mousedown', handleClickOutsideMore);
+  }, []);
+
   const navItems = [
     { href: '/pinturas', label: t.nav.paintings },
     { href: '/dibujos', label: t.nav.drawings },
     { href: '/copias', label: t.nav.copies },
-    { href: '/contacto', label: t.nav.contact },
   ];
 
   return (
@@ -134,7 +141,7 @@ export default function Header() {
                   active ? 'text-gray-900' : 'text-gray-400'
                 }`}
               >
-                <span className={`text-[10px] tracking-wide transition-all ${active ? 'font-medium' : 'font-normal'}`}>
+                <span className={`text-[10px] tracking-wide ${active ? 'font-medium' : 'font-normal'}`}>
                   {item.label}
                 </span>
                 {active && <span className="w-4 h-[2px] bg-gray-900 rounded-full" />}
@@ -142,50 +149,52 @@ export default function Header() {
             );
           })}
 
-          {/* Buscar */}
-          <button
-            type="button"
-            onClick={() => setIsSearchOpen(true)}
-            aria-label="Buscar"
-            className="flex-1 flex flex-col items-center justify-center py-3 gap-0.5 text-gray-400"
-          >
-            <Search className="w-4 h-4" />
-          </button>
-
-          {/* Idioma */}
-          <button
-            type="button"
-            onClick={() => setLanguage(language === 'es' ? 'en' : 'es')}
-            className="flex-1 flex flex-col items-center justify-center py-3 gap-0.5 text-gray-400"
-          >
-            <span className="text-[10px] tracking-wide text-blue-500 font-medium">
-              {language === 'es' ? 'EN' : 'ES'}
-            </span>
-          </button>
-
-          {/* Prensa */}
-          <div ref={mobilePressRef} className="flex-1 relative">
+          {/* Más ··· */}
+          <div ref={moreRef} className="flex-1 relative">
             <button
               type="button"
-              onClick={() => setIsMobilePressOpen((v) => !v)}
-              className={`w-full h-full flex flex-col items-center justify-center py-3 gap-0.5 transition-colors ${
-                isMobilePressOpen ? 'text-gray-900' : 'text-gray-400'
+              onClick={() => setIsMoreOpen((v) => !v)}
+              className={`w-full h-full flex flex-col items-center justify-center py-3 transition-colors ${
+                isMoreOpen ? 'text-gray-900' : 'text-gray-400'
               }`}
+              aria-label="Más"
             >
-              <span className="text-[10px] tracking-wide">{pressLabel}</span>
-              {isMobilePressOpen && <span className="w-4 h-[2px] bg-gray-900 rounded-full" />}
+              <span className="text-base leading-none tracking-widest">···</span>
+              {isMoreOpen && <span className="w-4 h-[2px] bg-gray-900 rounded-full mt-1" />}
             </button>
 
-            {isMobilePressOpen && (
-              <div className="absolute bottom-full right-0 mb-2 w-56 bg-white border border-gray-200 shadow-lg z-50">
+            {isMoreOpen && (
+              <div className="absolute bottom-full right-0 mb-2 w-44 bg-white border border-gray-200 shadow-lg z-50">
+                <button
+                  type="button"
+                  onClick={() => { setIsSearchOpen(true); setIsMoreOpen(false); }}
+                  className="w-full flex items-center gap-3 px-4 py-3 text-[12px] text-gray-600 hover:bg-gray-50 transition-colors border-b border-gray-100"
+                >
+                  <Search className="w-3.5 h-3.5 text-gray-400" />
+                  {t.common.search}
+                </button>
+                <Link
+                  href="/contacto"
+                  onClick={() => setIsMoreOpen(false)}
+                  className="flex items-center gap-3 px-4 py-3 text-[12px] text-gray-600 hover:bg-gray-50 transition-colors border-b border-gray-100"
+                >
+                  {t.nav.contact}
+                </Link>
+                <button
+                  type="button"
+                  onClick={() => { setLanguage(language === 'es' ? 'en' : 'es'); setIsMoreOpen(false); }}
+                  className="w-full flex items-center gap-3 px-4 py-3 text-[12px] text-blue-600 hover:bg-gray-50 transition-colors border-b border-gray-100"
+                >
+                  {language === 'es' ? 'English' : 'Español'}
+                </button>
                 {publications.map((pub, i) => (
                   <a
                     key={i}
                     href={pub.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    onClick={() => setIsMobilePressOpen(false)}
-                    className="flex items-center gap-2 px-4 py-3 text-[12px] text-gray-600 hover:bg-gray-50 hover:text-blue-600 transition-colors border-b border-gray-100 last:border-0"
+                    onClick={() => setIsMoreOpen(false)}
+                    className="flex items-center gap-3 px-4 py-3 text-[12px] text-gray-600 hover:bg-gray-50 transition-colors border-b border-gray-100 last:border-0"
                   >
                     <ExternalLink className="w-3 h-3 flex-shrink-0 text-gray-400" />
                     {language === 'es' ? pub.title_es : pub.title_en}
