@@ -12,7 +12,8 @@ export default function PinturasPage() {
 
   const paintings = worksData
     .filter((work) => work.category === 'pinturas')
-    .filter((work) => !showPublicOnly || work.public);
+    .filter((work) => !showPublicOnly || work.public)
+    .sort((a, b) => b.id - a.id);
 
   return (
     <div className="flex flex-col min-h-full">
