@@ -85,7 +85,7 @@ export default function Carousel({ works }: CarouselProps) {
           <img
             src={currentWork.images[0]}
             alt={title}
-            className="w-full h-full object-cover cursor-pointer"
+            className="w-full h-full object-contain cursor-pointer"
           />
         </Link>
       </div>
