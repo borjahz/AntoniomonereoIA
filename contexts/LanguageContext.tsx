@@ -32,6 +32,10 @@ const translations = {
       email: 'Email',
       message: 'Mensaje',
       send: 'Enviar',
+      sending: 'Enviando...',
+      sent: 'Correo enviado. Muchas gracias, te responderé pronto.',
+      sendAnother: 'Enviar otro mensaje',
+      error: 'Ha ocurrido un error. Por favor, inténtalo de nuevo.',
     },
     work: {
       back: 'Volver',
@@ -79,6 +83,10 @@ const translations = {
       email: 'Email',
       message: 'Message',
       send: 'Send',
+      sending: 'Sending...',
+      sent: 'Message sent. Thank you, I will get back to you soon.',
+      sendAnother: 'Send another message',
+      error: 'Something went wrong. Please try again.',
     },
     work: {
       back: 'Back',

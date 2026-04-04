@@ -2,31 +2,34 @@
 
 import { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Mail, Instagram } from 'lucide-react';
+import { Mail, Instagram, CheckCircle } from 'lucide-react';
 import Footer from '@/components/Footer';
 
 export default function ContactoPage() {
   const { t } = useLanguage();
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
-  });
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setStatus('sending');
 
-    // Construir el cuerpo del email
-    const subject = `Consulta de ${formData.name}`;
-    const body = `Nombre: ${formData.name}%0D%0AEmail: ${formData.email}%0D%0A%0D%0AMensaje:%0D%0A${formData.message}`;
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
 
-    // Abrir cliente de correo con los datos prellenados
-    window.location.href = `mailto:antoniomonelopez@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
-
-    // Limpiar formulario después de un breve delay
-    setTimeout(() => {
-      setFormData({ name: '', email: '', message: '' });
-    }, 500);
+      if (res.ok) {
+        setStatus('sent');
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        setStatus('error');
+      }
+    } catch {
+      setStatus('error');
+    }
   };
 
   return (
@@ -42,56 +45,77 @@ export default function ContactoPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
             <div>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label htmlFor="name" className="block text-[13px] font-normal tracking-wide text-gray-700 mb-2">
-                    {t.contact.name}
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full px-3 py-2 border border-gray-400 focus:outline-none focus:border-blue-600 transition-colors"
-                    required
-                  />
+              {status === 'sent' ? (
+                <div className="flex flex-col items-start gap-4 py-8">
+                  <CheckCircle className="w-10 h-10 text-green-600" />
+                  <p className="text-gray-900 text-lg font-medium leading-[1.8]">
+                    {t.contact.sent}
+                  </p>
+                  <button
+                    type="button"
+                    onClick={() => setStatus('idle')}
+                    className="text-[13px] font-normal tracking-wide text-blue-600 underline decoration-1 underline-offset-2 hover:text-blue-800 transition-colors"
+                  >
+                    {t.contact.sendAnother}
+                  </button>
                 </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div>
+                    <label htmlFor="name" className="block text-[13px] font-normal tracking-wide text-gray-700 mb-2">
+                      {t.contact.name}
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      className="w-full px-3 py-2 border border-gray-400 focus:outline-none focus:border-blue-600 transition-colors"
+                      required
+                    />
+                  </div>
 
-                <div>
-                  <label htmlFor="email" className="block text-[13px] font-normal tracking-wide text-gray-700 mb-2">
-                    {t.contact.email}
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full px-3 py-2 border border-gray-400 focus:outline-none focus:border-blue-600 transition-colors"
-                    required
-                  />
-                </div>
+                  <div>
+                    <label htmlFor="email" className="block text-[13px] font-normal tracking-wide text-gray-700 mb-2">
+                      {t.contact.email}
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      className="w-full px-3 py-2 border border-gray-400 focus:outline-none focus:border-blue-600 transition-colors"
+                      required
+                    />
+                  </div>
 
-                <div>
-                  <label htmlFor="message" className="block text-[13px] font-normal tracking-wide text-gray-700 mb-2">
-                    {t.contact.message}
-                  </label>
-                  <textarea
-                    id="message"
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    rows={6}
-                    className="w-full px-3 py-2 border border-gray-400 focus:outline-none focus:border-blue-600 transition-colors resize-none"
-                    required
-                  />
-                </div>
+                  <div>
+                    <label htmlFor="message" className="block text-[13px] font-normal tracking-wide text-gray-700 mb-2">
+                      {t.contact.message}
+                    </label>
+                    <textarea
+                      id="message"
+                      value={formData.message}
+                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      rows={6}
+                      className="w-full px-3 py-2 border border-gray-400 focus:outline-none focus:border-blue-600 transition-colors resize-none"
+                      required
+                    />
+                  </div>
 
-                <button
-                  type="submit"
-                  className="px-6 py-2 bg-blue-600 text-white text-[13px] font-normal tracking-wide hover:bg-blue-800 transition-colors"
-                >
-                  {t.contact.send}
-                </button>
-              </form>
+                  {status === 'error' && (
+                    <p className="text-red-600 text-[13px]">{t.contact.error}</p>
+                  )}
+
+                  <button
+                    type="submit"
+                    disabled={status === 'sending'}
+                    className="px-6 py-2 bg-blue-600 text-white text-[13px] font-normal tracking-wide hover:bg-blue-800 transition-colors disabled:opacity-50"
+                  >
+                    {status === 'sending' ? t.contact.sending : t.contact.send}
+                  </button>
+                </form>
+              )}
             </div>
 
             <div className="space-y-6">
