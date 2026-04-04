@@ -76,7 +76,7 @@ export default function Carousel({ works }: CarouselProps) {
   return (
     <div className="relative w-full h-full group">
       <div
-        className="relative w-full h-full bg-slate-100 overflow-hidden"
+        className="relative w-full h-full bg-gray-50 overflow-hidden"
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}

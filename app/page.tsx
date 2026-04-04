@@ -1,6 +1,7 @@
 'use client';
 
-import { Instagram, Mail, ExternalLink } from 'lucide-react';
+import { useState } from 'react';
+import { Instagram, Mail, ExternalLink, ChevronDown } from 'lucide-react';
 import Link from 'next/link';
 import { useLanguage } from '@/contexts/LanguageContext';
 import Carousel from '@/components/Carousel';
@@ -30,6 +31,7 @@ const publications = [
 
 export default function Home() {
   const { t, language } = useLanguage();
+  const [pressOpen, setPressOpen] = useState(false);
 
   return (
     <>
@@ -56,7 +58,7 @@ export default function Home() {
 
               {/* Carrusel — primero en móvil */}
               <div className="order-1 md:order-2 bg-gray-50 p-4 md:p-6 lg:p-8 flex flex-col">
-                <div className="w-full aspect-[3/4] md:aspect-[4/3] relative">
+                <div className="w-full h-[340px] md:h-[420px] relative">
                   <Carousel works={worksData} />
                 </div>
                 <div className="mt-4 text-center">
@@ -123,27 +125,43 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Publicaciones — sección integrada */}
+            {/* Publicaciones — acordeón integrado */}
             <FadeInView delay={200}>
-              <div className="mt-12 pt-8 border-t border-gray-200">
-                <p className="text-[11px] tracking-widest uppercase text-gray-400 mb-5">
-                  {language === 'es' ? 'Prensa' : 'Press'}
-                </p>
-                <div className="flex flex-col sm:flex-row sm:flex-wrap gap-4">
-                  {publications.map((pub, i) => (
-                    <a
-                      key={i}
-                      href={pub.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-[13px] text-gray-700 hover:text-blue-600 transition-colors group"
-                    >
-                      <ExternalLink className="w-3.5 h-3.5 text-gray-400 group-hover:text-blue-600 transition-colors flex-shrink-0" />
-                      <span className="underline decoration-gray-300 underline-offset-2 group-hover:decoration-blue-600">
-                        {language === 'es' ? pub.title_es : pub.title_en}
-                      </span>
-                    </a>
-                  ))}
+              <div className="mt-10 border-t border-gray-200">
+                <button
+                  type="button"
+                  onClick={() => setPressOpen((v) => !v)}
+                  className="w-full flex items-center justify-between py-4 text-left group"
+                >
+                  <span className="text-[11px] tracking-widest uppercase text-gray-400 group-hover:text-gray-700 transition-colors">
+                    {language === 'es' ? 'Prensa' : 'Press'}
+                  </span>
+                  <ChevronDown
+                    className={`w-4 h-4 text-gray-400 group-hover:text-gray-700 transition-all duration-300 ${pressOpen ? 'rotate-180' : ''}`}
+                  />
+                </button>
+
+                <div
+                  className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                    pressOpen ? 'max-h-60 opacity-100 pb-6' : 'max-h-0 opacity-0'
+                  }`}
+                >
+                  <div className="flex flex-col gap-3">
+                    {publications.map((pub, i) => (
+                      <a
+                        key={i}
+                        href={pub.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 text-[13px] text-gray-600 hover:text-blue-600 transition-colors group/link w-fit"
+                      >
+                        <ExternalLink className="w-3.5 h-3.5 flex-shrink-0 text-gray-400 group-hover/link:text-blue-600 transition-colors" />
+                        <span className="underline decoration-gray-300 underline-offset-2 group-hover/link:decoration-blue-600 transition-colors">
+                          {language === 'es' ? pub.title_es : pub.title_en}
+                        </span>
+                      </a>
+                    ))}
+                  </div>
                 </div>
               </div>
             </FadeInView>
