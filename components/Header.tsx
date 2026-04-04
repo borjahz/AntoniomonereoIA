@@ -63,7 +63,7 @@ export default function Header() {
 
             {/* Logo */}
             <Link href="/" className="hover:opacity-70 transition-opacity">
-              <span className="text-2xl md:text-4xl lg:text-5xl font-normal tracking-wide text-gray-900">
+              <span className="font-wellingtons text-2xl md:text-4xl lg:text-5xl font-normal tracking-wide text-gray-900">
                 Antonio Monereo
               </span>
             </Link>
