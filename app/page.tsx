@@ -1,7 +1,6 @@
 'use client';
 
-import { useState } from 'react';
-import { Instagram, Mail, ExternalLink, ChevronDown } from 'lucide-react';
+import { Instagram, Mail } from 'lucide-react';
 import Link from 'next/link';
 import { useLanguage } from '@/contexts/LanguageContext';
 import Carousel from '@/components/Carousel';
@@ -11,27 +10,8 @@ import FadeInView from '@/components/FadeInView';
 import { ArtistSchema, OrganizationSchema } from '@/components/StructuredData';
 import worksData from '@/data/works.json';
 
-const publications = [
-  {
-    title_es: 'Exposición espacio MADOS',
-    title_en: 'MADOS space Exhibition',
-    url: 'https://espaciomados.com/portfolio/antonio-monereo-martinez-bueno-xavier-velazquez/',
-  },
-  {
-    title_es: 'Entrevista Shangay',
-    title_en: 'Shangay Interview',
-    url: 'https://shangay.com/2025/02/27/antonio-monereo-generacion-selfi-encontrar-mi-sitio/#google_vignette',
-  },
-  {
-    title_es: 'Entrevista Telemadrid',
-    title_en: 'Telemadrid Interview',
-    url: 'https://www.telemadrid.es/programas/telenoticias-fin-de-semana/Dos-siglos-de-copistas-en-el-Museo-del-Prado-2-2625057486--20231217032916.html',
-  },
-];
-
 export default function Home() {
-  const { t, language } = useLanguage();
-  const [pressOpen, setPressOpen] = useState(false);
+  const { t } = useLanguage();
 
   return (
     <>
@@ -124,47 +104,6 @@ export default function Home() {
                 </div>
               </div>
             </div>
-
-            {/* Publicaciones — acordeón integrado */}
-            <FadeInView delay={200}>
-              <div className="mt-10 border-t border-gray-200">
-                <button
-                  type="button"
-                  onClick={() => setPressOpen((v) => !v)}
-                  className="w-full flex items-center justify-between py-4 text-left group"
-                >
-                  <span className="text-[11px] tracking-widest uppercase text-gray-400 group-hover:text-gray-700 transition-colors">
-                    {language === 'es' ? 'Prensa' : 'Press'}
-                  </span>
-                  <ChevronDown
-                    className={`w-4 h-4 text-gray-400 group-hover:text-gray-700 transition-all duration-300 ${pressOpen ? 'rotate-180' : ''}`}
-                  />
-                </button>
-
-                <div
-                  className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                    pressOpen ? 'max-h-60 opacity-100 pb-6' : 'max-h-0 opacity-0'
-                  }`}
-                >
-                  <div className="flex flex-col gap-3">
-                    {publications.map((pub, i) => (
-                      <a
-                        key={i}
-                        href={pub.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2 text-[13px] text-gray-600 hover:text-blue-600 transition-colors group/link w-fit"
-                      >
-                        <ExternalLink className="w-3.5 h-3.5 flex-shrink-0 text-gray-400 group-hover/link:text-blue-600 transition-colors" />
-                        <span className="underline decoration-gray-300 underline-offset-2 group-hover/link:decoration-blue-600 transition-colors">
-                          {language === 'es' ? pub.title_es : pub.title_en}
-                        </span>
-                      </a>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </FadeInView>
 
           </div>
         </div>

@@ -1,19 +1,51 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Search, Menu, X } from 'lucide-react';
+import { Search, Menu, X, ExternalLink } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import LanguageToggle from './LanguageToggle';
 import SearchModal from './SearchModal';
 
+const publications = [
+  {
+    title_es: 'Exposición espacio MADOS',
+    title_en: 'MADOS space Exhibition',
+    url: 'https://espaciomados.com/portfolio/antonio-monereo-martinez-bueno-xavier-velazquez/',
+  },
+  {
+    title_es: 'Entrevista Shangay',
+    title_en: 'Shangay Interview',
+    url: 'https://shangay.com/2025/02/27/antonio-monereo-generacion-selfi-encontrar-mi-sitio/#google_vignette',
+  },
+  {
+    title_es: 'Entrevista Telemadrid',
+    title_en: 'Telemadrid Interview',
+    url: 'https://www.telemadrid.es/programas/telenoticias-fin-de-semana/Dos-siglos-de-copistas-en-el-Museo-del-Prado-2-2625057486--20231217032916.html',
+  },
+];
+
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const { t } = useLanguage();
+  const [isPressOpen, setIsPressOpen] = useState(false);
+  const pressRef = useRef<HTMLDivElement>(null);
+  const { t, language } = useLanguage();
   const pathname = usePathname();
-  const isHome = pathname === '/';
+
+  // Cierra el dropdown al hacer clic fuera
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (pressRef.current && !pressRef.current.contains(e.target as Node)) {
+        setIsPressOpen(false);
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const pressLabel = language === 'es' ? 'prensa' : 'press';
 
   return (
     <>
@@ -36,7 +68,38 @@ export default function Header() {
                 </Link>
                 <span className="text-gray-300">|</span>
                 <LanguageToggle />
+                <span className="text-gray-300">|</span>
+
+                {/* Prensa dropdown */}
+                <div ref={pressRef} className="relative">
+                  <button
+                    type="button"
+                    onClick={() => setIsPressOpen((v) => !v)}
+                    className="text-[11px] text-gray-500 hover:text-gray-700 transition-colors"
+                  >
+                    {pressLabel}
+                  </button>
+
+                  {isPressOpen && (
+                    <div className="absolute top-full right-0 mt-3 w-56 bg-white border border-gray-200 shadow-lg z-50">
+                      {publications.map((pub, i) => (
+                        <a
+                          key={i}
+                          href={pub.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={() => setIsPressOpen(false)}
+                          className="flex items-center gap-2 px-4 py-3 text-[12px] text-gray-600 hover:bg-gray-50 hover:text-blue-600 transition-colors border-b border-gray-100 last:border-0"
+                        >
+                          <ExternalLink className="w-3 h-3 flex-shrink-0 text-gray-400" />
+                          {language === 'es' ? pub.title_es : pub.title_en}
+                        </a>
+                      ))}
+                    </div>
+                  )}
+                </div>
               </div>
+
               <button
                 type="button"
                 onClick={() => setIsSearchOpen(true)}
@@ -101,6 +164,25 @@ export default function Header() {
           >
             {t.nav.contact}
           </Link>
+          {/* Prensa en móvil */}
+          <div>
+            <p className="text-[11px] tracking-widest uppercase text-gray-400 mb-3">{pressLabel}</p>
+            <div className="space-y-3">
+              {publications.map((pub, i) => (
+                <a
+                  key={i}
+                  href={pub.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="flex items-center gap-2 text-sm text-gray-600 hover:text-blue-600 transition-colors"
+                >
+                  <ExternalLink className="w-3.5 h-3.5 flex-shrink-0 text-gray-400" />
+                  {language === 'es' ? pub.title_es : pub.title_en}
+                </a>
+              ))}
+            </div>
+          </div>
           <div className="pt-4 border-t border-gray-200">
             <LanguageToggle />
           </div>
