@@ -11,7 +11,6 @@ interface Work {
   title_es: string;
   title_en: string;
   images: string[];
-  featured: boolean;
 }
 
 interface CarouselProps {
@@ -24,7 +23,7 @@ export default function Carousel({ works }: CarouselProps) {
   const [touchEnd, setTouchEnd] = useState(0);
   const { language } = useLanguage();
 
-  const featuredWorks = works.filter((w) => w.featured);
+  const featuredWorks = [...works].sort((a, b) => b.id - a.id).slice(0, 6);
 
   useEffect(() => {
     if (featuredWorks.length === 0) return;
