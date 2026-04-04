@@ -67,36 +67,7 @@ export default function CategoryNavigation({ sticky = false }: CategoryNavigatio
           </nav>
         </aside>
 
-        {/* Móvil y tablets: barra superior fija (hasta lg donde aparece el sidebar) */}
-        <nav className="lg:hidden fixed top-14 left-0 right-0 bg-white z-30">
-          <div className="flex justify-center items-center gap-2">
-            {categories.map((category) => (
-              <Link
-                key={category.href}
-                href={category.href}
-                className="flex flex-col items-center"
-              >
-                <div className="relative w-20 h-20 flex items-center justify-center">
-                  <img
-                    src={isActive(category.href)
-                      ? "/icons/aqua_favorites-removebg-preview copy.png"
-                      : "/icons/aqua_folder-1_(arrastrado) copy.jpg"
-                    }
-                    alt={category.name}
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-                <span className={`text-[10px] font-medium -mt-1 transition-colors ${
-                  isActive(category.href)
-                    ? 'text-gray-900'
-                    : 'text-gray-500'
-                }`}>
-                  {category.name}
-                </span>
-              </Link>
-            ))}
-          </div>
-        </nav>
+        {/* Móvil: no hay barra superior, la navegación está en la barra inferior */}
       </>
     );
   }

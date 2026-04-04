@@ -1,6 +1,6 @@
 'use client';
 
-import { Instagram, Mail } from 'lucide-react';
+import { Mail } from 'lucide-react';
 import Link from 'next/link';
 import { useLanguage } from '@/contexts/LanguageContext';
 import Carousel from '@/components/Carousel';
@@ -31,7 +31,7 @@ export default function Home() {
         <div className="flex-1 bg-white">
           <CategoryNavigation />
 
-          <div className="lg:ml-48 max-w-6xl mx-auto px-8 pt-32 pb-8 lg:pt-12 lg:pb-12">
+          <div className="lg:ml-48 max-w-6xl mx-auto px-8 pt-6 pb-24 lg:pt-12 lg:pb-12">
             <CategoryNavigation sticky />
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
@@ -81,7 +81,7 @@ export default function Home() {
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 text-[13px] font-normal tracking-wide text-blue-600 underline decoration-1 underline-offset-2 hover:text-blue-800 transition-colors"
                   >
-                    <Instagram className="w-5 h-5" />
+                    <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="3"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
                     <span>{t.home.instagram}</span>
                   </a>
                   <a
