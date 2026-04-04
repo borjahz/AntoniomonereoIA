@@ -27,13 +27,18 @@ const publications = [
 
 export default function Header() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isPressOpen, setIsPressOpen] = useState(false);
   const [isMoreOpen, setIsMoreOpen] = useState(false);
+  const pressRef = useRef<HTMLDivElement>(null);
   const moreRef = useRef<HTMLDivElement>(null);
   const { t, language, setLanguage } = useLanguage();
   const pathname = usePathname();
 
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
+      if (pressRef.current && !pressRef.current.contains(e.target as Node)) {
+        setIsPressOpen(false);
+      }
       if (moreRef.current && !moreRef.current.contains(e.target as Node)) {
         setIsMoreOpen(false);
       }
@@ -48,17 +53,75 @@ export default function Header() {
     { href: '/copias', label: t.nav.copies },
   ];
 
+  const pressLabel = language === 'es' ? 'prensa' : 'press';
+
   return (
     <>
-      {/* Header — solo logo en desktop, logo en móvil */}
       <header className="sticky top-0 z-40 w-full bg-white border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-8">
-          <div className="flex items-center justify-center h-14 lg:h-20">
+          <div className="flex items-center justify-center h-14 lg:h-20 relative">
+
+            {/* Logo */}
             <Link href="/" className="hover:opacity-70 transition-opacity">
               <span className="text-2xl md:text-4xl lg:text-5xl font-normal tracking-wide text-gray-900">
                 Antonio Monereo
               </span>
             </Link>
+
+            {/* Controles desktop — derecha */}
+            <div className="absolute right-0 hidden lg:flex items-center gap-4">
+              <button
+                type="button"
+                onClick={() => setIsSearchOpen(true)}
+                aria-label="Buscar"
+                className="text-gray-400 hover:text-gray-700 transition-colors"
+              >
+                <Search className="w-4 h-4" />
+              </button>
+
+              <button
+                type="button"
+                onClick={() => setLanguage(language === 'es' ? 'en' : 'es')}
+                className="text-[11px] text-blue-500 hover:text-blue-700 transition-colors font-medium"
+              >
+                {language === 'es' ? 'EN' : 'ES'}
+              </button>
+
+              <Link
+                href="/contacto"
+                className="text-[11px] text-gray-400 hover:text-gray-700 transition-colors"
+              >
+                {t.nav.contact}
+              </Link>
+
+              <div ref={pressRef} className="relative">
+                <button
+                  type="button"
+                  onClick={() => setIsPressOpen((v) => !v)}
+                  className="text-[11px] text-gray-400 hover:text-gray-700 transition-colors"
+                >
+                  {pressLabel}
+                </button>
+                {isPressOpen && (
+                  <div className="absolute top-full right-0 mt-3 w-56 bg-white border border-gray-200 shadow-lg z-50">
+                    {publications.map((pub, i) => (
+                      <a
+                        key={i}
+                        href={pub.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => setIsPressOpen(false)}
+                        className="flex items-center gap-2 px-4 py-3 text-[12px] text-gray-600 hover:bg-gray-50 hover:text-blue-600 transition-colors border-b border-gray-100 last:border-0"
+                      >
+                        <ExternalLink className="w-3 h-3 flex-shrink-0 text-gray-400" />
+                        {language === 'es' ? pub.title_es : pub.title_en}
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+
           </div>
         </div>
       </header>
@@ -84,7 +147,7 @@ export default function Header() {
             );
           })}
 
-          {/* ··· */}
+          {/* ··· abre menú con el resto */}
           <div ref={moreRef} className="flex-1 relative">
             <button
               type="button"
@@ -111,14 +174,14 @@ export default function Header() {
                 <Link
                   href="/contacto"
                   onClick={() => setIsMoreOpen(false)}
-                  className="flex items-center gap-3 px-4 py-3 text-[12px] text-gray-600 hover:bg-gray-50 transition-colors border-b border-gray-100"
+                  className="flex items-center px-4 py-3 text-[12px] text-gray-600 hover:bg-gray-50 transition-colors border-b border-gray-100"
                 >
                   {t.nav.contact}
                 </Link>
                 <button
                   type="button"
                   onClick={() => { setLanguage(language === 'es' ? 'en' : 'es'); setIsMoreOpen(false); }}
-                  className="w-full flex items-center gap-3 px-4 py-3 text-[12px] text-blue-600 hover:bg-gray-50 transition-colors border-b border-gray-100"
+                  className="w-full flex items-center px-4 py-3 text-[12px] text-blue-600 hover:bg-gray-50 transition-colors border-b border-gray-100"
                 >
                   {language === 'es' ? 'English' : 'Español'}
                 </button>
