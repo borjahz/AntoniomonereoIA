@@ -12,8 +12,8 @@ const translations = {
     },
     home: {
       title: 'Bienvenido',
-      intro: 'Artista contemporáneo especializado en pintura y dibujo.',
-      bio: 'Mi trabajo explora la intersección entre la forma y el color, buscando crear piezas que inviten a la reflexión.',
+      intro: 'Antonio Monereo (Madrid, 2001) es un artista español que trabaja principalmente en pintura.',
+      bio: 'Su práctica comenzó a partir del estudio y la copia de obras de los grandes maestros en el Museo del Prado, donde desarrolló una base técnica sólida. Su obra se centra en la figura humana y combina referencias clásicas con elementos surrealistas, mágicos y mitológicos. A través del color como herramienta principal, sus pinturas exploran el espacio entre la realidad y la imaginación.',
       instagram: 'Instagram',
       email: 'Email',
       contact: 'Contacto',
@@ -59,8 +59,8 @@ const translations = {
     },
     home: {
       title: 'Welcome',
-      intro: 'Contemporary artist specializing in painting and drawing.',
-      bio: 'My work explores the intersection between form and color, seeking to create pieces that invite reflection.',
+      intro: 'Antonio Monereo (Madrid, 2001) is a Spanish artist working mainly in painting.',
+      bio: 'His practice began through the study and copying of Old Master paintings at the Museo del Prado, where he developed a strong technical foundation. His work focuses on the human figure and combines classical references with surreal, magical, and mythological elements. Using colour as a key visual tool, his paintings explore the space between reality and imagination.',
       instagram: 'Instagram',
       email: 'Email',
       contact: 'Contact',
