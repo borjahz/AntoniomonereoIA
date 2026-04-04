@@ -1,6 +1,6 @@
 'use client';
 
-import { Instagram, Mail } from 'lucide-react';
+import { Instagram, Mail, ExternalLink } from 'lucide-react';
 import Link from 'next/link';
 import { useLanguage } from '@/contexts/LanguageContext';
 import Carousel from '@/components/Carousel';
@@ -10,8 +10,26 @@ import FadeInView from '@/components/FadeInView';
 import { ArtistSchema, OrganizationSchema } from '@/components/StructuredData';
 import worksData from '@/data/works.json';
 
+const publications = [
+  {
+    title_es: 'Exposición espacio MADOS',
+    title_en: 'MADOS space Exhibition',
+    url: 'https://espaciomados.com/portfolio/antonio-monereo-martinez-bueno-xavier-velazquez/',
+  },
+  {
+    title_es: 'Entrevista Shangay',
+    title_en: 'Shangay Interview',
+    url: 'https://shangay.com/2025/02/27/antonio-monereo-generacion-selfi-encontrar-mi-sitio/#google_vignette',
+  },
+  {
+    title_es: 'Entrevista Telemadrid',
+    title_en: 'Telemadrid Interview',
+    url: 'https://www.telemadrid.es/programas/telenoticias-fin-de-semana/Dos-siglos-de-copistas-en-el-Museo-del-Prado-2-2625057486--20231217032916.html',
+  },
+];
+
 export default function Home() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   return (
     <>
@@ -35,25 +53,39 @@ export default function Home() {
             <CategoryNavigation sticky />
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-              <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-10 lg:p-14 flex flex-col justify-between min-h-[500px] transition-all duration-500 hover:shadow-lg">
-                <div className="space-y-8">
+
+              {/* Carrusel — primero en móvil */}
+              <div className="order-1 md:order-2 bg-gray-50 p-4 md:p-6 lg:p-8 flex flex-col">
+                <div className="w-full aspect-[3/4] md:aspect-[4/3] relative">
+                  <Carousel works={worksData} />
+                </div>
+                <div className="mt-4 text-center">
+                  <p className="text-[13px] font-normal tracking-wide text-gray-700">
+                    {t.home.featured}
+                  </p>
+                </div>
+              </div>
+
+              {/* About — segundo en móvil */}
+              <div className="order-2 md:order-1 bg-gradient-to-br from-gray-50 to-gray-100 p-8 lg:p-14 flex flex-col justify-between transition-all duration-500 hover:shadow-lg">
+                <div className="space-y-6">
                   <FadeInView>
                     <h1 className="text-xl lg:text-2xl font-medium text-gray-900 leading-[1.2] tracking-tight">
                       {t.home.title}
                     </h1>
                   </FadeInView>
                   <FadeInView delay={200}>
-                    <p className="text-lg text-gray-800 leading-[1.8]">
+                    <p className="text-base text-gray-800 leading-[1.8]">
                       {t.home.intro}
                     </p>
                   </FadeInView>
                   <FadeInView delay={400}>
-                    <p className="text-gray-700 leading-[1.8]">
+                    <p className="text-base text-gray-700 leading-[1.8]">
                       {t.home.bio}
                     </p>
                   </FadeInView>
                 </div>
-                <div className="flex flex-wrap items-center gap-5 mt-10">
+                <div className="flex flex-wrap items-center gap-5 mt-8">
                   <a
                     href="mailto:antoniomonelopez@gmail.com"
                     className="flex items-center gap-2 text-[13px] font-normal tracking-wide text-blue-600 underline decoration-1 underline-offset-2 hover:text-blue-800 transition-colors"
@@ -89,20 +121,33 @@ export default function Home() {
                   </Link>
                 </div>
               </div>
+            </div>
 
-              <div className="bg-gray-50 p-6 lg:p-8 flex flex-col min-h-[500px]">
-                <div className="flex-1 flex items-center justify-center">
-                  <div className="w-full aspect-[4/3] relative">
-                    <Carousel works={worksData} />
-                  </div>
-                </div>
-                <div className="mt-6 text-center">
-                  <p className="text-[13px] font-normal tracking-wide text-gray-700">
-                    {t.home.featured}
-                  </p>
+            {/* Publicaciones — sección integrada */}
+            <FadeInView delay={200}>
+              <div className="mt-12 pt-8 border-t border-gray-200">
+                <p className="text-[11px] tracking-widest uppercase text-gray-400 mb-5">
+                  {language === 'es' ? 'Prensa' : 'Press'}
+                </p>
+                <div className="flex flex-col sm:flex-row sm:flex-wrap gap-4">
+                  {publications.map((pub, i) => (
+                    <a
+                      key={i}
+                      href={pub.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-[13px] text-gray-700 hover:text-blue-600 transition-colors group"
+                    >
+                      <ExternalLink className="w-3.5 h-3.5 text-gray-400 group-hover:text-blue-600 transition-colors flex-shrink-0" />
+                      <span className="underline decoration-gray-300 underline-offset-2 group-hover:decoration-blue-600">
+                        {language === 'es' ? pub.title_es : pub.title_en}
+                      </span>
+                    </a>
+                  ))}
                 </div>
               </div>
-            </div>
+            </FadeInView>
+
           </div>
         </div>
         <Footer />

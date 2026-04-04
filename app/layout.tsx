@@ -6,7 +6,7 @@ import CookieConsent from '@/components/CookieConsent'
 import { LanguageProvider } from '@/contexts/LanguageContext'
 
 export const metadata: Metadata = {
-  title: 'Antonio Monereo - Artista Visual | Pintura y Dibujo Contemporáneo',
+  title: 'Antonio Monereo',
   description: 'Portfolio artístico de Antonio Monereo. Pintor y dibujante contemporáneo especializado en óleo sobre lienzo, grafito y copias de maestros clásicos. Explora obras originales, dibujos minimalistas y reproducciones de Zurbarán, Velázquez y Tiziano.',
   keywords: [
     'Antonio Monereo',
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'es_ES',
     url: 'https://antoniomonereo.com',
-    title: 'Antonio Monereo - Artista Visual | Pintura y Dibujo Contemporáneo',
+    title: 'Antonio Monereo',
     description: 'Portfolio artístico de Antonio Monereo. Pintor y dibujante contemporáneo especializado en óleo sobre lienzo, grafito y copias de maestros clásicos.',
     siteName: 'Antonio Monereo',
     images: [
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Antonio Monereo - Artista Visual | Pintura y Dibujo Contemporáneo',
+    title: 'Antonio Monereo',
     description: 'Portfolio artístico de Antonio Monereo. Pintor y dibujante contemporáneo especializado en óleo sobre lienzo, grafito y copias de maestros clásicos.',
     images: ['https://antoniomonereo.com/images/Muerte_en_tarifa.jpg'],
   },

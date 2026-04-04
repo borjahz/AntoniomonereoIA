@@ -7,13 +7,25 @@ import FadeInView from '@/components/FadeInView';
 import worksData from '@/data/works.json';
 import { useLanguage } from '@/contexts/LanguageContext';
 
+// IDs con orden manual para las obras "clásicas". Las nuevas (id >= 28) van primero por ID desc.
+const MANUAL_ORDER = [3, 1, 2, 7, 16, 8, 13, 9, 20, 23, 26, 24, 25, 17, 18];
+
 export default function PinturasPage() {
   const { showPublicOnly } = useLanguage();
 
   const paintings = worksData
     .filter((work) => work.category === 'pinturas')
     .filter((work) => !showPublicOnly || work.public)
-    .sort((a, b) => b.id - a.id);
+    .sort((a, b) => {
+      const isNewA = a.id >= 28;
+      const isNewB = b.id >= 28;
+      if (isNewA && isNewB) return b.id - a.id;
+      if (isNewA) return -1;
+      if (isNewB) return 1;
+      const posA = MANUAL_ORDER.indexOf(a.id);
+      const posB = MANUAL_ORDER.indexOf(b.id);
+      return (posA === -1 ? 999 : posA) - (posB === -1 ? 999 : posB);
+    });
 
   return (
     <div className="flex flex-col min-h-full">

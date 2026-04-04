@@ -7,12 +7,10 @@ import { Search, Menu, X } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import LanguageToggle from './LanguageToggle';
 import SearchModal from './SearchModal';
-import PublicationsModal from './PublicationsModal';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const [isPublicationsOpen, setIsPublicationsOpen] = useState(false);
   const { t } = useLanguage();
   const pathname = usePathname();
   const isHome = pathname === '/';
@@ -38,14 +36,6 @@ export default function Header() {
                 </Link>
                 <span className="text-gray-300">|</span>
                 <LanguageToggle />
-                <span className="text-gray-300">|</span>
-                <button
-                  type="button"
-                  onClick={() => setIsPublicationsOpen(true)}
-                  className="text-[11px] text-gray-500 hover:text-gray-700 transition-colors"
-                >
-                  {t.common.publications}
-                </button>
               </div>
               <button
                 type="button"
@@ -111,16 +101,6 @@ export default function Header() {
           >
             {t.nav.contact}
           </Link>
-          <button
-            type="button"
-            onClick={() => {
-              setIsPublicationsOpen(true);
-              setIsMenuOpen(false);
-            }}
-            className="block text-base text-gray-700 hover:text-gray-900 transition-colors"
-          >
-            {t.common.publications}
-          </button>
           <div className="pt-4 border-t border-gray-200">
             <LanguageToggle />
           </div>
@@ -130,11 +110,6 @@ export default function Header() {
       <SearchModal
         isOpen={isSearchOpen}
         onClose={() => setIsSearchOpen(false)}
-      />
-
-      <PublicationsModal
-        isOpen={isPublicationsOpen}
-        onClose={() => setIsPublicationsOpen(false)}
       />
     </>
   );
