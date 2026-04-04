@@ -38,7 +38,7 @@ export default function Home() {
               <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-10 lg:p-14 flex flex-col justify-between min-h-[500px] transition-all duration-500 hover:shadow-lg">
                 <div className="space-y-8">
                   <FadeInView>
-                    <h1 className="text-4xl lg:text-6xl font-medium text-gray-900 leading-[1.2] tracking-tight">
+                    <h1 className="text-xl lg:text-2xl font-medium text-gray-900 leading-[1.2] tracking-tight">
                       {t.home.title}
                     </h1>
                   </FadeInView>
