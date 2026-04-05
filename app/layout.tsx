@@ -7,7 +7,7 @@ import { LanguageProvider } from '@/contexts/LanguageContext'
 
 export const metadata: Metadata = {
   title: 'Antonio Monereo',
-  description: 'Portfolio artístico de Antonio Monereo. Pintor y dibujante contemporáneo especializado en óleo sobre lienzo, grafito y copias de maestros clásicos. Explora obras originales, dibujos minimalistas y reproducciones de Zurbarán, Velázquez y Tiziano.',
+  description: 'Antonio Monereo',
   keywords: [
     'Antonio Monereo',
     'artista visual',
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     locale: 'es_ES',
     url: 'https://antoniomonereo.com',
     title: 'Antonio Monereo',
-    description: 'Portfolio artístico de Antonio Monereo. Pintor y dibujante contemporáneo especializado en óleo sobre lienzo, grafito y copias de maestros clásicos.',
+    description: 'Antonio Monereo',
     siteName: 'Antonio Monereo',
     images: [
       {
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Antonio Monereo',
-    description: 'Portfolio artístico de Antonio Monereo. Pintor y dibujante contemporáneo especializado en óleo sobre lienzo, grafito y copias de maestros clásicos.',
+    description: 'Antonio Monereo',
     images: ['https://antoniomonereo.com/images/Muerte_en_tarifa.jpg'],
   },
   alternates: {
