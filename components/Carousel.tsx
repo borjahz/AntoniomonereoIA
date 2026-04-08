@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 interface Work {
@@ -81,16 +82,20 @@ export default function Carousel({ works }: CarouselProps) {
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
       >
-        <Link href={`/obra/${currentWork.slug}`} className="block w-full h-full">
-          <img
+        <Link href={`/obra/${currentWork.slug}`} className="block w-full h-full relative">
+          <Image
             src={currentWork.images[0]}
             alt={title}
-            className="w-full h-full object-contain cursor-pointer"
+            fill
+            className="object-contain cursor-pointer"
+            sizes="100vw"
+            priority
           />
         </Link>
       </div>
 
       <button
+        type="button"
         onClick={goToPrevious}
         className="absolute left-4 top-1/2 -translate-y-1/2 p-3 bg-white shadow-md hover:shadow-lg transition-all opacity-0 group-hover:opacity-100 md:opacity-100"
         aria-label="Previous"
@@ -99,6 +104,7 @@ export default function Carousel({ works }: CarouselProps) {
       </button>
 
       <button
+        type="button"
         onClick={goToNext}
         className="absolute right-4 top-1/2 -translate-y-1/2 p-3 bg-white shadow-md hover:shadow-lg transition-all opacity-0 group-hover:opacity-100 md:opacity-100"
         aria-label="Next"
@@ -109,6 +115,7 @@ export default function Carousel({ works }: CarouselProps) {
       <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
         {featuredWorks.map((_, index) => (
           <button
+            type="button"
             key={index}
             onClick={() => goToSlide(index)}
             className={`h-2 rounded-full transition-all ${

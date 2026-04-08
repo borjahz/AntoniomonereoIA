@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 interface Work {
@@ -34,10 +35,12 @@ export default function ArtworkCard({ work, onClick }: ArtworkCardProps) {
       className="group block bg-white transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
     >
       <div className="aspect-[4/3] bg-gray-50 overflow-hidden relative transition-all duration-300 group-hover:bg-gray-100">
-        <img
+        <Image
           src={work.images[0]}
           alt=""
-          className="w-full h-full object-contain"
+          fill
+          className="object-contain"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
         {work.status === 'sold' && (
           <div className="absolute top-3 right-3 bg-gray-900/90 text-white px-3 py-1 text-[11px] font-normal tracking-wide uppercase">

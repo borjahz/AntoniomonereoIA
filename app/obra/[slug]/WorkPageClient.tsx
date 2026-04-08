@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import { ChevronLeft, ChevronRight, ArrowLeft, Mail } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { ArtworkSchema, BreadcrumbSchema } from '@/components/StructuredData';
 import worksData from '@/data/works.json';
@@ -73,6 +74,7 @@ export default function WorkPageClient({ slug }: { slug: string }) {
       <div className="bg-white min-h-screen">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 pt-4 pb-16 lg:pt-2">
         <button
+          type="button"
           onClick={() => router.back()}
           className="flex items-center gap-2 text-[13px] font-normal tracking-wide text-blue-600 underline decoration-1 underline-offset-2 hover:text-blue-800 transition-colors mb-6 sm:mb-8 lg:mb-10"
         >
@@ -83,15 +85,18 @@ export default function WorkPageClient({ slug }: { slug: string }) {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16">
           <div className="relative">
             <div className="aspect-[4/3] sm:aspect-[4/3] bg-gray-50 flex items-center justify-center p-2 sm:p-4 relative group cursor-pointer" onClick={() => setIsFullscreen(true)}>
-              <img
+              <Image
                 src={work.images[currentImageIndex]}
-                alt={`${title} - Image ${currentImageIndex + 1}`}
-                className="max-w-full max-h-full object-contain"
+                alt={title}
+                fill
+                className="object-contain"
+                sizes="(max-width: 1024px) 100vw, 50vw"
               />
 
               {work.images.length > 1 && (
                 <>
                   <button
+                    type="button"
                     onClick={(e) => {
                       e.stopPropagation();
                       goToPrevImage();
@@ -103,6 +108,7 @@ export default function WorkPageClient({ slug }: { slug: string }) {
                   </button>
 
                   <button
+                    type="button"
                     onClick={(e) => {
                       e.stopPropagation();
                       goToNextImage();
@@ -116,6 +122,7 @@ export default function WorkPageClient({ slug }: { slug: string }) {
                   <div className="absolute bottom-2 sm:bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5 sm:gap-2">
                     {work.images.map((_, index) => (
                       <button
+                        type="button"
                         key={index}
                         onClick={(e) => {
                           e.stopPropagation();
@@ -138,19 +145,25 @@ export default function WorkPageClient({ slug }: { slug: string }) {
               <div className="mt-3 sm:mt-4 grid grid-cols-4 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-4 gap-1.5 sm:gap-2">
                 {work.images.map((image, index) => (
                   <button
+                    type="button"
                     key={index}
                     onClick={() => setCurrentImageIndex(index)}
+                    aria-label={`Ver imagen ${index + 1}`}
                     className={`aspect-square bg-gray-50 flex items-center justify-center p-1 sm:p-2 transition-all ${
                       index === currentImageIndex
                         ? 'ring-2 ring-blue-600'
                         : 'hover:bg-gray-100'
                     }`}
                   >
-                    <img
+                    <div className="relative w-full h-full">
+                    <Image
                       src={image}
                       alt={`${title} thumbnail ${index + 1}`}
-                      className="max-w-full max-h-full object-contain"
+                      fill
+                      className="object-contain"
+                      sizes="10vw"
                     />
+                    </div>
                   </button>
                 ))}
               </div>
@@ -219,7 +232,7 @@ export default function WorkPageClient({ slug }: { slug: string }) {
             </div>
 
             <Link
-              href="/contacto"
+              href={`/contacto?obra=${encodeURIComponent(title)}`}
               className="inline-flex items-center gap-2 text-[13px] font-normal tracking-wide text-blue-600 underline decoration-1 underline-offset-2 hover:text-blue-800 transition-colors"
             >
               <Mail className="w-5 h-5" />
@@ -235,6 +248,7 @@ export default function WorkPageClient({ slug }: { slug: string }) {
           onClick={() => setIsFullscreen(false)}
         >
           <button
+            type="button"
             onClick={() => setIsFullscreen(false)}
             className="absolute top-4 right-4 p-2 text-gray-400 hover:text-gray-700 transition-colors"
             aria-label="Cerrar"
@@ -245,12 +259,13 @@ export default function WorkPageClient({ slug }: { slug: string }) {
           </button>
           <img
             src={work.images[currentImageIndex]}
-            alt={`${title} - Image ${currentImageIndex + 1}`}
+            alt={title}
             className="max-w-[95vw] max-h-[95vh] object-contain"
           />
           {work.images.length > 1 && (
             <>
               <button
+                type="button"
                 onClick={(e) => {
                   e.stopPropagation();
                   goToPrevImage();
@@ -261,6 +276,7 @@ export default function WorkPageClient({ slug }: { slug: string }) {
                 <ChevronLeft className="w-6 h-6 text-gray-700" />
               </button>
               <button
+                type="button"
                 onClick={(e) => {
                   e.stopPropagation();
                   goToNextImage();
@@ -273,6 +289,7 @@ export default function WorkPageClient({ slug }: { slug: string }) {
               <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
                 {work.images.map((_, index) => (
                   <button
+                    type="button"
                     key={index}
                     onClick={(e) => {
                       e.stopPropagation();

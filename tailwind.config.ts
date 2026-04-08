@@ -9,7 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Suisse Intl', 'Helvetica', 'Arial', 'sans-serif'],
+        sans: ['TT Wellingtons', 'serif'],
       },
     },
   },

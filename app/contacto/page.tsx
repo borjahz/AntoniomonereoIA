@@ -1,13 +1,17 @@
 'use client';
 
 import { useState } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Mail, Instagram, CheckCircle } from 'lucide-react';
 import Footer from '@/components/Footer';
 
 export default function ContactoPage() {
   const { t } = useLanguage();
+  const searchParams = useSearchParams();
+  const obra = searchParams.get('obra');
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -18,7 +22,7 @@ export default function ContactoPage() {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, obra }),
       });
 
       if (res.ok) {
@@ -45,6 +49,12 @@ export default function ContactoPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
             <div>
+              {obra && (
+                <div className="mb-6 px-4 py-3 bg-gray-50 border border-gray-200 text-[13px] text-gray-700">
+                  Consultando sobre: <span className="font-medium text-gray-900">{obra}</span>
+                </div>
+              )}
+
               {status === 'sent' ? (
                 <div className="flex flex-col items-start gap-4 py-8">
                   <CheckCircle className="w-10 h-10 text-green-600" />
