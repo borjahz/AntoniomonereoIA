@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
+import { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 interface Work {
@@ -26,7 +27,8 @@ interface ArtworkCardProps {
 export default function ArtworkCard({ work, onClick }: ArtworkCardProps) {
   const { language, t } = useLanguage();
   const title = language === 'es' ? work.title_es : work.title_en;
-  const technique = language === 'es' ? work.technique_es : work.technique_en;
+  const [imgError, setImgError] = useState(false);
+
 
   return (
     <Link
@@ -35,13 +37,20 @@ export default function ArtworkCard({ work, onClick }: ArtworkCardProps) {
       className="group block bg-white transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
     >
       <div className="aspect-[4/3] bg-gray-50 overflow-hidden relative transition-all duration-300 group-hover:bg-gray-100">
-        <Image
-          src={work.images[0]}
-          alt=""
-          fill
-          className="object-contain"
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-        />
+        {imgError ? (
+          <div className="w-full h-full flex items-center justify-center">
+            <span className="text-[13px] text-gray-400 tracking-wide">{title}</span>
+          </div>
+        ) : (
+          <Image
+            src={work.images[0]}
+            alt=""
+            fill
+            className="object-contain"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            onError={() => setImgError(true)}
+          />
+        )}
         {work.status === 'sold' && (
           <div className="absolute top-3 right-3 bg-gray-900/90 text-white px-3 py-1 text-[11px] font-normal tracking-wide uppercase">
             {t.work.sold}

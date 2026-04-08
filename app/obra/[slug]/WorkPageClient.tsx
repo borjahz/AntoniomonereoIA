@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter, notFound } from 'next/navigation';
 import { ChevronLeft, ChevronRight, ArrowLeft, Mail } from 'lucide-react';
+import ShareButton from '@/components/ShareButton';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -236,13 +237,27 @@ export default function WorkPageClient({ slug }: { slug: string }) {
               )}
             </div>
 
-            <Link
-              href={`/contacto?obra=${encodeURIComponent(title)}`}
-              className="inline-flex items-center gap-2 text-[13px] font-normal tracking-wide text-blue-600 underline decoration-1 underline-offset-2 hover:text-blue-800 transition-colors"
-            >
-              <Mail className="w-5 h-5" />
-              <span>{t.work.inquire}</span>
-            </Link>
+            <div className="flex items-center gap-6">
+              {work.status === 'available' ? (
+                <Link
+                  href={`/contacto?obra=${encodeURIComponent(title)}`}
+                  className="inline-flex items-center gap-2 text-[13px] font-normal tracking-wide text-blue-600 underline decoration-1 underline-offset-2 hover:text-blue-800 transition-colors"
+                >
+                  <Mail className="w-5 h-5" />
+                  <span>{t.work.inquire}</span>
+                </Link>
+              ) : (
+                <Link
+                  href={`/contacto?obra=${encodeURIComponent(title)}&tipo=encargo`}
+                  className="inline-flex items-center gap-2 text-[13px] font-normal tracking-wide text-gray-400 hover:text-gray-700 transition-colors"
+                >
+                  <Mail className="w-5 h-5" />
+                  <span>{language === 'es' ? 'Obra vendida · ¿Encargo similar?' : 'Sold · Commission a similar work?'}</span>
+                </Link>
+              )}
+
+              <ShareButton title={title} />
+            </div>
           </div>
         </div>
       </div>

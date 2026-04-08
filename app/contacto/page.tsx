@@ -11,6 +11,7 @@ function ContactoContent() {
   const { t } = useLanguage();
   const searchParams = useSearchParams();
   const obra = searchParams.get('obra');
+  const tipo = searchParams.get('tipo');
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
 
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
@@ -52,7 +53,10 @@ function ContactoContent() {
             <div>
               {obra && (
                 <div className="mb-6 px-4 py-3 bg-gray-50 border border-gray-200 text-[13px] text-gray-700">
-                  Consultando sobre: <span className="font-medium text-gray-900">{obra}</span>
+                  {tipo === 'encargo'
+                    ? <>Encargo similar a: <span className="font-medium text-gray-900">{obra}</span></>
+                    : <>Consultando sobre: <span className="font-medium text-gray-900">{obra}</span></>
+                  }
                 </div>
               )}
 
