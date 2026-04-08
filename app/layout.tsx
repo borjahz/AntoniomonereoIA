@@ -3,7 +3,6 @@ import './globals.css'
 import Header from '@/components/Header'
 import Analytics from '@/components/Analytics'
 import CookieConsent from '@/components/CookieConsent'
-import PageTransition from '@/components/PageTransition'
 import { LanguageProvider } from '@/contexts/LanguageContext'
 
 export const metadata: Metadata = {
@@ -81,7 +80,7 @@ export default function RootLayout({
         <LanguageProvider>
           <div className="flex flex-col min-h-screen">
             <Header />
-            <main className="flex-1"><PageTransition>{children}</PageTransition></main>
+            <main className="flex-1">{children}</main>
           </div>
           <CookieConsent />
         </LanguageProvider>
