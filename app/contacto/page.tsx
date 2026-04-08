@@ -1,12 +1,12 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Mail, Instagram, CheckCircle } from 'lucide-react';
 import Footer from '@/components/Footer';
 
-export default function ContactoPage() {
+function ContactoContent() {
   const { t } = useLanguage();
   const searchParams = useSearchParams();
   const obra = searchParams.get('obra');
@@ -167,5 +167,13 @@ export default function ContactoPage() {
       </div>
       <Footer />
     </div>
+  );
+}
+
+export default function ContactoPage() {
+  return (
+    <Suspense>
+      <ContactoContent />
+    </Suspense>
   );
 }
