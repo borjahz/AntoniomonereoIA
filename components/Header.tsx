@@ -82,7 +82,7 @@ export default function Header() {
               <button
                 type="button"
                 onClick={() => setLanguage(language === 'es' ? 'en' : 'es')}
-                className="text-[13px] text-blue-500 hover:text-blue-700 transition-colors font-medium"
+                className="text-[13px] text-blue-700 hover:text-blue-900 transition-colors font-medium"
               >
                 {language === 'es' ? 'EN' : 'ES'}
               </button>

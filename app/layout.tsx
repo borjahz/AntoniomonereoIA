@@ -9,8 +9,8 @@ export const metadata: Metadata = {
   title: 'Antonio Monereo',
   description: 'Antonio Monereo',
   icons: {
-    icon: '/images/PHOTO-2026-04-05-12-42-53.jpg',
-    apple: '/images/PHOTO-2026-04-05-12-42-53.jpg',
+    icon: '/favicon.jpg',
+    apple: '/favicon.jpg',
   },
   keywords: [
     'Antonio Monereo',
