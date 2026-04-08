@@ -63,7 +63,7 @@ export default function Header() {
 
             {/* Logo */}
             <Link href="/" className="hover:opacity-70 transition-opacity">
-              <span className="font-wellingtons text-2xl md:text-4xl lg:text-5xl font-normal tracking-wide text-gray-900">
+              <span className="font-wellingtons text-3xl md:text-4xl lg:text-5xl font-normal tracking-wide text-gray-900">
                 Antonio Monereo
               </span>
             </Link>
@@ -139,7 +139,7 @@ export default function Header() {
                   active ? 'text-gray-900' : 'text-gray-400'
                 }`}
               >
-                <span className={`text-[10px] tracking-wide ${active ? 'font-medium' : 'font-normal'}`}>
+                <span className={`text-[13px] tracking-wide ${active ? 'font-medium' : 'font-normal'}`}>
                   {item.label}
                 </span>
                 {active && <span className="w-4 h-[2px] bg-gray-900 rounded-full mt-0.5" />}
