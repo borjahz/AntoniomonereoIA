@@ -20,9 +20,12 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
       return;
     }
 
+    const q = query.toLowerCase();
     const filtered = worksData.filter((work) =>
-      work.title.toLowerCase().includes(query.toLowerCase()) ||
-      work.category.toLowerCase().includes(query.toLowerCase())
+      work.title_es.toLowerCase().includes(q) ||
+      work.title_en.toLowerCase().includes(q) ||
+      work.category.toLowerCase().includes(q) ||
+      work.tags.some((tag) => tag.toLowerCase().includes(q))
     );
     setResults(filtered);
   }, [query]);
@@ -58,7 +61,7 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
                 onClick={onClose}
                 className="block p-3 hover:bg-gray-50 rounded transition-colors"
               >
-                <div className="font-medium text-gray-900">{work.title}</div>
+                <div className="font-medium text-gray-900">{work.title_es}</div>
                 <div className="text-sm text-gray-600">{work.category}</div>
               </Link>
             ))}

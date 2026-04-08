@@ -1,7 +1,7 @@
 'use client';
 
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useState, useEffect } from 'react';
+import { useRouter, notFound } from 'next/navigation';
 import { ChevronLeft, ChevronRight, ArrowLeft, Mail } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -17,20 +17,7 @@ export default function WorkPageClient({ slug }: { slug: string }) {
 
   const work = worksData.find((w) => w.slug === slug);
 
-  if (!work) {
-    return (
-      <div className="bg-white min-h-screen">
-        <div className="max-w-7xl mx-auto px-8 py-16">
-          <div className="text-center">
-            <h1 className="text-2xl font-medium text-gray-900 mb-4 tracking-tight">Obra no encontrada</h1>
-            <Link href="/" className="text-[13px] font-normal tracking-wide text-blue-600 underline decoration-1 underline-offset-2 hover:text-blue-800">
-              Volver
-            </Link>
-          </div>
-        </div>
-      </div>
-    );
-  }
+  if (!work) notFound();
 
   const title = language === 'es' ? work.title_es : work.title_en;
   const description = language === 'es' ? work.desc_es : work.desc_en;
@@ -46,6 +33,16 @@ export default function WorkPageClient({ slug }: { slug: string }) {
   const goToNextImage = () => {
     setCurrentImageIndex((prev) => (prev + 1) % work.images.length);
   };
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'ArrowLeft') goToPrevImage();
+      if (e.key === 'ArrowRight') goToNextImage();
+      if (e.key === 'Escape') setIsFullscreen(false);
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [work.images.length]);
 
   return (
     <>
@@ -73,6 +70,14 @@ export default function WorkPageClient({ slug }: { slug: string }) {
 
       <div className="bg-white min-h-screen">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 pt-4 pb-16 lg:pt-2">
+        <nav className="flex items-center gap-2 text-[13px] text-gray-400 mb-6 sm:mb-8 lg:mb-10">
+          <Link href="/" className="hover:text-gray-700 transition-colors">Inicio</Link>
+          <span>&gt;</span>
+          <Link href={`/${work.category}`} className="hover:text-gray-700 transition-colors capitalize">{work.category}</Link>
+          <span>&gt;</span>
+          <span className="text-gray-700">{title}</span>
+        </nav>
+
         <button
           type="button"
           onClick={() => router.back()}
@@ -173,7 +178,7 @@ export default function WorkPageClient({ slug }: { slug: string }) {
           <div className="space-y-6 sm:space-y-8">
             <div>
               <h1 className="text-2xl sm:text-3xl lg:text-4xl font-medium text-gray-900 mb-3 sm:mb-4 tracking-tight leading-[1.3]">{title}</h1>
-              <p className="text-sm sm:text-base text-gray-800 leading-[1.8]">{description}</p>
+{description && <p className="text-sm sm:text-base text-gray-800 leading-[1.8]">{description}</p>}
             </div>
 
             <div className="bg-gray-50 p-4 sm:p-6 md:p-8 space-y-4 sm:space-y-5">

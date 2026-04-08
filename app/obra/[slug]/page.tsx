@@ -17,12 +17,15 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     };
   }
 
+  const autoDesc = `${work.technique_es}, ${work.dimensions}, ${work.year}. Obra de Antonio Monereo.`;
+  const description = work.desc_es || autoDesc;
+
   return {
     title: `${work.title_es} - Antonio Monereo`,
-    description: work.desc_es,
+    description,
     openGraph: {
       title: `${work.title_es} - Antonio Monereo`,
-      description: work.desc_es,
+      description,
       images: [
         {
           url: work.images[0],
