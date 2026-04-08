@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { useParams, useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import { ChevronLeft, ChevronRight, ArrowLeft, Mail } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
