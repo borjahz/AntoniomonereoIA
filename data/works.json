@@ -777,5 +777,110 @@
       "/images/Arbotante.jpg"
     ],
     "tags": ["óleo", "arquitectura", "contemporáneo"]
+  },
+  {
+    "id": 41,
+    "slug": "coloso-2",
+    "title": "Coloso",
+    "title_es": "Coloso",
+    "title_en": "Colossus",
+    "desc_es": "",
+    "desc_en": "",
+    "category": "pinturas",
+    "year": 2026,
+    "dimensions": "20 x 15 cm",
+    "technique_es": "Óleo sobre cartón",
+    "technique_en": "Oil on cardboard",
+    "status": "available",
+    "public": true,
+    "featured": false,
+    "images": [
+      "/images/coloso_2.jpg"
+    ],
+    "tags": ["óleo", "figurativo", "contemporáneo"]
+  },
+  {
+    "id": 42,
+    "slug": "atlas-terraplanista",
+    "title": "Atlas terraplanista",
+    "title_es": "Atlas terraplanista",
+    "title_en": "Flat-Earth Atlas",
+    "desc_es": "",
+    "desc_en": "",
+    "category": "pinturas",
+    "year": 2026,
+    "dimensions": "28 x 18 cm",
+    "technique_es": "Óleo sobre cartón",
+    "technique_en": "Oil on cardboard",
+    "status": "available",
+    "public": true,
+    "featured": false,
+    "images": [
+      "/images/Atlas.jpg"
+    ],
+    "tags": ["óleo", "mitología", "contemporáneo"]
+  },
+  {
+    "id": 43,
+    "slug": "incendio",
+    "title": "Incendio",
+    "title_es": "Incendio",
+    "title_en": "Fire",
+    "desc_es": "",
+    "desc_en": "",
+    "category": "pinturas",
+    "year": 2026,
+    "dimensions": "25 x 20 cm",
+    "technique_es": "Óleo sobre cartón",
+    "technique_en": "Oil on cardboard",
+    "status": "available",
+    "public": true,
+    "featured": false,
+    "images": [
+      "/images/Incendio.jpg"
+    ],
+    "tags": ["óleo", "figurativo", "contemporáneo"]
+  },
+  {
+    "id": 44,
+    "slug": "coloso-en-bolonia",
+    "title": "Coloso en Bolonia",
+    "title_es": "Coloso en Bolonia",
+    "title_en": "Colossus in Bologna",
+    "desc_es": "",
+    "desc_en": "",
+    "category": "pinturas",
+    "year": 2026,
+    "dimensions": "34 x 25 cm",
+    "technique_es": "Óleo sobre cartón",
+    "technique_en": "Oil on cardboard",
+    "status": "available",
+    "public": true,
+    "featured": false,
+    "images": [
+      "/images/Coloso_en_bolonia.jpg"
+    ],
+    "tags": ["óleo", "figurativo", "contemporáneo"]
+  },
+  {
+    "id": 45,
+    "slug": "puente-2",
+    "title": "Puente",
+    "title_es": "Puente",
+    "title_en": "Bridge",
+    "desc_es": "",
+    "desc_en": "",
+    "category": "pinturas",
+    "year": 2026,
+    "dimensions": "20 x 28 cm",
+    "technique_es": "Óleo sobre cartón",
+    "technique_en": "Oil on cardboard",
+    "status": "available",
+    "public": true,
+    "featured": false,
+    "images": [
+      "/images/Puente_2.jpg"
+    ],
+    "tags": ["óleo", "figurativo", "contemporáneo"]
   }
 ]
