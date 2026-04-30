@@ -54,7 +54,7 @@
     "dimensions": "55 x 55 cm",
     "technique_es": "Óleo sobre lienzo",
     "technique_en": "Oil on canvas",
-    "status": "available",
+    "status": "sold",
     "public": true,
     "featured": true,
     "images": [
@@ -159,7 +159,7 @@
     "dimensions": "12 x 22 cm",
     "technique_es": "Óleo sobre cartón",
     "technique_en": "Oil on cardboard",
-    "status": "available",
+    "status": "sold",
     "public": true,
     "featured": false,
     "images": [
@@ -623,7 +623,7 @@
     "dimensions": "28 x 25 cm",
     "technique_es": "Óleo sobre cartón",
     "technique_en": "Oil on cardboard",
-    "status": "available",
+    "status": "sold",
     "public": true,
     "featured": false,
     "images": [
@@ -644,7 +644,7 @@
     "dimensions": "25 x 15 cm",
     "technique_es": "Óleo sobre cartón",
     "technique_en": "Oil on cardboard",
-    "status": "available",
+    "status": "sold",
     "public": true,
     "featured": false,
     "images": [
@@ -791,7 +791,7 @@
     "dimensions": "20 x 15 cm",
     "technique_es": "Óleo sobre cartón",
     "technique_en": "Oil on cardboard",
-    "status": "available",
+    "status": "sold",
     "public": true,
     "featured": false,
     "images": [
@@ -854,7 +854,7 @@
     "dimensions": "34 x 25 cm",
     "technique_es": "Óleo sobre cartón",
     "technique_en": "Oil on cardboard",
-    "status": "available",
+    "status": "sold",
     "public": true,
     "featured": false,
     "images": [
