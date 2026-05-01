@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import './globals.css'
 import Header from '@/components/Header'
+import worksData from '@/data/works.json'
 
 const suisseIntl = localFont({
   src: '../public/fonts/suisse-intl.ttf',
@@ -89,6 +90,8 @@ export const metadata: Metadata = {
   },
 }
 
+const firstCarouselImage = [...worksData].sort((a, b) => b.id - a.id)[0]?.images[0];
+
 export default function RootLayout({
   children,
 }: {
@@ -101,6 +104,9 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         <link rel="alternate" type="application/rss+xml" title="Antonio Monereo — Obras" href="/feed.xml" />
         <link rel="search" type="application/opensearchdescription+xml" title="Antonio Monereo" href="/opensearch.xml" />
+        {firstCarouselImage && (
+          <link rel="preload" as="image" href={firstCarouselImage} />
+        )}
       </head>
       <body className="h-full font-sans antialiased">
         <Analytics />
