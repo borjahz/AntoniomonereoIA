@@ -4,6 +4,7 @@ import ArtworkCard from '@/components/ArtworkCard';
 import Footer from '@/components/Footer';
 import CategoryNavigation from '@/components/CategoryNavigation';
 import FadeInView from '@/components/FadeInView';
+import { CollectionPageSchema } from '@/components/StructuredData';
 import worksData from '@/data/works.json';
 import { useLanguage } from '@/contexts/LanguageContext';
 
@@ -15,6 +16,13 @@ export default function DibujosPage() {
     .filter((work) => !showPublicOnly || work.public);
 
   return (
+    <>
+      <CollectionPageSchema
+        name="Dibujos — Antonio Monereo"
+        description="Galería de dibujos de Antonio Monereo. Obras en grafito que exploran la figura humana y el estudio del natural."
+        url="https://antoniomonereo.com/dibujos"
+        works={drawings.map(w => ({ title: w.title_es, image: w.images[0], slug: w.slug }))}
+      />
     <div className="flex flex-col min-h-full">
       <div className="flex-1 bg-white">
         <CategoryNavigation />
@@ -36,5 +44,6 @@ export default function DibujosPage() {
       </div>
       <Footer />
     </div>
+    </>
   );
 }

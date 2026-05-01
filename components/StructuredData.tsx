@@ -177,6 +177,43 @@ export function OrganizationSchema() {
   );
 }
 
+interface CollectionPageSchemaProps {
+  name: string;
+  description: string;
+  url: string;
+  works: { title: string; image: string; slug: string }[];
+}
+
+export function CollectionPageSchema({ name, description, url, works }: CollectionPageSchemaProps) {
+  const baseUrl = 'https://antoniomonereo.com';
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name,
+    description,
+    url,
+    author: {
+      '@type': 'Person',
+      name: 'Antonio Monereo',
+    },
+    hasPart: works.slice(0, 10).map(w => ({
+      '@type': 'VisualArtwork',
+      name: w.title,
+      image: `${baseUrl}${w.image}`,
+      url: `${baseUrl}/obra/${w.slug}`,
+      creator: { '@type': 'Person', name: 'Antonio Monereo' },
+    })),
+  };
+
+  return (
+    <Script
+      id="collection-schema"
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}
+
 export function BreadcrumbSchema({
   items,
 }: {

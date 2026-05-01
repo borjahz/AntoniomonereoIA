@@ -4,6 +4,7 @@ import ArtworkCard from '@/components/ArtworkCard';
 import Footer from '@/components/Footer';
 import CategoryNavigation from '@/components/CategoryNavigation';
 import FadeInView from '@/components/FadeInView';
+import { CollectionPageSchema } from '@/components/StructuredData';
 import worksData from '@/data/works.json';
 import { useLanguage } from '@/contexts/LanguageContext';
 
@@ -28,6 +29,13 @@ export default function PinturasPage() {
     });
 
   return (
+    <>
+      <CollectionPageSchema
+        name="Pinturas — Antonio Monereo"
+        description="Galería de pinturas de Antonio Monereo. Óleos sobre lienzo con referencias clásicas, figurativas y mitológicas."
+        url="https://antoniomonereo.com/pinturas"
+        works={paintings.map(w => ({ title: w.title_es, image: w.images[0], slug: w.slug }))}
+      />
     <div className="flex flex-col min-h-full">
       <div className="flex-1 bg-white">
         <CategoryNavigation />
@@ -49,5 +57,6 @@ export default function PinturasPage() {
       </div>
       <Footer />
     </div>
+    </>
   );
 }
