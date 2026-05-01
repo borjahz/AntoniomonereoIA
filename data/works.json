@@ -1,4 +1,4 @@
-[
+﻿[
   {
     "id": 1,
     "slug": "muerte-en-tarifa",
@@ -16,7 +16,7 @@
     "public": true,
     "featured": true,
     "images": [
-      "/images/Muerte_en_tarifa.jpg"
+      "/images/muerte-en-tarifa-antonio-monereo.jpg"
     ],
     "tags": ["óleo", "contemporáneo", "figurativo"]
   },
@@ -37,7 +37,7 @@
     "public": true,
     "featured": true,
     "images": [
-      "/images/ciudad-estilitas.jpg"
+      "/images/ciudad-de-los-estilitas-antonio-monereo.jpg"
     ],
     "tags": ["arquitectura", "óleo", "contemporáneo"]
   },
@@ -58,7 +58,7 @@
     "public": true,
     "featured": true,
     "images": [
-      "/images/IMG_8988.jpg"
+      "/images/el-abrazo-antonio-monereo.jpg"
     ],
     "tags": ["óleo", "figurativo", "contemporáneo", "intimista"]
   },
@@ -79,7 +79,7 @@
     "public": true,
     "featured": false,
     "images": [
-      "/images/Pablo.jpg"
+      "/images/yo-me-siento-asi-antonio-monereo.jpg"
     ],
     "tags": ["óleo", "figurativo", "contemporáneo"]
   },
@@ -100,7 +100,7 @@
     "public": true,
     "featured": false,
     "images": [
-      "/images/Ester.jpg"
+      "/images/el-silencio-antonio-monereo.jpg"
     ],
     "tags": ["óleo", "figurativo", "contemporáneo", "intimista"]
   },
@@ -121,7 +121,7 @@
     "public": true,
     "featured": false,
     "images": [
-      "/images/Dibujos_morados1.jpg"
+      "/images/pinturas-moradas-i-antonio-monereo.jpg"
     ],
     "tags": ["óleo", "serie", "contemporáneo", "mitología"]
   },
@@ -142,7 +142,7 @@
     "public": true,
     "featured": false,
     "images": [
-      "/images/Pinturas_Moradas_2.jpg"
+      "/images/la-muerte-de-dios-antonio-monereo.jpg"
     ],
     "tags": ["óleo", "contemporáneo", "arquitectónico", "figurativo"]
   },
@@ -163,7 +163,7 @@
     "public": true,
     "featured": false,
     "images": [
-      "/images/Pinturas_moradas_3.png"
+      "/images/pinturas-moradas-iii-antonio-monereo.png"
     ],
     "tags": ["óleo", "contemporáneo", "arquitectónico"]
   },
@@ -184,7 +184,7 @@
     "public": true,
     "featured": true,
     "images": [
-      "/images/Calma_y_Relax_I.jpg"
+      "/images/adictos-al-porno-i-antonio-monereo.jpg"
     ],
     "tags": ["grafito", "serie", "conceptual", "minimalista"]
   },
@@ -205,7 +205,7 @@
     "public": true,
     "featured": false,
     "images": [
-      "/images/Calma_y_Relax-II.jpg"
+      "/images/adictos-al-porno-ii-antonio-monereo.jpg"
     ],
     "tags": ["grafito", "serie", "conceptual", "minimalista"]
   },
@@ -226,7 +226,7 @@
     "public": true,
     "featured": false,
     "images": [
-      "/images/Calma_y_Relax_III.jpg"
+      "/images/adictos-al-porno-iii-antonio-monereo.jpg"
     ],
     "tags": ["grafito", "serie", "conceptual", "minimalista"]
   },
@@ -247,7 +247,7 @@
     "public": true,
     "featured": false,
     "images": [
-      "/images/copia1.jpg"
+      "/images/paisaje-con-escena-pastoril-antonio-monereo.jpg"
     ],
     "tags": ["copia", "Van Poelenburgh", "clásico", "paisaje"]
   },
@@ -268,7 +268,7 @@
     "public": true,
     "featured": false,
     "images": [
-      "/images/Caballito.jpg"
+      "/images/retrato-francisco-longa-antonio-monereo.jpg"
     ],
     "tags": ["copia", "clásico", "retrato"]
   },
@@ -289,9 +289,9 @@
     "public": true,
     "featured": false,
     "images": [
-      "/images/Gijon.jpg",
-      "/images/IMG_9153.jpg",
-      "/images/IMG_9154.jpg"
+      "/images/retrato-josefa-jovellanos-inza-antonio-monereo-1.jpg",
+      "/images/retrato-josefa-jovellanos-inza-antonio-monereo-2.jpg",
+      "/images/retrato-josefa-jovellanos-inza-antonio-monereo-3.jpg"
     ],
     "tags": ["copia", "Joaquín Inza", "clásico", "retrato"]
   },
@@ -312,7 +312,7 @@
     "public": true,
     "featured": false,
     "images": [
-      "/images/Tiziano.png"
+      "/images/cristo-con-la-cruz-a-cuestas-tiziano-antonio-monereo.png"
     ],
     "tags": ["copia", "Tiziano", "clásico", "religioso", "Museo del Prado"]
   },
@@ -333,7 +333,7 @@
     "public": true,
     "featured": false,
     "images": [
-      "/images/Velazquez.jpg"
+      "/images/retrato-ferdinando-brandani-velazquez-antonio-monereo.jpg"
     ],
     "tags": ["copia", "Velázquez", "clásico", "retrato", "Museo del Prado"]
   },
@@ -354,7 +354,7 @@
     "public": true,
     "featured": false,
     "images": [
-      "/images/Zurbaran.jpg"
+      "/images/san-francisco-en-oracion-zurbaran-antonio-monereo.jpg"
     ],
     "tags": ["copia", "Zurbarán", "clásico", "religioso", "Museo del Prado"]
   },
@@ -375,7 +375,7 @@
     "public": true,
     "featured": false,
     "images": [
-      "/images/estilista2.jpg"
+      "/images/el-estilita-lienzo-antonio-monereo.jpg"
     ],
     "tags": ["óleo", "figurativo", "contemporáneo"]
   },
@@ -396,7 +396,7 @@
     "public": true,
     "featured": false,
     "images": [
-      "/images/estilista.jpg"
+      "/images/el-estilita-carton-antonio-monereo-img.jpg"
     ],
     "tags": ["óleo", "figurativo", "contemporáneo"]
   },
@@ -417,7 +417,7 @@
     "public": true,
     "featured": false,
     "images": [
-      "/images/r.jpg"
+      "/images/autorretrato-antonio-monereo.jpg"
     ],
     "tags": ["óleo", "retrato", "contemporáneo"]
   },
@@ -438,7 +438,7 @@
     "public": true,
     "featured": false,
     "images": [
-      "/images/paisaje.jpg"
+      "/images/vistas-cabo-trafalgar-antonio-monereo.jpg"
     ],
     "tags": ["óleo", "paisaje", "contemporáneo", "marina"]
   },
@@ -459,7 +459,7 @@
     "public": true,
     "featured": false,
     "images": [
-      "/images/no_quiero_pequeno.jpg"
+      "/images/no-voy-a-salir-pequeno-antonio-monereo.jpg"
     ],
     "tags": ["óleo", "figurativo", "contemporáneo", "intimista"]
   },
@@ -480,7 +480,7 @@
     "public": true,
     "featured": false,
     "images": [
-      "/images/Ropita.jpg"
+      "/images/no-voy-a-salir-grande-antonio-monereo.jpg"
     ],
     "tags": ["óleo", "figurativo", "contemporáneo", "intimista"]
   },
@@ -501,7 +501,7 @@
     "public": true,
     "featured": false,
     "images": [
-      "/images/Culito.jpg"
+      "/images/ego-sum-booty-mundi-antonio-monereo.jpg"
     ],
     "tags": ["óleo", "figurativo", "contemporáneo", "humorístico"]
   },
@@ -522,7 +522,7 @@
     "public": true,
     "featured": false,
     "images": [
-      "/images/Narciso.jpg"
+      "/images/narciso-antonio-monereo.jpg"
     ],
     "tags": ["óleo", "Narciso", "mitología", "contemporáneo"]
   },
@@ -543,7 +543,7 @@
     "public": true,
     "featured": false,
     "images": [
-      "/images/Narciso_II.jpg"
+      "/images/narciso-ii-antonio-monereo.jpg"
     ],
     "tags": ["óleo", "Narciso", "mitología", "contemporáneo"]
   },
@@ -564,7 +564,7 @@
     "public": true,
     "featured": false,
     "images": [
-      "/images/Pelea_a_muerte_entre_dos_amantes.JPG"
+      "/images/pelea-a-muerte-entre-dos-amantes-antonio-monereo.jpg"
     ],
     "tags": ["óleo", "figurativo", "contemporáneo"]
   },
@@ -585,7 +585,7 @@
     "public": true,
     "featured": false,
     "images": [
-      "/images/Narciso_III.jpg"
+      "/images/narciso-iii-antonio-monereo.jpg"
     ],
     "tags": ["óleo", "Narciso", "mitología", "contemporáneo"]
   },
@@ -606,7 +606,7 @@
     "public": true,
     "featured": false,
     "images": [
-      "/images/Caín_mata_a_Abel_en_las_termas.jpg"
+      "/images/cain-mata-a-abel-en-las-termas-antonio-monereo.jpg"
     ],
     "tags": ["óleo", "figurativo", "mitología", "contemporáneo"]
   },
@@ -627,7 +627,7 @@
     "public": true,
     "featured": false,
     "images": [
-      "/images/El _escultor.jpg"
+      "/images/el-escultor-antonio-monereo.jpg"
     ],
     "tags": ["óleo", "figurativo", "contemporáneo"]
   },
@@ -648,7 +648,7 @@
     "public": true,
     "featured": false,
     "images": [
-      "/images/Coloso.jpg"
+      "/images/coloso-antonio-monereo.jpg"
     ],
     "tags": ["óleo", "figurativo", "contemporáneo"]
   },
@@ -669,7 +669,7 @@
     "public": true,
     "featured": false,
     "images": [
-      "/images/Coloso_en_Tarifa.jpg"
+      "/images/coloso-en-tarifa-antonio-monereo.jpg"
     ],
     "tags": ["óleo", "figurativo", "contemporáneo"]
   },
@@ -690,7 +690,7 @@
     "public": true,
     "featured": false,
     "images": [
-      "/images/Coloso_dando_de_comer_a_los_bañistas.jpg"
+      "/images/coloso-dando-de-comer-a-los-banistas-antonio-monereo.jpg"
     ],
     "tags": ["óleo", "figurativo", "contemporáneo"]
   },
@@ -711,7 +711,7 @@
     "public": true,
     "featured": false,
     "images": [
-      "/images/Puente.jpg"
+      "/images/puente-antonio-monereo.jpg"
     ],
     "tags": ["óleo", "paisaje", "contemporáneo"]
   },
@@ -732,7 +732,7 @@
     "public": true,
     "featured": false,
     "images": [
-      "/images/Clones.jpg"
+      "/images/clones-antonio-monereo.jpg"
     ],
     "tags": ["óleo", "figurativo", "contemporáneo"]
   },
@@ -753,7 +753,7 @@
     "public": true,
     "featured": false,
     "images": [
-      "/images/Narciso_ahogado.jpg"
+      "/images/narciso-ahogado-antonio-monereo.jpg"
     ],
     "tags": ["óleo", "Narciso", "mitología", "contemporáneo"]
   },
@@ -774,7 +774,7 @@
     "public": true,
     "featured": false,
     "images": [
-      "/images/Arbotante.jpg"
+      "/images/arbotante-antonio-monereo.jpg"
     ],
     "tags": ["óleo", "arquitectura", "contemporáneo"]
   },
@@ -795,7 +795,7 @@
     "public": true,
     "featured": false,
     "images": [
-      "/images/coloso_2.jpg"
+      "/images/coloso-2-antonio-monereo.jpg"
     ],
     "tags": ["óleo", "figurativo", "contemporáneo"]
   },
@@ -816,7 +816,7 @@
     "public": true,
     "featured": false,
     "images": [
-      "/images/Atlas.jpg"
+      "/images/atlas-terraplanista-antonio-monereo.jpg"
     ],
     "tags": ["óleo", "mitología", "contemporáneo"]
   },
@@ -837,7 +837,7 @@
     "public": true,
     "featured": false,
     "images": [
-      "/images/Incendio.jpg"
+      "/images/incendio-antonio-monereo.jpg"
     ],
     "tags": ["óleo", "figurativo", "contemporáneo"]
   },
@@ -858,7 +858,7 @@
     "public": true,
     "featured": false,
     "images": [
-      "/images/Coloso_en_bolonia.jpg"
+      "/images/coloso-en-bolonia-antonio-monereo.jpg"
     ],
     "tags": ["óleo", "figurativo", "contemporáneo"]
   },
@@ -879,8 +879,9 @@
     "public": true,
     "featured": false,
     "images": [
-      "/images/Puente_2.jpg"
+      "/images/puente-2-antonio-monereo.jpg"
     ],
     "tags": ["óleo", "figurativo", "contemporáneo"]
   }
 ]
+
