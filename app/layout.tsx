@@ -83,6 +83,8 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+        <link rel="alternate" type="application/rss+xml" title="Antonio Monereo — Obras" href="/feed.xml" />
+        <link rel="search" type="application/opensearchdescription+xml" title="Antonio Monereo" href="/opensearch.xml" />
       </head>
       <body className="h-full font-sans antialiased">
         <Analytics />
