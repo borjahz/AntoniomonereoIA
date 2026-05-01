@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -20,8 +20,9 @@ interface CarouselProps {
 
 export default function Carousel({ works }: CarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [touchStart, setTouchStart] = useState(0);
-  const [touchEnd, setTouchEnd] = useState(0);
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
+  const isSwiping = useRef(false);
   const { language } = useLanguage();
 
   const featuredWorks = [...works].sort((a, b) => b.id - a.id).slice(0, 6);
@@ -47,20 +48,22 @@ export default function Carousel({ works }: CarouselProps) {
   };
 
   const handleTouchStart = (e: React.TouchEvent) => {
-    setTouchStart(e.targetTouches[0].clientX);
+    touchStartX.current = e.targetTouches[0].clientX;
+    touchEndX.current = e.targetTouches[0].clientX;
+    isSwiping.current = false;
   };
 
   const handleTouchMove = (e: React.TouchEvent) => {
-    setTouchEnd(e.targetTouches[0].clientX);
+    touchEndX.current = e.targetTouches[0].clientX;
+    if (Math.abs(touchEndX.current - touchStartX.current) > 10) {
+      isSwiping.current = true;
+    }
   };
 
   const handleTouchEnd = () => {
-    if (touchStart - touchEnd > 50) {
-      goToNext();
-    }
-    if (touchStart - touchEnd < -50) {
-      goToPrevious();
-    }
+    const diff = touchStartX.current - touchEndX.current;
+    if (diff > 50) goToNext();
+    else if (diff < -50) goToPrevious();
   };
 
   if (featuredWorks.length === 0) {
@@ -82,7 +85,11 @@ export default function Carousel({ works }: CarouselProps) {
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
       >
-        <Link href={`/obra/${currentWork.slug}`} className="block w-full h-full relative">
+        <Link
+          href={`/obra/${currentWork.slug}`}
+          className="block w-full h-full relative"
+          onClick={(e) => { if (isSwiping.current) e.preventDefault(); }}
+        >
           <Image
             src={currentWork.images[0]}
             alt={title}
