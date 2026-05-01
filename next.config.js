@@ -8,6 +8,19 @@ const nextConfig = {
       },
     ],
   },
+  async headers() {
+    return [
+      {
+        source: '/images/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+    ];
+  },
   async redirects() {
     return [
       { source: '/images/Muerte_en_tarifa.jpg', destination: '/images/muerte-en-tarifa-antonio-monereo.jpg', permanent: true },

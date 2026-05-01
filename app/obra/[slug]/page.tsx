@@ -20,20 +20,32 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   const autoDesc = `${work.technique_es}, ${work.dimensions}, ${work.year}. Obra de Antonio Monereo.`;
   const description = work.desc_es || autoDesc;
 
+  const baseUrl = 'https://antoniomonereo.com';
+
   return {
     title: `${work.title_es} - Antonio Monereo`,
     description,
     openGraph: {
       title: `${work.title_es} - Antonio Monereo`,
       description,
+      url: `${baseUrl}/obra/${work.slug}`,
+      siteName: 'Antonio Monereo',
       images: [
         {
-          url: work.images[0],
+          url: `${baseUrl}${work.images[0]}`,
           width: 1200,
           height: 900,
           alt: work.title_es,
         },
       ],
+      locale: 'es_ES',
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${work.title_es} - Antonio Monereo`,
+      description,
+      images: [`${baseUrl}${work.images[0]}`],
     },
   };
 }
