@@ -65,6 +65,11 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: 'https://antoniomonereo.com',
+    languages: {
+      'es': 'https://antoniomonereo.com',
+      'en': 'https://antoniomonereo.com',
+      'x-default': 'https://antoniomonereo.com',
+    },
   },
 }
 
