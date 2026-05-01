@@ -20,6 +20,7 @@ interface CarouselProps {
 
 export default function Carousel({ works }: CarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [paused, setPaused] = useState(false);
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
   const isSwiping = useRef(false);
@@ -28,12 +29,12 @@ export default function Carousel({ works }: CarouselProps) {
   const featuredWorks = [...works].sort((a, b) => b.id - a.id).slice(0, 6);
 
   useEffect(() => {
-    if (featuredWorks.length === 0) return;
+    if (featuredWorks.length === 0 || paused) return;
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % featuredWorks.length);
     }, 5000);
     return () => clearInterval(timer);
-  }, [featuredWorks.length]);
+  }, [featuredWorks.length, paused]);
 
   const goToSlide = (index: number) => {
     setCurrentIndex(index);
@@ -81,9 +82,11 @@ export default function Carousel({ works }: CarouselProps) {
     <div className="relative w-full h-full group">
       <div
         className="relative w-full h-full bg-gray-50 overflow-hidden"
+        onMouseEnter={() => setPaused(true)}
+        onMouseLeave={() => setPaused(false)}
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
-        onTouchEnd={handleTouchEnd}
+        onTouchEnd={() => { setPaused(true); handleTouchEnd(); }}
       >
         <Link
           href={`/obra/${currentWork.slug}`}
