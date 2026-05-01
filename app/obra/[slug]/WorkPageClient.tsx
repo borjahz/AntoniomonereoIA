@@ -107,6 +107,7 @@ export default function WorkPageClient({ slug }: { slug: string }) {
                 fill
                 className="object-contain"
                 sizes="(max-width: 1024px) 100vw, 50vw"
+                priority={currentImageIndex === 0}
               />
 
               {work.images.length > 1 && (

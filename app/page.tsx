@@ -20,7 +20,7 @@ export default function Home() {
         name="Antonio Monereo"
         url="https://antoniomonereo.com"
         description="Pintor y dibujante contemporáneo especializado en óleo sobre lienzo, grafito y copias de maestros clásicos."
-        image="https://antoniomonereo.com/images/Muerte_en_tarifa.jpg"
+        image="https://antoniomonereo.com/images/muerte-en-tarifa-antonio-monereo.jpg"
         sameAs={[
           'https://www.instagram.com/antoniomonereo',
           'https://www.tiktok.com/@antoniomonereo',
