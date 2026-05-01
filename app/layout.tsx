@@ -1,6 +1,21 @@
 import type { Metadata } from 'next'
+import localFont from 'next/font/local'
 import './globals.css'
 import Header from '@/components/Header'
+
+const suisseIntl = localFont({
+  src: '../public/fonts/suisse-intl.ttf',
+  variable: '--font-suisse',
+  display: 'swap',
+  preload: true,
+})
+
+const ttWellingtons = localFont({
+  src: '../public/fonts/tt-wellingtons-regular.ttf',
+  variable: '--font-wellingtons',
+  display: 'swap',
+  preload: true,
+})
 import Analytics from '@/components/Analytics'
 import CookieConsent from '@/components/CookieConsent'
 import { LanguageProvider } from '@/contexts/LanguageContext'
@@ -80,7 +95,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="es" className="h-full">
+    <html lang="es" className={`h-full ${suisseIntl.variable} ${ttWellingtons.variable}`}>
       <head>
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
