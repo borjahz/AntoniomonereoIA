@@ -21,10 +21,18 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   const description = work.desc_es || autoDesc;
 
   const baseUrl = 'https://antoniomonereo.com';
+  const canonicalUrl = `${baseUrl}/obra/${work.slug}`;
 
   return {
     title: `${work.title_es} - Antonio Monereo`,
     description,
+    alternates: {
+      canonical: canonicalUrl,
+    },
+    robots: {
+      index: work.status !== 'sold',
+      follow: true,
+    },
     openGraph: {
       title: `${work.title_es} - Antonio Monereo`,
       description,

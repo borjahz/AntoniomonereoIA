@@ -119,13 +119,40 @@ export function ArtworkSchema({
   );
 }
 
+export function WebSiteSchema() {
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'Antonio Monereo',
+    url: 'https://antoniomonereo.com',
+    description: 'Portfolio artístico de Antonio Monereo. Pintor y dibujante contemporáneo.',
+    author: {
+      '@type': 'Person',
+      name: 'Antonio Monereo',
+    },
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: 'https://antoniomonereo.com/pinturas?q={search_term_string}',
+      'query-input': 'required name=search_term_string',
+    },
+  };
+
+  return (
+    <Script
+      id="website-schema"
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}
+
 export function OrganizationSchema() {
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'Antonio Monereo',
     url: 'https://antoniomonereo.com',
-    logo: 'https://antoniomonereo.com/images/Muerte_en_tarifa.jpg',
+    logo: 'https://antoniomonereo.com/images/muerte-en-tarifa-antonio-monereo.jpg',
     description:
       'Portfolio artístico de Antonio Monereo. Pintor y dibujante contemporáneo.',
     foundingDate: '2023',

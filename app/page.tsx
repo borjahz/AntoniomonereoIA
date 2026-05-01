@@ -8,7 +8,7 @@ import Carousel from '@/components/Carousel';
 import Footer from '@/components/Footer';
 import CategoryNavigation from '@/components/CategoryNavigation';
 import FadeInView from '@/components/FadeInView';
-import { ArtistSchema, OrganizationSchema } from '@/components/StructuredData';
+import { ArtistSchema, OrganizationSchema, WebSiteSchema } from '@/components/StructuredData';
 import worksData from '@/data/works.json';
 
 export default function Home() {
@@ -16,6 +16,7 @@ export default function Home() {
 
   return (
     <>
+      <WebSiteSchema />
       <ArtistSchema
         name="Antonio Monereo"
         url="https://antoniomonereo.com"
