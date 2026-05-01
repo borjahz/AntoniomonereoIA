@@ -3,3 +3,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://antoniomonereo.com/sitemap.xml
+Sitemap: https://antoniomonereo.com/sitemap-images.xml

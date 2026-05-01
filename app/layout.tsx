@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     siteName: 'Antonio Monereo',
     images: [
       {
-        url: 'https://antoniomonereo.com/images/Muerte_en_tarifa.jpg',
+        url: 'https://antoniomonereo.com/images/muerte-en-tarifa-antonio-monereo.jpg',
         width: 1200,
         height: 1200,
         alt: 'Obra de Antonio Monereo',
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Antonio Monereo',
     description: 'Antonio Monereo',
-    images: ['https://antoniomonereo.com/images/Muerte_en_tarifa.jpg'],
+    images: ['https://antoniomonereo.com/images/muerte-en-tarifa-antonio-monereo.jpg'],
   },
   alternates: {
     canonical: 'https://antoniomonereo.com',
