@@ -1,6 +1,8 @@
 import { MetadataRoute } from 'next';
 import worksData from '@/data/works.json';
 
+export const revalidate = 86400;
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://antoniomonereo.com';
 
@@ -43,9 +45,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     .filter((work) => work.public)
     .map((work) => ({
       url: `${baseUrl}/obra/${work.slug}`,
-      lastModified: new Date(),
+      lastModified: new Date(work.year, 11, 31),
       changeFrequency: 'monthly' as const,
-      priority: 0.7,
+      priority: work.year >= 2026 ? 0.9 : 0.7,
     }));
 
   return [...staticPages, ...workPages];

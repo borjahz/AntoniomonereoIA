@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server';
 import worksData from '@/data/works.json';
 
+export const revalidate = 86400;
+
 function escapeXml(str: string) {
   return str
     .replace(/&/g, '&amp;')
