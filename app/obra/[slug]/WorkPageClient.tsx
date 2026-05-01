@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { useRouter, notFound } from 'next/navigation';
 import { ChevronLeft, ChevronRight, ArrowLeft, Mail } from 'lucide-react';
 import ShareButton from '@/components/ShareButton';
+import ArtworkCard from '@/components/ArtworkCard';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -19,6 +20,15 @@ export default function WorkPageClient({ slug }: { slug: string }) {
   const work = worksData.find((w) => w.slug === slug);
 
   if (!work) notFound();
+
+  const relatedWorks = worksData
+    .filter(w => w.slug !== work.slug && w.category === work.category && w.public)
+    .sort((a, b) => {
+      if (a.year === work.year && b.year !== work.year) return -1;
+      if (b.year === work.year && a.year !== work.year) return 1;
+      return b.id - a.id;
+    })
+    .slice(0, 4);
 
   const title = language === 'es' ? work.title_es : work.title_en;
   const description = language === 'es' ? work.desc_es : work.desc_en;
@@ -261,6 +271,19 @@ export default function WorkPageClient({ slug }: { slug: string }) {
           </div>
         </div>
       </div>
+
+      {relatedWorks.length > 0 && (
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 pb-16 border-t border-gray-100 pt-12">
+          <h2 className="text-lg font-medium text-gray-900 mb-8 tracking-tight">
+            {language === 'es' ? 'Más obras' : 'More works'}
+          </h2>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            {relatedWorks.map(relatedWork => (
+              <ArtworkCard key={relatedWork.slug} work={relatedWork} />
+            ))}
+          </div>
+        </div>
+      )}
 
       {isFullscreen && (
         <div
