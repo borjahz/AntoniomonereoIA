@@ -33,7 +33,7 @@ export default function DibujosPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {drawings.map((work, index) => (
               <FadeInView key={work.id} delay={index * 50}>
-                <ArtworkCard work={work} />
+                <ArtworkCard work={work} priority={index < 3} />
               </FadeInView>
             ))}
           </div>

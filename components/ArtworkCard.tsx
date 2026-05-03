@@ -22,9 +22,10 @@ interface Work {
 interface ArtworkCardProps {
   work: Work;
   onClick?: () => void;
+  priority?: boolean;
 }
 
-export default function ArtworkCard({ work, onClick }: ArtworkCardProps) {
+export default function ArtworkCard({ work, onClick, priority = false }: ArtworkCardProps) {
   const { language, t } = useLanguage();
   const title = language === 'es' ? work.title_es : work.title_en;
   const [imgError, setImgError] = useState(false);
@@ -35,7 +36,7 @@ export default function ArtworkCard({ work, onClick }: ArtworkCardProps) {
       href={`/obra/${work.slug}`}
       onClick={onClick}
       prefetch={true}
-      className="group block bg-white transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+      className="artwork-card group block bg-white transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
     >
       <div className="aspect-[4/3] bg-gray-50 overflow-hidden relative transition-all duration-300 group-hover:bg-gray-100">
         {imgError ? (
@@ -49,6 +50,7 @@ export default function ArtworkCard({ work, onClick }: ArtworkCardProps) {
             fill
             className="object-contain"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            priority={priority}
             onError={() => setImgError(true)}
           />
         )}

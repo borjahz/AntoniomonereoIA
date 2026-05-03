@@ -110,6 +110,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         <link rel="alternate" type="application/rss+xml" title="Antonio Monereo — Obras" href="/feed.xml" />
+        <link rel="alternate" type="application/feed+json" title="Antonio Monereo — Obras" href="/feed.json" />
         <link rel="search" type="application/opensearchdescription+xml" title="Antonio Monereo" href="/opensearch.xml" />
         {firstCarouselImage && (
           <link rel="preload" as="image" href={firstCarouselImage} />
