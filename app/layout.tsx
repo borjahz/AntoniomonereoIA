@@ -20,6 +20,7 @@ const ttWellingtons = localFont({
 import Analytics from '@/components/Analytics'
 import CookieConsent from '@/components/CookieConsent'
 import WebVitals from '@/components/WebVitals'
+import ViewTransitions from '@/components/ViewTransitions'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { LanguageProvider } from '@/contexts/LanguageContext'
 
@@ -127,6 +128,7 @@ export default function RootLayout({
       <body className="h-full font-sans antialiased">
         <Analytics />
         <WebVitals />
+        <ViewTransitions />
         <SpeedInsights />
         <LanguageProvider>
           <div className="flex flex-col min-h-screen">
