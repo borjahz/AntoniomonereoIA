@@ -19,6 +19,7 @@ const ttWellingtons = localFont({
 })
 import Analytics from '@/components/Analytics'
 import CookieConsent from '@/components/CookieConsent'
+import WebVitals from '@/components/WebVitals'
 import { LanguageProvider } from '@/contexts/LanguageContext'
 
 export const metadata: Metadata = {
@@ -100,6 +101,8 @@ export default function RootLayout({
   return (
     <html lang="es" className={`h-full ${suisseIntl.variable} ${ttWellingtons.variable}`}>
       <head>
+        <meta name="theme-color" content="#ffffff" />
+        <link rel="me" href="https://www.instagram.com/antoniomonereo" />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         <link rel="alternate" type="application/rss+xml" title="Antonio Monereo — Obras" href="/feed.xml" />
@@ -118,6 +121,7 @@ export default function RootLayout({
       </head>
       <body className="h-full font-sans antialiased">
         <Analytics />
+        <WebVitals />
         <LanguageProvider>
           <div className="flex flex-col min-h-screen">
             <Header />
