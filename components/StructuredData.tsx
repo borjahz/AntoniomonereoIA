@@ -106,7 +106,18 @@ export function ArtworkSchema({
       availability: isAvailable
         ? 'https://schema.org/InStock'
         : 'https://schema.org/OutOfStock',
+      itemCondition: 'https://schema.org/NewCondition',
       url,
+      seller: {
+        '@type': 'Person',
+        name: 'Antonio Monereo',
+        url: 'https://antoniomonereo.com',
+      },
+      priceSpecification: isAvailable ? {
+        '@type': 'PriceSpecification',
+        priceCurrency: 'EUR',
+        description: 'Precio a consultar',
+      } : undefined,
     },
   };
 

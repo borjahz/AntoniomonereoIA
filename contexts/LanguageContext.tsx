@@ -126,7 +126,12 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     const saved = localStorage.getItem('language') as Language;
-    if (saved === 'es' || saved === 'en') setLanguageState(saved);
+    if (saved === 'es' || saved === 'en') {
+      setLanguageState(saved);
+    } else {
+      const browserLang = navigator.language.toLowerCase();
+      if (!browserLang.startsWith('es')) setLanguageState('en');
+    }
   }, []);
 
   const setLanguage = (lang: Language) => {

@@ -129,7 +129,7 @@ export default function Header() {
                         href={pub.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        onClick={() => setIsPressOpen(false)}
+                        onClick={() => { setIsPressOpen(false); (window as Window & { gtag?: (...args: unknown[]) => void }).gtag?.('event', 'outbound_click', { destination: pub.title_es }); }}
                         className="flex items-center gap-2 px-4 py-3 text-[12px] text-gray-600 hover:bg-gray-50 hover:text-blue-600 transition-colors border-b border-gray-100 last:border-0"
                       >
                         <ExternalLink className="w-3 h-3 flex-shrink-0 text-gray-400" />

@@ -29,7 +29,14 @@ export default function ArtworkCard({ work, onClick, priority = false }: Artwork
   const { language, t } = useLanguage();
   const title = language === 'es' ? work.title_es : work.title_en;
   const [imgError, setImgError] = useState(false);
+  const [quality, setQuality] = useState(75);
   const cardRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const conn = (navigator as Navigator & { connection?: { effectiveType: string } }).connection;
+    if (conn?.effectiveType === 'slow-2g' || conn?.effectiveType === '2g') setQuality(30);
+    else if (conn?.effectiveType === '3g') setQuality(50);
+  }, []);
 
   useEffect(() => {
     const el = cardRef.current;
@@ -78,6 +85,7 @@ export default function ArtworkCard({ work, onClick, priority = false }: Artwork
             className="object-contain"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             priority={priority}
+            quality={quality}
             onError={() => setImgError(true)}
           />
         )}

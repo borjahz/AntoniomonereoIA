@@ -5,6 +5,9 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { Mail, Instagram } from 'lucide-react';
 import TikTokIcon from '@/components/TikTokIcon';
 
+const trackOutbound = (destination: string) =>
+  (window as Window & { gtag?: (...args: unknown[]) => void }).gtag?.('event', 'outbound_click', { destination });
+
 export default function Footer() {
   const { t } = useLanguage();
 
@@ -17,6 +20,7 @@ export default function Footer() {
         <div className="flex items-center gap-4">
           <a
             href="mailto:antoniomonelopez@gmail.com"
+            onClick={() => trackOutbound('email')}
             className="text-gray-600 hover:text-blue-600 transition-colors"
             aria-label="Email"
           >
@@ -26,6 +30,7 @@ export default function Footer() {
             href="https://www.instagram.com/antoniomonereo"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackOutbound('instagram')}
             className="text-gray-600 hover:text-blue-600 transition-colors"
             aria-label="Instagram"
           >
@@ -35,6 +40,7 @@ export default function Footer() {
             href="https://www.tiktok.com/@antoniomonereo"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackOutbound('tiktok')}
             className="text-gray-600 hover:text-blue-600 transition-colors"
             aria-label="TikTok"
           >
