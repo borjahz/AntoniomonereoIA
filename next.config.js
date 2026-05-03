@@ -72,7 +72,6 @@ const nextConfig = {
       { source: '/images/Incendio.jpg', destination: '/images/incendio-antonio-monereo.jpg', permanent: true },
       { source: '/images/Coloso_en_bolonia.jpg', destination: '/images/coloso-en-bolonia-antonio-monereo.jpg', permanent: true },
       { source: '/images/Puente_2.jpg', destination: '/images/puente-2-antonio-monereo.jpg', permanent: true },
-      { source: '/images/coloso_2.jpg', destination: '/images/coloso-2-antonio-monereo.jpg', permanent: true },
     ]
   },
 }

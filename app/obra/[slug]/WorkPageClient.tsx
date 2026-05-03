@@ -68,7 +68,7 @@ export default function WorkPageClient({ slug }: { slug: string }) {
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [work.images.length, isFullscreen, prevWork, nextWork]);
+  }, [work.images.length, isFullscreen, prevWork, nextWork, router]);
 
   useEffect(() => {
     const startTime = Date.now();
