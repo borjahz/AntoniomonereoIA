@@ -20,6 +20,7 @@ const ttWellingtons = localFont({
 import Analytics from '@/components/Analytics'
 import CookieConsent from '@/components/CookieConsent'
 import WebVitals from '@/components/WebVitals'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import { LanguageProvider } from '@/contexts/LanguageContext'
 
 export const metadata: Metadata = {
@@ -102,6 +103,9 @@ export default function RootLayout({
     <html lang="es" className={`h-full ${suisseIntl.variable} ${ttWellingtons.variable}`}>
       <head>
         <meta name="theme-color" content="#ffffff" />
+        <meta name="color-scheme" content="light" />
+        <meta name="geo.region" content="ES" />
+        <meta name="geo.placename" content="España" />
         <link rel="me" href="https://www.instagram.com/antoniomonereo" />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
@@ -122,6 +126,7 @@ export default function RootLayout({
       <body className="h-full font-sans antialiased">
         <Analytics />
         <WebVitals />
+        <SpeedInsights />
         <LanguageProvider>
           <div className="flex flex-col min-h-screen">
             <Header />

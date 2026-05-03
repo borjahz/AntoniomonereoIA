@@ -56,6 +56,19 @@ export default function WorkPageClient({ slug }: { slug: string }) {
   }, [work.images.length]);
 
   useEffect(() => {
+    const startTime = Date.now();
+    return () => {
+      const seconds = Math.round((Date.now() - startTime) / 1000);
+      if (seconds >= 5) {
+        (window as Window & { gtag?: (...args: unknown[]) => void }).gtag?.('event', 'time_on_artwork', {
+          obra: title,
+          segundos: seconds,
+        });
+      }
+    };
+  }, [title]);
+
+  useEffect(() => {
     const reached = new Set<number>();
     const handleScroll = () => {
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
