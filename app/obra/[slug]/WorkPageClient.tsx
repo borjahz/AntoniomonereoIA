@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useRouter, notFound } from 'next/navigation';
 import { ChevronLeft, ChevronRight, ArrowLeft, Mail } from 'lucide-react';
 import ShareButton from '@/components/ShareButton';
@@ -16,10 +16,19 @@ export default function WorkPageClient({ slug }: { slug: string }) {
   const { language, t } = useLanguage();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const [swipeDelta, setSwipeDelta] = useState(0);
+  const swipeTouchX = useRef<number | null>(null);
 
   const work = worksData.find((w) => w.slug === slug);
 
   if (!work) notFound();
+
+  const categoryWorks = worksData
+    .filter(w => w.category === work.category && w.public)
+    .sort((a, b) => b.id - a.id);
+  const currentIndex = categoryWorks.findIndex(w => w.slug === work.slug);
+  const prevWork = currentIndex > 0 ? categoryWorks[currentIndex - 1] : null;
+  const nextWork = currentIndex < categoryWorks.length - 1 ? categoryWorks[currentIndex + 1] : null;
 
   const relatedWorks = worksData
     .filter(w => w.slug !== work.slug && w.category === work.category && w.public)
@@ -47,13 +56,19 @@ export default function WorkPageClient({ slug }: { slug: string }) {
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'ArrowLeft') goToPrevImage();
-      if (e.key === 'ArrowRight') goToNextImage();
-      if (e.key === 'Escape') setIsFullscreen(false);
+      if (isFullscreen) {
+        if (e.key === 'ArrowLeft') goToPrevImage();
+        if (e.key === 'ArrowRight') goToNextImage();
+        if (e.key === 'Escape') setIsFullscreen(false);
+      } else {
+        if (e.key === 'ArrowLeft' && prevWork) router.push(`/obra/${prevWork.slug}`);
+        if (e.key === 'ArrowRight' && nextWork) router.push(`/obra/${nextWork.slug}`);
+        if (e.key === 'Escape') setIsFullscreen(false);
+      }
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [work.images.length]);
+  }, [work.images.length, isFullscreen, prevWork, nextWork]);
 
   useEffect(() => {
     const startTime = Date.now();
@@ -112,7 +127,22 @@ export default function WorkPageClient({ slug }: { slug: string }) {
         ]}
       />
 
-      <div className="bg-white min-h-screen">
+      <div
+        className="bg-white min-h-screen"
+        style={{ transform: `translateX(${swipeDelta}px)`, transition: swipeDelta === 0 ? 'transform 0.3s ease' : 'none' }}
+        onTouchStart={e => { swipeTouchX.current = e.touches[0].clientX; }}
+        onTouchMove={e => {
+          if (swipeTouchX.current === null) return;
+          const delta = e.touches[0].clientX - swipeTouchX.current;
+          if (Math.abs(delta) > 10) setSwipeDelta(delta * 0.3);
+        }}
+        onTouchEnd={() => {
+          if (swipeDelta < -60 && nextWork) router.push(`/obra/${nextWork.slug}`);
+          else if (swipeDelta > 60 && prevWork) router.push(`/obra/${prevWork.slug}`);
+          setSwipeDelta(0);
+          swipeTouchX.current = null;
+        }}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 pt-4 pb-16 lg:pt-2">
         <nav className="flex items-center gap-2 text-[13px] text-gray-400 mb-6 sm:mb-8 lg:mb-10">
           <Link href="/" className="hover:text-gray-700 transition-colors">Inicio</Link>
@@ -317,6 +347,46 @@ export default function WorkPageClient({ slug }: { slug: string }) {
             {relatedWorks.map(relatedWork => (
               <ArtworkCard key={relatedWork.slug} work={relatedWork} />
             ))}
+          </div>
+        </div>
+      )}
+
+      {(prevWork || nextWork) && (
+        <div className="border-t border-gray-100 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+            <div className="flex justify-between items-stretch divide-x divide-gray-100">
+              {prevWork ? (
+                <Link
+                  href={`/obra/${prevWork.slug}`}
+                  className="group flex items-center gap-4 py-5 pr-8 flex-1 hover:bg-gray-50 transition-colors px-4 -mx-4"
+                >
+                  <ChevronLeft className="w-5 h-5 text-gray-400 group-hover:text-gray-900 flex-shrink-0 transition-colors" />
+                  <div className="relative w-14 h-14 bg-gray-100 flex-shrink-0 overflow-hidden">
+                    <Image src={prevWork.images[0]} alt={prevWork.title_es} fill className="object-contain" sizes="56px" />
+                  </div>
+                  <div className="min-w-0">
+                    <p className="text-[11px] text-gray-400 tracking-wide uppercase mb-0.5">{language === 'es' ? 'Anterior' : 'Previous'}</p>
+                    <p className="text-[13px] text-gray-900 truncate group-hover:text-blue-600 transition-colors">{language === 'es' ? prevWork.title_es : prevWork.title_en}</p>
+                  </div>
+                </Link>
+              ) : <div className="flex-1" />}
+
+              {nextWork ? (
+                <Link
+                  href={`/obra/${nextWork.slug}`}
+                  className="group flex items-center gap-4 py-5 pl-8 flex-1 justify-end hover:bg-gray-50 transition-colors px-4 -mx-4"
+                >
+                  <div className="min-w-0 text-right">
+                    <p className="text-[11px] text-gray-400 tracking-wide uppercase mb-0.5">{language === 'es' ? 'Siguiente' : 'Next'}</p>
+                    <p className="text-[13px] text-gray-900 truncate group-hover:text-blue-600 transition-colors">{language === 'es' ? nextWork.title_es : nextWork.title_en}</p>
+                  </div>
+                  <div className="relative w-14 h-14 bg-gray-100 flex-shrink-0 overflow-hidden">
+                    <Image src={nextWork.images[0]} alt={nextWork.title_es} fill className="object-contain" sizes="56px" />
+                  </div>
+                  <ChevronRight className="w-5 h-5 text-gray-400 group-hover:text-gray-900 flex-shrink-0 transition-colors" />
+                </Link>
+              ) : <div className="flex-1" />}
+            </div>
           </div>
         </div>
       )}
