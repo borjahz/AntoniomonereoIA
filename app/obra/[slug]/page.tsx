@@ -23,9 +23,23 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   const baseUrl = 'https://antoniomonereo.com';
   const canonicalUrl = `${baseUrl}/obra/${work.slug}`;
 
+  const keywords = [
+    work.title_es,
+    work.title_en,
+    'Antonio Monereo',
+    work.technique_es,
+    work.technique_en,
+    `obra ${work.year}`,
+    work.category === 'pinturas' ? 'pintura al óleo' : work.category === 'dibujos' ? 'dibujo grafito' : 'copia maestros clásicos',
+    'pintor español',
+    'arte contemporáneo',
+    ...work.tags,
+  ].filter(Boolean);
+
   return {
     title: `${work.title_es} - Antonio Monereo`,
     description,
+    keywords,
     alternates: {
       canonical: canonicalUrl,
     },
@@ -40,9 +54,9 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       siteName: 'Antonio Monereo',
       images: [
         {
-          url: `${baseUrl}${work.images[0]}`,
+          url: `${baseUrl}/api/og?slug=${work.slug}`,
           width: 1200,
-          height: 900,
+          height: 630,
           alt: work.title_es,
         },
       ],
@@ -53,7 +67,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       card: 'summary_large_image',
       title: `${work.title_es} - Antonio Monereo`,
       description,
-      images: [`${baseUrl}${work.images[0]}`],
+      images: [`${baseUrl}/api/og?slug=${work.slug}`],
     },
   };
 }

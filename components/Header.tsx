@@ -6,6 +6,25 @@ import { usePathname } from 'next/navigation';
 import { Search, ExternalLink } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import SearchModal from './SearchModal';
+import worksData from '@/data/works.json';
+
+const categoryFirstImages: Record<string, string[]> = {
+  '/pinturas': worksData.filter(w => w.category === 'pinturas' && w.public).slice(0, 4).map(w => w.images[0]),
+  '/dibujos': worksData.filter(w => w.category === 'dibujos' && w.public).slice(0, 4).map(w => w.images[0]),
+  '/copias': worksData.filter(w => w.category === 'copias' && w.public).slice(0, 4).map(w => w.images[0]),
+};
+
+function prefetchCategoryImages(href: string) {
+  const images = categoryFirstImages[href] ?? [];
+  images.forEach(src => {
+    if (document.querySelector(`link[rel="prefetch"][href="${src}"]`)) return;
+    const link = document.createElement('link');
+    link.rel = 'prefetch';
+    link.as = 'image';
+    link.href = src;
+    document.head.appendChild(link);
+  });
+}
 
 const publications = [
   {
@@ -135,6 +154,7 @@ export default function Header() {
               <Link
                 key={item.href}
                 href={item.href}
+                onMouseEnter={() => prefetchCategoryImages(item.href)}
                 className={`flex-1 flex flex-col items-center justify-center py-3 transition-colors ${
                   active ? 'text-gray-900' : 'text-gray-400'
                 }`}
