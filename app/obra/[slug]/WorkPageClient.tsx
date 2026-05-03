@@ -352,7 +352,7 @@ export default function WorkPageClient({ slug }: { slug: string }) {
       )}
 
       {(prevWork || nextWork) && (
-        <div className="border-t border-gray-100 bg-white pb-20 md:pb-0">
+        <div className="border-t border-gray-100 bg-white pb-20 md:pb-12">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
             <div className="flex justify-between items-stretch divide-x divide-gray-100">
               {prevWork ? (
