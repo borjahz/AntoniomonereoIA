@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 interface Work {
@@ -29,10 +29,37 @@ export default function ArtworkCard({ work, onClick, priority = false }: Artwork
   const { language, t } = useLanguage();
   const title = language === 'es' ? work.title_es : work.title_en;
   const [imgError, setImgError] = useState(false);
+  const cardRef = useRef<HTMLDivElement>(null);
 
+  useEffect(() => {
+    const el = cardRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          (window as Window & { gtag?: (...args: unknown[]) => void }).gtag?.('event', 'artwork_impression', { obra: work.title_es });
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.5 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [work.title_es]);
+
+  const handleTouchStart = () => {
+    if (document.querySelector(`link[rel="prefetch"][href="${work.images[0]}"]`)) return;
+    const link = document.createElement('link');
+    link.rel = 'prefetch';
+    link.as = 'image';
+    link.href = work.images[0];
+    document.head.appendChild(link);
+  };
 
   return (
+    <div ref={cardRef}>
     <Link
+      onTouchStart={handleTouchStart}
       href={`/obra/${work.slug}`}
       onClick={onClick}
       prefetch={true}
@@ -67,5 +94,6 @@ export default function ArtworkCard({ work, onClick, priority = false }: Artwork
         <p className="text-[13px] font-normal tracking-wide text-gray-600">{work.dimensions}</p>
       </div>
     </Link>
+    </div>
   );
 }
