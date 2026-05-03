@@ -1,0 +1,15 @@
+name: Ping Search Engines
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Esperar a que Vercel despliegue
+        run: sleep 90
+
+      - name: Avisar a Google y Bing
+        run: curl -s "https://antoniomonereo.com/api/ping-sitemap"
