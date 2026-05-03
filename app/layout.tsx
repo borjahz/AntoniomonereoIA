@@ -126,7 +126,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="h-full font-sans antialiased">
+      <body className="h-full font-wellingtons antialiased">
         <Analytics />
         <WebVitals />
         <ViewTransitions />
