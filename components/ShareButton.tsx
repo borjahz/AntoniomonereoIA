@@ -8,6 +8,7 @@ export default function ShareButton({ title }: { title: string }) {
 
   const handleShare = async () => {
     const url = window.location.href;
+    (window as Window & { gtag?: (...args: unknown[]) => void }).gtag?.('event', 'share_click', { obra: title });
 
     if (navigator.share) {
       await navigator.share({ title, url });

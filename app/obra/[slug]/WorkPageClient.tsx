@@ -252,6 +252,7 @@ export default function WorkPageClient({ slug }: { slug: string }) {
               {work.status === 'available' ? (
                 <Link
                   href={`/contacto?obra=${encodeURIComponent(title)}`}
+                  onClick={() => (window as Window & { gtag?: (...args: unknown[]) => void }).gtag?.('event', 'contact_click', { obra: title, tipo: 'consulta' })}
                   className="inline-flex items-center gap-2 text-[13px] font-normal tracking-wide text-blue-600 underline decoration-1 underline-offset-2 hover:text-blue-800 transition-colors"
                 >
                   <Mail className="w-5 h-5" />
@@ -260,6 +261,7 @@ export default function WorkPageClient({ slug }: { slug: string }) {
               ) : (
                 <Link
                   href={`/contacto?obra=${encodeURIComponent(title)}&tipo=encargo`}
+                  onClick={() => (window as Window & { gtag?: (...args: unknown[]) => void }).gtag?.('event', 'contact_click', { obra: title, tipo: 'encargo' })}
                   className="inline-flex items-center gap-2 text-[13px] font-normal tracking-wide text-gray-400 hover:text-gray-700 transition-colors"
                 >
                   <Mail className="w-5 h-5" />
