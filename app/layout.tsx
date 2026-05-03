@@ -107,6 +107,14 @@ export default function RootLayout({
         {firstCarouselImage && (
           <link rel="preload" as="image" href={firstCarouselImage} />
         )}
+        <script
+          type="speculationrules"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              prerender: [{ where: { href_matches: '/obra/*' }, eagerness: 'moderate' }],
+            }),
+          }}
+        />
       </head>
       <body className="h-full font-sans antialiased">
         <Analytics />

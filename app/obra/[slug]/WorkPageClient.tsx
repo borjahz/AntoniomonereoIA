@@ -55,6 +55,26 @@ export default function WorkPageClient({ slug }: { slug: string }) {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [work.images.length]);
 
+  useEffect(() => {
+    const reached = new Set<number>();
+    const handleScroll = () => {
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      if (docHeight <= 0) return;
+      const pct = Math.round((window.scrollY / docHeight) * 100);
+      for (const milestone of [25, 50, 75, 100]) {
+        if (pct >= milestone && !reached.has(milestone)) {
+          reached.add(milestone);
+          (window as Window & { gtag?: (...args: unknown[]) => void }).gtag?.('event', 'scroll_depth', {
+            obra: title,
+            profundidad: milestone,
+          });
+        }
+      }
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [title]);
+
   return (
     <>
       <ArtworkSchema
