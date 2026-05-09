@@ -28,6 +28,8 @@ interface ArtworkCardProps {
 export default function ArtworkCard({ work, onClick, priority = false }: ArtworkCardProps) {
   const { language, t } = useLanguage();
   const title = language === 'es' ? work.title_es : work.title_en;
+  const technique = language === 'es' ? work.technique_es : work.technique_en;
+  const altText = `${title}, ${technique}, ${work.dimensions}, ${work.year}, Antonio Monereo`;
   const [imgError, setImgError] = useState(false);
   const [quality, setQuality] = useState(75);
   const cardRef = useRef<HTMLDivElement>(null);
@@ -80,7 +82,7 @@ export default function ArtworkCard({ work, onClick, priority = false }: Artwork
         ) : (
           <Image
             src={work.images[0]}
-            alt={title}
+            alt={altText}
             fill
             className="object-contain"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

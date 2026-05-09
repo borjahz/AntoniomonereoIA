@@ -166,7 +166,7 @@ export default function WorkPageClient({ slug }: { slug: string }) {
             <div className="aspect-[4/3] sm:aspect-[4/3] bg-gray-50 flex items-center justify-center p-2 sm:p-4 relative group cursor-pointer" onClick={() => setIsFullscreen(true)}>
               <Image
                 src={work.images[currentImageIndex]}
-                alt={title}
+                alt={`${title}, ${technique}, ${work.dimensions}, ${work.year}, Antonio Monereo`}
                 fill
                 className="object-contain"
                 sizes="(max-width: 1024px) 100vw, 50vw"
@@ -408,7 +408,7 @@ export default function WorkPageClient({ slug }: { slug: string }) {
           </button>
           <img
             src={work.images[currentImageIndex]}
-            alt={title}
+            alt={`${title}, ${technique}, ${work.dimensions}, ${work.year}, Antonio Monereo`}
             className="max-w-[95vw] max-h-[95vh] object-contain"
           />
           {work.images.length > 1 && (
