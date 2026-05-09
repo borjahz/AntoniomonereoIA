@@ -22,7 +22,6 @@ jobs:
 
       - name: Enviar URLs a Google Indexing API
         env:
-          GOOGLE_SERVICE_ACCOUNT_KEY: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_KEY }}
-        run: |
-          echo "$GOOGLE_SERVICE_ACCOUNT_KEY" > /tmp/sa-key.json
-          node .github/scripts/google-index.js
+          GOOGLE_CLIENT_EMAIL: ${{ secrets.GOOGLE_CLIENT_EMAIL }}
+          GOOGLE_PRIVATE_KEY: ${{ secrets.GOOGLE_PRIVATE_KEY }}
+        run: node .github/scripts/google-index.js

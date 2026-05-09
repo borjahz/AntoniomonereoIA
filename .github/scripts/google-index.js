@@ -56,8 +56,10 @@ function sleep(ms) {
 }
 
 async function main() {
-  const { readFileSync: rf } = require('fs');
-  const sa = JSON.parse(rf('/tmp/sa-key.json', 'utf8').trim());
+  const sa = {
+    client_email: process.env.GOOGLE_CLIENT_EMAIL,
+    private_key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n'),
+  };
   const works = JSON.parse(readFileSync(join(process.cwd(), 'data/works.json'), 'utf8'));
 
   const urls = [
