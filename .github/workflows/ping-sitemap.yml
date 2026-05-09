@@ -8,8 +8,19 @@ jobs:
   ping:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
       - name: Esperar a que Vercel despliegue
         run: sleep 90
 
-      - name: Avisar a Google y Bing
+      - name: Avisar a Google y Bing (sitemap)
         run: curl -s "https://antoniomonereo.com/api/ping-sitemap"
+
+      - name: Enviar URLs a Google Indexing API
+        env:
+          GOOGLE_SERVICE_ACCOUNT_KEY: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_KEY }}
+        run: node .github/scripts/google-index.js
