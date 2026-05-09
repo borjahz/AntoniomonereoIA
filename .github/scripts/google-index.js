@@ -61,9 +61,16 @@ async function main() {
   if (!email) throw new Error('Falta GOOGLE_CLIENT_EMAIL');
   if (!rawKey) throw new Error('Falta GOOGLE_PRIVATE_KEY');
 
+  const privateKey = rawKey
+    .replace(/^["']|["']$/g, '')
+    .replace(/\\n/g, '\n')
+    .trim();
+
+  console.log('Key empieza con:', privateKey.substring(0, 27));
+
   const sa = {
     client_email: email,
-    private_key: rawKey.replace(/\\n/g, '\n'),
+    private_key: privateKey,
   };
 
   const worksRaw = readFileSync(join(process.cwd(), 'data/works.json'), 'utf8')
