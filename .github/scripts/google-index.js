@@ -56,11 +56,19 @@ function sleep(ms) {
 }
 
 async function main() {
+  const email = process.env.GOOGLE_CLIENT_EMAIL;
+  const rawKey = process.env.GOOGLE_PRIVATE_KEY;
+  if (!email) throw new Error('Falta GOOGLE_CLIENT_EMAIL');
+  if (!rawKey) throw new Error('Falta GOOGLE_PRIVATE_KEY');
+
   const sa = {
-    client_email: process.env.GOOGLE_CLIENT_EMAIL,
-    private_key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n'),
+    client_email: email,
+    private_key: rawKey.replace(/\\n/g, '\n'),
   };
-  const works = JSON.parse(readFileSync(join(process.cwd(), 'data/works.json'), 'utf8'));
+
+  const worksRaw = readFileSync(join(process.cwd(), 'data/works.json'), 'utf8')
+    .replace(/^﻿/, '');
+  const works = JSON.parse(worksRaw);
 
   const urls = [
     `${BASE_URL}/`,
