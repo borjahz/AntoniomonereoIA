@@ -882,6 +882,27 @@
       "/images/puente-2-antonio-monereo.jpg"
     ],
     "tags": ["óleo", "figurativo", "contemporáneo"]
+  },
+  {
+    "id": 46,
+    "slug": "pelea-a-muerte-entre-dos-amantes-ii",
+    "title": "Pelea a muerte entre dos amantes II",
+    "title_es": "Pelea a muerte entre dos amantes II",
+    "title_en": "Fight to the Death Between Two Lovers II",
+    "desc_es": "",
+    "desc_en": "",
+    "category": "pinturas",
+    "year": 2026,
+    "dimensions": "146 x 116 cm",
+    "technique_es": "Óleo sobre lienzo",
+    "technique_en": "Oil on canvas",
+    "status": "available",
+    "public": true,
+    "featured": false,
+    "images": [
+      "/images/pelea-a-muerte-entre-dos-amantes-ii-antonio-monereo.jpg"
+    ],
+    "tags": ["óleo", "figurativo", "contemporáneo"]
   }
 ]
 
