@@ -393,24 +393,29 @@ export default function WorkPageClient({ slug }: { slug: string }) {
 
       {isFullscreen && (
         <div
-          className="fixed inset-0 bg-white z-50 flex items-center justify-center cursor-pointer"
+          className="fixed inset-0 bg-white z-[999] flex items-center justify-center cursor-pointer"
           onClick={() => setIsFullscreen(false)}
         >
           <button
             type="button"
-            onClick={() => setIsFullscreen(false)}
-            className="absolute top-4 right-4 p-2 text-gray-400 hover:text-gray-700 transition-colors"
+            onClick={(e) => { e.stopPropagation(); setIsFullscreen(false); }}
+            className="absolute top-4 right-4 p-2 text-gray-400 hover:text-gray-700 transition-colors z-10"
             aria-label="Cerrar"
           >
             <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
-          <img
-            src={work.images[currentImageIndex]}
-            alt={`${title}, ${technique}, ${work.dimensions}, ${work.year}, Antonio Monereo`}
-            className="max-w-[95vw] max-h-[95vh] object-contain"
-          />
+          <div className="relative w-[95vw] h-[95vh]" onClick={(e) => e.stopPropagation()}>
+            <Image
+              src={work.images[currentImageIndex]}
+              alt={`${title}, ${technique}, ${work.dimensions}, ${work.year}, Antonio Monereo`}
+              fill
+              className="object-contain"
+              sizes="95vw"
+              priority
+            />
+          </div>
           {work.images.length > 1 && (
             <>
               <button

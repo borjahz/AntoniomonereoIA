@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import './globals.css'
 import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 import worksData from '@/data/works.json'
 
 const suisseIntl = localFont({
@@ -136,6 +137,7 @@ export default function RootLayout({
           <div className="flex flex-col min-h-screen">
             <Header />
             <main className="flex-1">{children}</main>
+            <Footer />
           </div>
           <CookieConsent />
         </LanguageProvider>

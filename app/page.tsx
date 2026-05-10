@@ -5,7 +5,6 @@ import TikTokIcon from '@/components/TikTokIcon';
 import Link from 'next/link';
 import { useLanguage } from '@/contexts/LanguageContext';
 import Carousel from '@/components/Carousel';
-import Footer from '@/components/Footer';
 import CategoryNavigation from '@/components/CategoryNavigation';
 import FadeInView from '@/components/FadeInView';
 import { ArtistSchema, OrganizationSchema, WebSiteSchema } from '@/components/StructuredData';
@@ -107,7 +106,6 @@ export default function Home() {
 
           </div>
         </div>
-        <Footer />
       </div>
     </>
   );

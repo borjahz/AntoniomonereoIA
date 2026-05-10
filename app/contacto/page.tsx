@@ -5,7 +5,6 @@ import TikTokIcon from '@/components/TikTokIcon';
 import { useSearchParams } from 'next/navigation';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Mail, Instagram, CheckCircle } from 'lucide-react';
-import Footer from '@/components/Footer';
 
 function ContactoContent() {
   const { t } = useLanguage();
@@ -168,7 +167,6 @@ function ContactoContent() {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 }

@@ -12,7 +12,7 @@ export default function Footer() {
   const { t } = useLanguage();
 
   return (
-    <footer className="mt-auto py-4 bg-white border-t border-gray-200">
+    <footer className="py-4 bg-white border-t border-gray-200 pb-[calc(1rem+env(safe-area-inset-bottom))]">
       <div className="max-w-7xl mx-auto px-8 lg:ml-36 xl:ml-40 2xl:ml-44 flex flex-col sm:flex-row items-center justify-between gap-3">
         <p className="text-[13px] font-normal tracking-wide text-gray-600">
           © {new Date().getFullYear()} Antonio Monereo
