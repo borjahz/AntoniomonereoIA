@@ -54,6 +54,9 @@ export default function Footer() {
           </Link>
         </div>
       </div>
+      <p className="max-w-7xl mx-auto px-8 lg:ml-36 xl:ml-40 2xl:ml-44 mt-2 text-[11px] text-gray-400">
+        Folder icons: Crystal Clear by Everaldo Coelho and YellowIcon, licensed under LGPL.
+      </p>
     </footer>
   );
 }
