@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { Folder, FolderOpen } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 interface CategoryNavigationProps {
@@ -31,14 +32,11 @@ export default function CategoryNavigation({ sticky = false }: CategoryNavigatio
               className="group flex flex-col items-center gap-1 transition-all"
             >
               <div className="relative w-28 h-28 xl:w-32 xl:h-32 2xl:w-36 2xl:h-36 flex items-center justify-center transition-all group-hover:scale-105">
-                <img
-                  src={isActive(category.href)
-                    ? "/icons/aqua_favorites-removebg-preview copy.png"
-                    : "/icons/aqua_folder-1_(arrastrado) copy.jpg"
-                  }
-                  alt={category.name}
-                  className="w-full h-full object-contain"
-                />
+                {isActive(category.href) ? (
+                  <FolderOpen className="w-full h-full text-gray-900" strokeWidth={1} aria-hidden="true" />
+                ) : (
+                  <Folder className="w-full h-full text-gray-400" strokeWidth={1} aria-hidden="true" />
+                )}
               </div>
               <span className={`text-sm font-medium tracking-wide text-center transition-colors ${
                 isActive(category.href) ? 'text-gray-900' : 'text-gray-600 group-hover:text-gray-900'

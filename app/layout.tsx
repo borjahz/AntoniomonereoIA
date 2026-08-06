@@ -6,13 +6,6 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import worksData from '@/data/works.json'
 
-const suisseIntl = localFont({
-  src: '../public/fonts/suisse-intl.ttf',
-  variable: '--font-suisse',
-  display: 'swap',
-  preload: true,
-})
-
 const ttWellingtons = Nunito_Sans({
   subsets: ['latin'],
   variable: '--font-wellingtons',
@@ -104,7 +97,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="es" className={`h-full ${suisseIntl.variable} ${ttWellingtons.variable}`}>
+    <html lang="es" className={`h-full ${ttWellingtons.variable}`}>
       <head>
         <meta name="theme-color" content="#ffffff" />
         <meta name="color-scheme" content="light" />
