@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
+import { Nunito_Sans } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
@@ -12,8 +13,8 @@ const suisseIntl = localFont({
   preload: true,
 })
 
-const ttWellingtons = localFont({
-  src: '../public/fonts/tt-wellingtons-regular.ttf',
+const ttWellingtons = Nunito_Sans({
+  subsets: ['latin'],
   variable: '--font-wellingtons',
   display: 'swap',
   preload: true,

@@ -9,7 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['TT Wellingtons', 'serif'],
+        sans: ['Nunito Sans', 'serif'],
       },
     },
   },
