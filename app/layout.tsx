@@ -1,12 +1,12 @@
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
-import { Nunito_Sans } from 'next/font/google'
+import { Inter } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import worksData from '@/data/works.json'
 
-const ttWellingtons = Nunito_Sans({
+const ttWellingtons = Inter({
   subsets: ['latin'],
   variable: '--font-wellingtons',
   display: 'swap',
